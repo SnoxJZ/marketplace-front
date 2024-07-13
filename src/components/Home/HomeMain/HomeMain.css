@@ -15,4 +15,5 @@
 .home__main-robot {
     position: absolute;
     top: 0;
+    height: 100%;
 }
