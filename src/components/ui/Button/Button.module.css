@@ -1,0 +1,10 @@
+.btn {
+    border: solid 1px #ED43DC;
+    border-radius: 10px;
+    font-size: 24px;
+    padding: 13px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}

@@ -1,20 +1,15 @@
 import React from "react";
+import Header from "./components/Header/Header";
+import HomeMain from "./components/Home/HomeMain/HomeMain";
+import "./styles/App.css"
 
 function App() {
   return (
     <div className="App">
-      <header>
-          <ul className="header__content">
-              <li>Home</li>
-              <li>Marketplace</li>
-              <li>FAQ</li>
-              <li>Contacts</li>
-          </ul>
-          <div>Logo</div>
-          <div className="header__tools">
-              <button>Log in</button>
-          </div>
-      </header>
+        <div className="home__main-content">
+            <Header/>
+            <HomeMain/>
+        </div>
     </div>
   );
 }
