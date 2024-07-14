@@ -30,13 +30,28 @@
 }
 
 .purple {
-    background-color: #ED43DC;
+    background: #ED43DC;
     top: 20%;
     left: 25%;
 }
 
 .orange {
-    background-color: #FF8C06;
+    background: #FF8C06;
     top: 30%;
     right: 25%;
+}
+
+.lines {
+    height: 100%;
+}
+
+.left-elem {
+    position: absolute;
+    left: 0;
+}
+
+.right-elem {
+    position: absolute;
+    right: 0;
+    top: 100px;
 }
