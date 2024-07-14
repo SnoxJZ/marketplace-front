@@ -9,6 +9,7 @@ header {
     margin-bottom: 32px;
     margin-top: 24px;
     width: 100%;
+    z-index: 4;
 }
 
 .header__content {
