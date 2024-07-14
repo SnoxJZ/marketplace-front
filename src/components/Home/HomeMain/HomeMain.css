@@ -19,6 +19,7 @@
     top: 15px;
     height: calc(100% - 15px);
     z-index: 2;
+    user-select: none;
 }
 
 .home__elipse {
@@ -47,9 +48,10 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) translate(-300px, -75px);
+    transform: translate(-50%, -50%) translate(-235px, -40px);
     z-index: -1;
-    height: 80%;
+    height: 90%;
+    user-select: none;
 }
 
 .right-elem {
@@ -59,4 +61,29 @@
     transform: translate(-50%, -50%) translate(340px, 35px);
     z-index: -1;
     height: 60%;
+    user-select: none;
+}
+
+.home__rectangle {
+    position: absolute;
+    width: 91px;
+    height: 91px;
+    backdrop-filter: blur(10px);
+    z-index: 3;
+    background: rgba(217, 217, 217, 0.20);
+    user-select: none;
+}
+
+.right-rect {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translate(165px, 105px);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0% 50%);
+}
+
+.left-rect {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translate(-200px, -190px);
+    clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%, 0% 50%);
 }
