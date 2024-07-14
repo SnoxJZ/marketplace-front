@@ -1,11 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './HomeMain.css'
 import robotImg from '../../../assets/Home/robot.png';
 import elemLeft from '../../../assets/Home/elem-left.png';
 import elemRight from '../../../assets/Home/elem-right.png';
+import samurai from '../../../assets/Home/samurai.png';
+import tree from '../../../assets/Home/tree.png';
+import hornet from '../../../assets/Home/hornet.png';
 import Title from "../../ui/Title/Title";
+import Card from "../../Card/Card";
 
 const HomeMain = () => {
+
+    const [cards, setCards] = useState([
+        {id: 1, image: samurai, title: "Samurai", price: 2.45},
+        {id: 2, image: tree, title: "Samurai", price: 2.45},
+        {id: 3, image: hornet, title: "Samurai", price: 2.45}
+    ])
+
     return (
         <div className="home__main">
             <div className="home__main-title">NAME</div>
@@ -17,8 +28,8 @@ const HomeMain = () => {
             <span className="home__rectangle right-rect"></span>
             <span className="home__rectangle left-rect"></span>
             <div className="home__main-desc">
-                <Title fontSize="32px">AI Prompt Marketplace</Title>
-                <p>Explore 130,000+ curated AI prompts made by expert AI creators</p>
+                <Title>AI Prompt Marketplace</Title>
+                <p style={{margin: "26px 0"}}>Explore 130,000+ curated AI prompts made by expert AI creators</p>
                 <div className="home__main-more">
                     <p>More</p>
                     <svg xmlns="http://www.w3.org/2000/svg" width="46" height="8" viewBox="0 0 46 8" fill="none">
@@ -27,6 +38,11 @@ const HomeMain = () => {
                             fill="white"/>
                     </svg>
                 </div>
+            </div>
+            <div className="home__main-products">
+                {cards.map(card =>
+                    <Card card={card} key={card.id}/>
+                )}
             </div>
         </div>
     );

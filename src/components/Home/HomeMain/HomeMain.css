@@ -87,3 +87,21 @@
     transform: translate(-50%, -50%) translate(-200px, -190px);
     clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%, 0% 50%);
 }
+
+.home__main-desc {
+    position: absolute;
+    bottom: 44px;
+    left: 0;
+}
+
+.home__main-more {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.home__main-products {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

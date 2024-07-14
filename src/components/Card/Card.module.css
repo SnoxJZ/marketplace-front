@@ -1,0 +1,8 @@
+.product {
+    position: relative;
+}
+
+.product__image {
+    width: 174px;
+    height: 237px;
+}
