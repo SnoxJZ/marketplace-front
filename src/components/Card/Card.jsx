@@ -1,13 +1,18 @@
 import React from 'react';
 import classes from './Card.module.css'
+import CardDesc from "../ui/CardDesc/CardDesc";
 
 const Card = ({card}) => {
+
+
     return (
         <div className={classes.product}>
             <img src={card.image} alt="" className={classes.product__image}/>
-            <div className="product__details">
-                <h1 className="product__title">{card.title}</h1>
-                <h1 className="product__price">{card.price}</h1>
+            <div className={classes.product__desc}>
+                <CardDesc
+                    title={card.title}
+                    price={card.price}
+                />
             </div>
         </div>
     );

@@ -1,0 +1,10 @@
+.product__details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 6px 8px;
+    border-radius: 5px;
+    border: 0.2px solid #FFF;
+    background: rgba(67, 227, 237, 0.08);
+    backdrop-filter: blur(7.5px);
+}

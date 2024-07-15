@@ -101,7 +101,10 @@
 }
 
 .home__main-products {
+    display: flex;
     position: absolute;
+    gap: 24px;
     bottom: 0;
     right: 0;
+    z-index: 4;
 }

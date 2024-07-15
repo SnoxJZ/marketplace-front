@@ -1,8 +1,33 @@
 .product {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: end;
 }
 
 .product__image {
-    width: 174px;
-    height: 237px;
+    height: 195px;
+    width: 143px;
+}
+
+.product__desc {
+    position: absolute;
+    margin-bottom: 15px;
+}
+
+.category__itemImage {
+
+}
+
+.category__itemDesc {
+    position: absolute;
+    display: flex;
+    gap: 79px;
+    margin-bottom: 24px;
+}
+
+.btn__view {
+    padding: 6px 20px;
+    border-radius: 5px;
+    background: #FF8C06;
 }
