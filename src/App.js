@@ -3,6 +3,8 @@ import Header from "./components/Header/Header";
 import HomeMain from "./components/Home/HomeMain/HomeMain";
 import "./styles/App.css"
 import HomeCategory from "./components/Home/HomeCategory/HomeCategory";
+import HomeMarketplace from "./components/Home/HomeMarketplace/HomeMarketplace";
+import HomePrompts from "./components/Home/HomePrompts/HomePrompts";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
             <HomeMain/>
         </div>
         <HomeCategory/>
+        <HomeMarketplace/>
+        <HomePrompts/>
     </div>
   );
 }

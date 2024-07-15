@@ -44,5 +44,13 @@
 
 .home__category-items {
     padding: 32px 0;
-    margin-bottom: 32px;
+    display: flex;
+    gap: 24px;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.home__category-items::-webkit-scrollbar {
+    display: none;
 }

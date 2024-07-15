@@ -6,8 +6,8 @@
 }
 
 .product__image {
-    height: 195px;
-    width: 143px;
+    width: 174px;
+    height: 237px;
 }
 
 .product__desc {
@@ -15,8 +15,10 @@
     margin-bottom: 15px;
 }
 
-.category__itemImage {
 
+
+.category__itemImage {
+    max-width: none;
 }
 
 .category__itemDesc {

@@ -1,0 +1,35 @@
+.home__marketplace {
+    margin-right: 42px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    /*opacity: 0.1;*/
+    background: #000B0E;
+    padding: 32px 0;
+    margin-bottom: 32px;
+}
+
+.home__marketplace-desc {
+    max-width: 465px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.marketplace__desc-text {
+    margin-bottom: 64px;
+    text-align: center;
+}
+
+.marketplace__desc-title {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.marketplace__desc-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 42px;
+}
