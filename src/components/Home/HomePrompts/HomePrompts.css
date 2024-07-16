@@ -1,18 +1,40 @@
-.trending__prompts {
+.prompts {
     padding: 42px 42px 42px 0;
     margin-bottom: 32px;
 }
 
 .prompts__list {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: relative;
     margin-top: 32px;
+    display: flex;
+    justify-content: center;
 }
 
-.prompts__list-items {
+.custom-arrow {
+    background: transparent;
+    cursor: pointer;
     display: flex;
-    gap: 24px;
-    /*width: 87%;*/
-    overflow: auto;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px #ED43DC;
+    border-radius: 10px;
+    padding: 29px 25px;
+}
+
+.custom-left-arrow {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.custom-right-arrow {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.react-multi-carousel-list {
+    width: 90%;
 }
