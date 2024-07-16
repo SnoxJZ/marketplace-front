@@ -1,4 +1,4 @@
-.prompts {
+.trending__prompts {
     padding: 42px 42px 42px 0;
 }
 
@@ -7,13 +7,9 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 32px;
-    gap: 10px;
 }
 
 .prompts__list-items {
     display: flex;
-    justify-content: space-between;
-    overflow: hidden;
-    scroll-behavior: smooth;
-    width: calc((170px + 50px) * 6); /* Ширина одной карточки + gap, умноженная на 6 */
+    gap: 24px;
 }
