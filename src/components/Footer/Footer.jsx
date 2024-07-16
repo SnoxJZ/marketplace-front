@@ -6,6 +6,7 @@ import telegram from "../../assets/Footer/telegram.png"
 import facebook from "../../assets/Footer/facebook.png"
 import mastercard from "../../assets/Footer/mastercard.png"
 import visa from "../../assets/Footer/visa.png"
+import {Link} from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -15,10 +16,18 @@ const Footer = () => {
                 <div className="footer__main">
                     <Title>Main</Title>
                     <ul className="footer__items">
-                        <li className="footer_item">About us</li>
-                        <li className="footer_item">Marketplace</li>
-                        <li className="footer_item">Contacts</li>
-                        <li className="footer_item">FAQ</li>
+                        <Link to="/about">
+                            <li className="footer_item">About us</li>
+                        </Link>
+                        <Link to="marketplace">
+                            <li className="footer_item">Marketplace</li>
+                        </Link>
+                        <Link to="/contacts">
+                            <li className="footer_item">Contacts</li>
+                        </Link>
+                        <Link to="/faq">
+                            <li className="footer_item">FAQ</li>
+                        </Link>
                     </ul>
                 </div>
                 <div className="footer__categories">

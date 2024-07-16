@@ -1,28 +1,42 @@
 import React from 'react';
 import './Header.css'
 import searchIcon from '../../assets/Header/search.png'
+import dark from "../../assets/Header/dark.png"
+import light from "../../assets/Header/light.png"
 import Input from "../ui/Input/Input";
 import Button from "../ui/Button/Button";
+import {Link} from "react-router-dom";
 
 const Header = () => {
 
     return (
-        <header>
-            <ul className="header__content">
-                <li>Home</li>
-                <li>Marketplace</li>
-                <li>FAQ</li>
-                <li>Contacts</li>
-            </ul>
-            <div className="header__logo">Logo</div>
-            <div className="header__tools">
-                <div className="search__box">
-                    <Input/>
-                    <button className="search__btn"><img src={searchIcon} className="search__ico" alt="search"/></button>
+        <div style={{margin: "24px 42px 32px 0"}}>
+            <header>
+                <ul className="header__content">
+                    <Link to="/">
+                        <li>Home</li>
+                    </Link>
+                    <Link to="/marketplace">
+                        <li>Marketplace</li>
+                    </Link>
+                    <Link to="/faq">
+                        <li>FAQ</li>
+                    </Link>
+                    <Link to="/contacts">
+                        <li>Contacts</li>
+                    </Link>
+                </ul>
+                <div className="header__logo">Logo</div>
+                <div className="header__tools">
+                    <div className="search__box">
+                        <Input/>
+                        <button className="search__btn"><img src={searchIcon} className="search__ico" alt="search"/></button>
+                    </div>
+                    <Button>Log in</Button>
+                    <img src={dark} alt="dark-mode" className="color__mode"/>
                 </div>
-                <Button>Log in</Button>
-            </div>
-        </header>
+            </header>
+        </div>
     );
 };
 

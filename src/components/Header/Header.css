@@ -8,6 +8,7 @@ header {
     border-radius: 20px;
     width: 100%;
     z-index: 4;
+    position: relative;
 }
 
 .header__content {
@@ -54,4 +55,8 @@ header {
 .search__ico {
     width: 12px;
     height: 12px;
+}
+
+.color__mode {
+    cursor: pointer;
 }

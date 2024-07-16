@@ -1,9 +1,10 @@
 import React from 'react';
 import classes from "./Title.module.css"
 
-const Title = ({ fontSize, children, ...props }) => {
+const Title = ({ fontSize, color, children, ...props }) => {
     const style = {
         fontSize: fontSize,
+        color: color
     };
 
     return (
