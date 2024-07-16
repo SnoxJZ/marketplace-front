@@ -108,3 +108,21 @@
     right: 0;
     z-index: 4;
 }
+
+
+
+@media (max-width: 1440px) {
+    .right-rect {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) translate(115px, 95px);
+        clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0% 50%);
+    }
+
+    .left-rect {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) translate(-165px, -140px);
+        clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%, 0% 50%);
+    }
+}

@@ -1,5 +1,6 @@
 .trending__prompts {
     padding: 42px 42px 42px 0;
+    margin-bottom: 32px;
 }
 
 .prompts__list {
@@ -12,4 +13,6 @@
 .prompts__list-items {
     display: flex;
     gap: 24px;
+    /*width: 87%;*/
+    overflow: auto;
 }

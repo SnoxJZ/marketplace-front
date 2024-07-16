@@ -5,6 +5,7 @@ import "./styles/App.css"
 import HomeCategory from "./components/Home/HomeCategory/HomeCategory";
 import HomeMarketplace from "./components/Home/HomeMarketplace/HomeMarketplace";
 import HomePrompts from "./components/Home/HomePrompts/HomePrompts";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <HomeCategory/>
         <HomeMarketplace/>
         <HomePrompts/>
+        <Footer/>
     </div>
   );
 }
