@@ -25,8 +25,12 @@ const PromptsList = ({prompts}) => {
             breakpoint: { max: 4000, min: 1534 },
             items: 6
         },
+        largeDesktop: {
+            breakpoint: { max: 1534, min: 1324 },
+            items: 6
+        },
         desktop: {
-            breakpoint: { max: 1300, min: 1024 },
+            breakpoint: { max: 1324, min: 1024 },
             items: 5
         },
         miniDesktop: {

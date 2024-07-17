@@ -61,7 +61,7 @@
 
 @media (max-width: 1440px) {
     .product__image {
-        min-width: 150px;
-        height: 205px;
+        /*min-width: 150px;*/
+        /*height: 205px;*/
     }
 }
