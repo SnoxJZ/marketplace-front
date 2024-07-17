@@ -77,14 +77,14 @@
 .right-rect {
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) translate(165px, 105px);
+    transform: translate(-50%, -50%) translate(185px, 110px);
     clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 50% 100%, 0% 100%, 0% 50%);
 }
 
 .left-rect {
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) translate(-200px, -190px);
+    transform: translate(-50%, -50%) translate(-230px, -210px);
     clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%, 0% 50%);
 }
 

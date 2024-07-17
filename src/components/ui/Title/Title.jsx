@@ -4,7 +4,7 @@ import classes from "./Title.module.css"
 const Title = ({ fontSize, color, children, ...props }) => {
     const style = {
         fontSize: fontSize,
-        color: color
+        color: color,
     };
 
     return (

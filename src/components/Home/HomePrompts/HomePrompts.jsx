@@ -6,8 +6,6 @@ import tree from "../../../assets/Home/tree.png";
 import "react-multi-carousel/lib/styles.css";
 import PromptsList from "./PromptsList";
 
-
-
 const HomePrompts = () => {
     const [prompts, setPrompts] = useState([
         { id: 1, image: samurai, title: "Samurai", price: 2.45 },
@@ -23,8 +21,6 @@ const HomePrompts = () => {
         { id: 11, image: tree, title: "Samurai", price: 2.453 },
         { id: 12, image: tree, title: "Samurai", price: 2.453 }
     ]);
-
-
 
     return (
         <div className="home__prompts">

@@ -1,9 +1,9 @@
 import React from 'react';
 import classes from "./Button.module.css"
 
-const Button = ({ color, children, ...props }) => {
+const Button = ({ borderColor, children, ...props }) => {
     const style = {
-        color: color
+        borderColor: borderColor
     };
 
     return (
