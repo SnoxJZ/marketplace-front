@@ -64,47 +64,49 @@ const MarketplaceFilter = () => {
                 }
             }}
         >
-            <div className="marketplace__filter">
-                <h1 className="filter__title">filter</h1>
-                <div className="filters__list">
-                    <div className="filter__type">
-                        <h1 className="filter__name">Product</h1>
-                        <Radio.Group options={product} onChange={onChange1} value={value1} />
+            <div className="marketplace__filter-wrapper">
+                <div className="marketplace__filter">
+                    <h1 className="filter__title">filter</h1>
+                    <div className="filters__list">
+                        <div className="filter__type">
+                            <h1 className="filter__name">Product</h1>
+                            <Radio.Group options={product} onChange={onChange1} value={value1}/>
+                        </div>
+                        <div className="filter__type">
+                            <h1 className="filter__name">Type</h1>
+                            <Radio.Group options={type} onChange={onChange2} value={value2}/>
+                        </div>
+                        <div className="filter__type">
+                            <h1 className="filter__name">Sort by</h1>
+                            <Radio.Group options={sortBy} onChange={onChange3} value={value3}/>
+                        </div>
+                        <div className="filter__type">
+                            <h1 className="filter__name">Model</h1>
+                            <Radio.Group options={Model} onChange={onChange4} value={value4}/>
+                        </div>
                     </div>
-                    <div className="filter__type">
-                        <h1 className="filter__name">Type</h1>
-                        <Radio.Group options={type} onChange={onChange2} value={value2}/>
+                    <div className="category__filter">
+                        <Select
+                            defaultValue="all"
+                            style={{width: 165,}}
+                            onChange={handleChange}
+                            options={[
+                                {value: 'all', label: 'All'},
+                                {value: '3d', label: '3D'},
+                                {value: 'anime', label: 'Anime'},
+                                {value: 'cartoon', label: 'Cartoon'},
+                                {value: 'art', label: 'Art'},
+                                {value: 'logo', label: 'Logo'},
+                                {value: 'mockup', label: 'Mockup'},
+                                {value: 'nature', label: 'Nature'},
+                                {value: 'people', label: 'People'},
+                            ]}
+                        />
                     </div>
-                    <div className="filter__type">
-                        <h1 className="filter__name">Sort by</h1>
-                        <Radio.Group options={sortBy} onChange={onChange3} value={value3}/>
+                    <div className="filter__btns">
+                        <Button>Save</Button>
+                        <Button borderColor={'rgb(255, 150, 6)'}>Clear</Button>
                     </div>
-                    <div className="filter__type">
-                        <h1 className="filter__name">Model</h1>
-                        <Radio.Group options={Model} onChange={onChange4} value={value4}/>
-                    </div>
-                </div>
-                <div className="category__filter">
-                    <Select
-                        defaultValue="all"
-                        style={{width: 165,}}
-                        onChange={handleChange}
-                        options={[
-                            {value: 'all', label: 'All'},
-                            {value: '3d', label: '3D'},
-                            {value: 'anime', label: 'Anime'},
-                            {value: 'cartoon', label: 'Cartoon'},
-                            {value: 'art', label: 'Art'},
-                            {value: 'logo', label: 'Logo'},
-                            {value: 'mockup', label: 'Mockup'},
-                            {value: 'nature', label: 'Nature'},
-                            {value: 'people', label: 'People'},
-                        ]}
-                    />
-                </div>
-                <div className="filter__btns">
-                    <Button>Save</Button>
-                    <Button borderColor={'rgb(255, 150, 6)'}>Clear</Button>
                 </div>
             </div>
         </ConfigProvider>

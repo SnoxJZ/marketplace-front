@@ -23,10 +23,6 @@ const PromptsList = ({prompts}) => {
     const responsive = {
         superLargeDesktop: {
             breakpoint: { max: 4000, min: 1534 },
-            items: 7
-        },
-        largeDesktop: {
-            breakpoint: { max: 1534, min: 1300 },
             items: 6
         },
         desktop: {

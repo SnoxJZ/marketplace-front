@@ -3,3 +3,9 @@
     flex-direction: column;
     height: calc(100vh - 136px);
 }
+
+.marketplace {
+    padding-right: 39px;
+    display: flex;
+    gap: 64px;
+}

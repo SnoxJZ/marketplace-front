@@ -19,7 +19,7 @@ const HomePrompts = () => {
         { id: 9, image: tree, title: "Samurai", price: 2.453 },
         { id: 10, image: tree, title: "Samurai", price: 2.453 },
         { id: 11, image: tree, title: "Samurai", price: 2.453 },
-        { id: 12, image: tree, title: "Samurai", price: 2.453 }
+        { id: 12, image: tree, title: "Samurai", price: 2.453 },
     ]);
 
     return (

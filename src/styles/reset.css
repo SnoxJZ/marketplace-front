@@ -19,7 +19,8 @@ body {
 }
 
 #root {
-	margin-left: 42px;
+	max-width: 1400px;
+	margin: auto;
 }
 
 *,
