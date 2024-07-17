@@ -1,7 +1,6 @@
 import React from 'react';
 import "./PromptInfo.css"
 import Title from "../ui/Title/Title";
-import {Rate} from "antd";
 
 const PromptInfo = () => {
     return (
@@ -11,9 +10,9 @@ const PromptInfo = () => {
                     <div className="prompt__info-head">
                         <Title fontSize="48px">Samurai</Title>
                         <div className="prompt__head-tools">
-                            <div className="prompt__info-grade">
-                                <p>4.0</p>
-                                <Rate disabled allowHalf defaultValue={4} style={{color: "#D01FDF"}}/>
+                            <div className="prompt__info-rate">
+                                <p>2.5</p>
+
                             </div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                  fill="none">
