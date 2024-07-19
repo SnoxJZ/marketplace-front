@@ -4,10 +4,11 @@ import productList from "./ProductList";
 import Card from "../../Card/Card";
 
 const MarketplaceItems = () => {
+
     return (
         <div className="marketplace__items">
             {productList.map(item =>
-                <Card card={item} key={item.id}/>
+                <Card card={item} key={item.id} />
             )}
         </div>
     );
