@@ -9,7 +9,7 @@ const PromptInfoDetails = ({product}) => {
                 <Title fontSize="48px">{product.title}</Title>
                 <div className="prompt__head-tools">
                     <div className="prompt__info-rate">
-                        <p>{product.details.rate}</p>
+                        <h1>{product.details.rate}</h1>
                         <Rating name="half-rating-read" defaultValue={product.details.rate} precision={0.1} readOnly
                                 style={{color: 'rgb(237, 67, 220)', fontSize: 22}}/>
                     </div>

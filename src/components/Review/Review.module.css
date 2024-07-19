@@ -2,11 +2,49 @@
     border-radius: 10px;
     border: 1px solid #ED43DC;
     padding: 32px;
-    width: 390px;
+    min-width: 390px;
+    display: flex;
+    flex-direction: column;
+}
+
+.review__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 37px;
 }
 
 .review__user {
     padding: 6px 24px;
     border-radius: 5px;
     border: 1px solid #ED43DC;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: 18px;
+}
+
+.review__user img {
+    position: absolute;
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    left: -18px;
+}
+
+.review__rate {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 20px;
+    margin-bottom: 32px;
+}
+
+.review__text {
+    color: #918F8F;
+    font-family: K2D, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
 }

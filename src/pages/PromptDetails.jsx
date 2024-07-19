@@ -2,6 +2,7 @@ import React from 'react';
 import PromptInfo from "../components/PromptInfo/PromptInfo";
 import PromptReviews from "../components/PromptInfo/PromptReviews";
 import {createTheme, ThemeProvider} from "@mui/material/styles";
+import PromptSimilar from "../components/PromptInfo/PromptSimilar";
 
 const theme = createTheme({
     components: {
@@ -23,6 +24,7 @@ const PromptDetails = () => {
             <div className="prompt__info-wrapper">
                 <PromptInfo/>
                 <PromptReviews/>
+                <PromptSimilar/>
             </div>
         </ThemeProvider>
     );

@@ -84,6 +84,7 @@
 
 .prompt__reviews {
     padding: 35px 0;
+    margin-bottom: 32px;
 }
 
 .reviews__header {
@@ -92,4 +93,31 @@
     justify-content: space-between;
     max-width: 45%;
     margin-bottom: 60px;
+}
+
+.reviews__list {
+    padding-top: 32px;
+    display: flex;
+    gap: 32px;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+.prompt__similar {
+    padding: 42px 0;
+}
+
+.similar__items {
+    padding: 32px 0;
+    display: flex;
+    gap: 24px;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.similar__items::-webkit-scrollbar, .home__categories::-webkit-scrollbar {
+    display: none;
 }

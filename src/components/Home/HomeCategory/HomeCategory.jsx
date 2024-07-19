@@ -3,6 +3,7 @@ import Title from "../../ui/Title/Title";
 import "./HomeCategory.css"
 import samuraiWide from "../../../assets/Home/samurai-wide.png"
 import CardWide from "../../Card/CardWide";
+import wideItems from "../../Card/WIdeItems";
 
 const HomeCategory = () => {
     const [category, setCategory] = useState([
@@ -14,15 +15,6 @@ const HomeCategory = () => {
         {id: 6, title: "Mockup"},
         {id: 7, title: "Nature"},
         {id: 8, title: "People"},
-    ])
-
-    const [categoryItem, setCategoryItem] = useState([
-        {id: 1, image: samuraiWide, title: "Samurai", price: 2.45},
-        {id: 2, image: samuraiWide, title: "Samurai", price: 2.45},
-        {id: 3, image: samuraiWide, title: "Samurai", price: 2.45},
-        {id: 4, image: samuraiWide, title: "Samurai", price: 2.45},
-        {id: 5, image: samuraiWide, title: "Samurai", price: 2.45},
-        {id: 6, image: samuraiWide, title: "Samurai", price: 2.45}
     ])
 
     return (
@@ -39,7 +31,7 @@ const HomeCategory = () => {
                 )}
             </div>
             <div className="home__category-items">
-                {categoryItem.map(item =>
+                {wideItems.map(item =>
                     <CardWide item={item} key={item.id}/>
                 )}
             </div>
