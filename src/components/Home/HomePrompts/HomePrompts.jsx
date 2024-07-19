@@ -14,12 +14,12 @@ const HomePrompts = () => {
         { id: 4, image: samurai, title: "Samurai", price: 2.45 },
         { id: 5, image: samurai, title: "Samurai", price: 2.45 },
         { id: 6, image: samurai, title: "Samurai", price: 2.45 },
-        { id: 7, image: tree, title: "Samurai", price: 2.453 },
-        { id: 8, image: tree, title: "Samurai", price: 2.453 },
-        { id: 9, image: tree, title: "Samurai", price: 2.453 },
-        { id: 10, image: tree, title: "Samurai", price: 2.453 },
-        { id: 11, image: tree, title: "Samurai", price: 2.453 },
-        { id: 12, image: tree, title: "Samurai", price: 2.453 },
+        { id: 27, image: tree, title: "Samurai", price: 2.453 },
+        { id: 28, image: tree, title: "Samurai", price: 2.453 },
+        { id: 29, image: tree, title: "Samurai", price: 2.453 },
+        { id: 30, image: tree, title: "Samurai", price: 2.453 },
+        { id: 31, image: tree, title: "Samurai", price: 2.453 },
+        { id: 32, image: tree, title: "Samurai", price: 2.453 },
     ]);
 
     return (

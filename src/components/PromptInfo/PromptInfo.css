@@ -1,3 +1,11 @@
+.prompt__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 57px;
+}
+
+
 .prompt__info-details {
     max-width: 636px;
 }
@@ -16,6 +24,8 @@
 .prompt__info-rate {
     display: flex;
     gap: 12px;
+    align-items: center;
+    font-size: 24px;
 }
 
 .prompt__head-tools {
@@ -24,13 +34,62 @@
     align-items: center;
 }
 
+.prompt__descr-text {
+    color: #FFF;
+    font-family: K2D, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+}
+
 
 .prompt__info-stat {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 42px;
 }
 
 .prompt__stat {
     display: flex;
     gap: 32px;
+    align-items: center;
+}
+
+.prompt__stat-elem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.get__prompt {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 42px;
+    align-items: center;
+}
+
+.prompt__info-img {
+    max-width: 678px;
+    max-height: 552px;
+}
+
+.prompt__info-img img{
+    width: 100%;
+    height: auto;
+}
+
+
+.prompt__reviews {
+    padding: 35px 0;
+}
+
+.reviews__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 45%;
+    margin-bottom: 60px;
 }

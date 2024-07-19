@@ -11,7 +11,7 @@ const PromptInfoDetails = ({product}) => {
                     <div className="prompt__info-rate">
                         <p>{product.details.rate}</p>
                         <Rating name="half-rating-read" defaultValue={product.details.rate} precision={0.1} readOnly
-                                style={{color: 'rgb(237, 67, 220)', fontSize: 19}}/>
+                                style={{color: 'rgb(237, 67, 220)', fontSize: 22}}/>
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                          fill="none">

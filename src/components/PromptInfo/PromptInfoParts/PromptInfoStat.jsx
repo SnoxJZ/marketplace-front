@@ -10,11 +10,11 @@ const PromptInfoStat = ({product}) => {
             <p>{product.details.model}</p>
             <div className="prompt__stat">
                 <Title fontSize="24px">{product.details.count} examples</Title>
-                <div className="prompt__stat-saves">
+                <div className="prompt__stat-elem">
                     <Title color='rgb(237, 67, 220)'>{product.details.saves}</Title>
                     <img src={saves} alt="heart"/>
                 </div>
-                <div className="prompt__stat-views">
+                <div className="prompt__stat-elem">
                     <Title color='rgb(237, 67, 220)'>{product.details.views}</Title>
                     <img src={views} alt="eye"/>
                 </div>

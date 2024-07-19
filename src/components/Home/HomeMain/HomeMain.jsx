@@ -13,7 +13,7 @@ const HomeMain = () => {
 
     const [cards, setCards] = useState([
         {id: 1, image: samurai, title: "Samurai", price: 2.45},
-        {id: 2, image: tree, title: "Samurai", price: 2.45},
+        {id: 26, image: tree, title: "Tree", price: 2.45},
         {id: 3, image: hornet, title: "Samurai", price: 2.45}
     ])
 

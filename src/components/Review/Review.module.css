@@ -1,0 +1,12 @@
+.review {
+    border-radius: 10px;
+    border: 1px solid #ED43DC;
+    padding: 32px;
+    width: 390px;
+}
+
+.review__user {
+    padding: 6px 24px;
+    border-radius: 5px;
+    border: 1px solid #ED43DC;
+}
