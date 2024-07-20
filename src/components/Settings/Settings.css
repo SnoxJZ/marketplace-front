@@ -1,0 +1,70 @@
+.settings {
+    padding: 32px 0 46px 0;
+}
+
+.account__settings {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 46px;
+}
+
+.settings__header {
+    margin-bottom: 24px;
+}
+
+.settings__subtitle {
+    color: #FFF;
+    font-family: Iceland, sans-serif;
+    font-size: 32px;
+    margin-bottom: 27px;
+}
+
+.settings__input-group {
+    display: flex;
+    margin-bottom: 24px;
+    gap: 32px;
+}
+
+.settings__text {
+    color: #FFF;
+    font-family: Iceland, sans-serif;
+    font-size: 24px;
+}
+
+.settings__field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+
+
+.ant-upload-select {
+    border: 1px solid #FF8C06 !important;
+    width: 169px !important;
+    height: 169px !important;
+}
+
+.profile__picture {
+    display: flex;
+    align-items: center;
+    gap: 42px;
+}
+
+.picture__save {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+.picture__save-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+}

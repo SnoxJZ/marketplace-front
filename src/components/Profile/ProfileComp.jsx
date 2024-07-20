@@ -6,8 +6,8 @@ import "./Profile.css"
 import promptItems from "../Home/HomePrompts/PromptItems";
 import PromptsList from "../Home/HomePrompts/PromptsList";
 import avatar from "../../assets/Reviews/avatar.png";
-import {Rating} from "@mui/material";
 import Review from "../Review/Review";
+import {Link} from "react-router-dom";
 
 
 const ProfileComp = () => {
@@ -28,7 +28,9 @@ const ProfileComp = () => {
                     <img src={userInf.avatar} alt="avatar"/>
                     <Title fontSize="48px">{userInf.name}</Title>
                 </div>
-                <Button>Settings</Button>
+                <Link to="/settings">
+                    <Button>Settings</Button>
+                </Link>
             </div>
             <div className="prompts">
                 <div className="prompts__profile-head">

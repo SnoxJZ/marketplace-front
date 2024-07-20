@@ -10,7 +10,7 @@ import {Link} from "react-router-dom";
 const Header = () => {
 
     return (
-        <div style={{margin: "24px 42px 32px 42px"}}>
+        <div style={{margin: "24px 0 32px 0"}}>
             <header>
                 <ul className="header__content">
                     <Link to="/">
