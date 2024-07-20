@@ -1,0 +1,26 @@
+.rs-panel-group-bordered {
+    border: none;
+}
+
+.rs-panel-title {
+    color: #FFFFFF;
+    font-size: 36px;
+}
+
+.rs-panel-body {
+    font-size: 24px;
+    color: #FF8C06;
+    margin-left: 24px;
+}
+
+.rs-panel-btn:focus {
+    background-color: #191919;
+}
+
+.rs-panel-btn:hover {
+    background-color: #191919;
+}
+
+.rs-panel-btn-icon {
+    color: transparent;
+}

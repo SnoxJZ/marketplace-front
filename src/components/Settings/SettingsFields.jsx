@@ -8,21 +8,21 @@ const SettingsFields = () => {
             <div className="settings__input-group">
                 <div className="settings__field">
                     <h1 className="settings__text">Username</h1>
-                    <Input/>
+                    <Input type="text"/>
                 </div>
                 <div className="settings__field">
                     <h1 className="settings__text">E-mail</h1>
-                    <Input/>
+                    <Input type="email"/>
                 </div>
             </div>
             <div className="settings__input-group">
                 <div className="settings__field">
                     <h1 className="settings__text">Old password</h1>
-                    <Input/>
+                    <Input type="password"/>
                 </div>
                 <div className="settings__field">
                     <h1 className="settings__text">New password</h1>
-                    <Input/>
+                    <Input type="password"/>
                 </div>
             </div>
         </div>
