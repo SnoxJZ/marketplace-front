@@ -32,7 +32,9 @@ const Header = () => {
                         <Input/>
                         <button className="search__btn"><img src={searchIcon} className="search__ico" alt="search"/></button>
                     </div>
-                    <Button>Log in</Button>
+                    <Link to="/login">
+                        <Button>Log in</Button>
+                    </Link>
                     <img src={dark} alt="dark-mode" className="color__mode"/>
                 </div>
             </header>

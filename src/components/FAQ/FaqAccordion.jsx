@@ -46,7 +46,7 @@ const FaqAccordion = () => {
     ];
 
     return (
-        <div>
+        <div className="faq__accordion">
             {faqs.map((faq, index) => (
                 <Accordion key={index} activeKey={activeKey} onSelect={() => handleToggle(index)}>
                     <Accordion.Panel

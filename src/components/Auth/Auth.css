@@ -1,0 +1,39 @@
+.login__page {
+    padding: 16px 0 32px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 32px;
+}
+
+.auth__field {
+    width: 323px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.auth__field h1 {
+    font-size: 24px;
+}
+
+.forgot__btn {
+    color: #918F8F;
+    margin-top: 16px;
+    cursor: pointer;
+}
+
+.auth__btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32px;
+}
+
+.auth__btns h1 {
+    cursor: pointer;
+}

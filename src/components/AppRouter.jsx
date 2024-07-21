@@ -8,6 +8,9 @@ import Profile from "../pages/Profile";
 import Settings from "../pages/Settings";
 import Contacts from "../pages/Contacts";
 import Faq from "../pages/Faq";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import AboutUs from "../pages/AboutUs";
 
 const AppRouter = () => {
     return (
@@ -19,6 +22,9 @@ const AppRouter = () => {
             <Route path="settings" element={<Settings/>}/>
             <Route path="contacts" element={<Contacts/>}/>
             <Route path="faq" element={<Faq/>}/>
+            <Route path="login" element={<Login/>}/>
+            <Route path="register" element={<Register/>}/>
+            <Route path="about" element={<AboutUs/>}/>
             <Route path="*" element={<Error/>}/>
         </Routes>
     );

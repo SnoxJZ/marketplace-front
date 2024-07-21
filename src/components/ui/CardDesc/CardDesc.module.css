@@ -8,3 +8,7 @@
     background: rgba(67, 227, 237, 0.08);
     backdrop-filter: blur(7.5px);
 }
+
+.product__title {
+    color: #ED43DC;
+}
