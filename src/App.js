@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import AppRouter from "./components/AppRouter";
 import {createTheme, ThemeProvider} from "@mui/material/styles";
+import Preloader from "./components/Preloader/Preloader";
 
 const theme = createTheme({
     components: {
@@ -24,6 +25,7 @@ function App() {
   return (
       <ThemeProvider theme={theme}>
           <BrowserRouter>
+            {/*<Preloader/>*/}
             <Header/>
             <AppRouter/>
             <Footer/>

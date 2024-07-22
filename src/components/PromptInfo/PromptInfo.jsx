@@ -6,8 +6,6 @@ import PromptInfoDetails from "./PromptInfoParts/PromptInfoDetails";
 import PromptInfoStat from "./PromptInfoParts/PromptInfoStat";
 import PromptInfoGet from "./PromptInfoParts/PromptInfoGet";
 
-
-
 const PromptInfo = () => {
     const params = useParams();
     const productId = parseInt(params.id, 10);
