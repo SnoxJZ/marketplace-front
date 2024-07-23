@@ -1,9 +1,12 @@
-.marketplace__filter {
-    display: flex;
-    flex-direction: column;
+.marketplace__filter-block {
     border-radius: 10px;
     border: 1px solid #FF8C06;
     padding: 24px 53px 24px 32px;
+}
+
+.marketplace__filter {
+    display: flex;
+    flex-direction: column;
 }
 
 .filter__title {

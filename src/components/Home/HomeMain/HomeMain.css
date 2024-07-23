@@ -16,8 +16,9 @@
 
 .home__main-robot {
     position: absolute;
-    top: 15px;
-    height: calc(100% - 15px);
+    bottom: 0;
+    max-height: 100%;
+    max-width: 125%;
     z-index: 2;
     user-select: none;
 }
@@ -92,6 +93,7 @@
     position: absolute;
     bottom: 44px;
     left: 0;
+    z-index: 3;
 }
 
 .home__main-more {
@@ -111,7 +113,31 @@
 
 
 
-@media (max-width: 1440px) {
+@media (max-width: 480px) {
+    .home__main-title {
+        font-size: 136px;
+        margin-top: 90px;
+    }
+
+    .home__main-desc {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 30px;
+    }
+
+    .home__main-arrow, .home__main-products {
+        display: none;
+    }
+
+    .home__main-more p {
+        color: #ED43DC;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
     .right-rect {
         top: 50%;
         left: 50%;

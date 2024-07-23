@@ -1,38 +1,27 @@
-import React, {useState} from 'react';
+import React from 'react';
 import "./MarketplaceFilter.css"
-import {ConfigProvider, Radio, Select} from 'antd';
+import {ConfigProvider, Select} from 'antd';
 import Button from "../../ui/Button/Button";
+import {motion} from 'framer-motion';
+import MarketplaceFilterList from "./MarketplaceFilterList";
 
-const product = ['Prompts', 'Bundles', 'Apps'];
-const type = ['All', 'Image', 'Text'];
-const sortBy = ['Price', 'Title', 'Rating'];
-const Model = ['All', 'Midjourney', 'DALL·E', 'GPT', 'Leonardo Ai', 'Llama', 'Stable Diffusion'];
+const marketplaceFilter = {
+    hidden: {
+        x: -350,
+    },
+    visible: {
+        x: 0,
+    },
+};
+
+
 const handleChange = (value) => {
     console.log(`selected ${value}`);
 };
 
 
 const MarketplaceFilter = () => {
-    const [value1, setValue1] = useState('Prompts');
-    const [value2, setValue2] = useState('All');
-    const [value3, setValue3] = useState('');
-    const [value4, setValue4] = useState('All');
-    const onChange1 = ({ target: { value } }) => {
-        console.log('radio1 checked', value);
-        setValue1(value);
-    };
-    const onChange2 = ({ target: { value } }) => {
-        console.log('radio2 checked', value);
-        setValue2(value);
-    };
-    const onChange3 = ({ target: { value } }) => {
-        console.log('radio3 checked', value);
-        setValue3(value);
-    };
-    const onChange4 = ({ target: { value } }) => {
-        console.log('radio4 checked', value);
-        setValue4(value);
-    }
+
 
     return (
         <ConfigProvider
@@ -64,51 +53,45 @@ const MarketplaceFilter = () => {
                 }
             }}
         >
-            <div className="marketplace__filter-wrapper">
-                <div className="marketplace__filter">
-                    <h1 className="filter__title">filter</h1>
-                    <div className="filters__list">
-                        <div className="filter__type">
-                            <h1 className="filter__name">Product</h1>
-                            <Radio.Group options={product} onChange={onChange1} value={value1}/>
+            <motion.div
+                className="marketplace__filter-wrapper"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+            >
+                <div className="marketplace__filter-block">
+                    <motion.div
+                        className="marketplace__filter"
+                        variants={marketplaceFilter}
+                        transition={{ duration: 0.7 }}
+                    >
+                        <h1 className="filter__title">filter</h1>
+                        <MarketplaceFilterList/>
+                        <div className="category__filter">
+                            <Select
+                                defaultValue="all"
+                                style={{width: 165,}}
+                                onChange={handleChange}
+                                options={[
+                                    {value: 'all', label: 'All'},
+                                    {value: '3d', label: '3D'},
+                                    {value: 'anime', label: 'Anime'},
+                                    {value: 'cartoon', label: 'Cartoon'},
+                                    {value: 'art', label: 'Art'},
+                                    {value: 'logo', label: 'Logo'},
+                                    {value: 'mockup', label: 'Mockup'},
+                                    {value: 'nature', label: 'Nature'},
+                                    {value: 'people', label: 'People'},
+                                ]}
+                            />
                         </div>
-                        <div className="filter__type">
-                            <h1 className="filter__name">Type</h1>
-                            <Radio.Group options={type} onChange={onChange2} value={value2}/>
+                        <div className="filter__btns">
+                            <Button>Save</Button>
+                            <Button borderColor={'rgb(255, 150, 6)'}>Clear</Button>
                         </div>
-                        <div className="filter__type">
-                            <h1 className="filter__name">Sort by</h1>
-                            <Radio.Group options={sortBy} onChange={onChange3} value={value3}/>
-                        </div>
-                        <div className="filter__type">
-                            <h1 className="filter__name">Model</h1>
-                            <Radio.Group options={Model} onChange={onChange4} value={value4}/>
-                        </div>
-                    </div>
-                    <div className="category__filter">
-                        <Select
-                            defaultValue="all"
-                            style={{width: 165,}}
-                            onChange={handleChange}
-                            options={[
-                                {value: 'all', label: 'All'},
-                                {value: '3d', label: '3D'},
-                                {value: 'anime', label: 'Anime'},
-                                {value: 'cartoon', label: 'Cartoon'},
-                                {value: 'art', label: 'Art'},
-                                {value: 'logo', label: 'Logo'},
-                                {value: 'mockup', label: 'Mockup'},
-                                {value: 'nature', label: 'Nature'},
-                                {value: 'people', label: 'People'},
-                            ]}
-                        />
-                    </div>
-                    <div className="filter__btns">
-                        <Button>Save</Button>
-                        <Button borderColor={'rgb(255, 150, 6)'}>Clear</Button>
-                    </div>
+                    </motion.div>
                 </div>
-            </div>
+            </motion.div>
         </ConfigProvider>
     );
 };

@@ -17,7 +17,7 @@ const AppRouter = () => {
     return (
         <AnimatedRoute>
             <Routes>
-                <Route path="" element={<Home />} />
+                <Route path="/" element={<Home />} />
                 <Route exact path="marketplace" element={<Marketplace />} />
                 <Route exact path="marketplace/item/:id" element={<PromptDetails />} />
                 <Route path="profile" element={<Profile />} />
