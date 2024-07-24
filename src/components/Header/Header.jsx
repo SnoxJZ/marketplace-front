@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Header.css'
 import searchIcon from '../../assets/Header/search.png'
 import dark from "../../assets/Header/dark.png"
@@ -9,6 +9,22 @@ import {Link} from "react-router-dom";
 
 const Header = () => {
 
+    const [isOpen, setIsOpen] = useState(false);
+    const [hideOrShow, setHideOrShow] = useState({});
+
+    const handleMenu = () => {
+        setIsOpen((prev) => !prev);
+        if(isOpen) {
+            setHideOrShow(() => {
+                return {}
+            })
+        } else {
+            setHideOrShow(() => {
+                return {display: "flex"}
+            })
+        }
+    }
+    
     return (
         <div style={{margin: "24px 0 32px 0"}}>
             <header>

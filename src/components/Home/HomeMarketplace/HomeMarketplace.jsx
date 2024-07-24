@@ -3,6 +3,7 @@ import Button from "../../ui/Button/Button";
 import "./HomeMarketplace.css"
 import {motion} from 'framer-motion';
 import { homeMarketplace } from "../../../animation/AnimatedHome"
+import {Link} from "react-router-dom";
 
 const HomeMarketplace = () => {
     return (
@@ -18,8 +19,12 @@ const HomeMarketplace = () => {
                     <p>Explore 130,000+ curated AI prompts made by expert AI creators Midjourney, ChatGPT, DALL·E, Stable Diffusion & more</p>
                 </div>
                 <div className="marketplace__desc-btns">
-                    <Button>Catalog</Button>
-                    <Button>Sell prompt</Button>
+                    <Link to="/marketplace">
+                        <Button>Catalog</Button>
+                    </Link>
+                    <Link to="/contacts">
+                        <Button>Sell prompt</Button>
+                    </Link>
                 </div>
             </motion.div>
         </motion.div>

@@ -1,9 +1,10 @@
 import React from 'react';
 import "./MarketplaceFilter.css"
-import {ConfigProvider, Select} from 'antd';
+import {Select} from 'antd';
 import Button from "../../ui/Button/Button";
 import {motion} from 'framer-motion';
 import MarketplaceFilterList from "./MarketplaceFilterList";
+import CompStyles from "./CompStyles";
 
 const marketplaceFilter = {
     hidden: {
@@ -22,48 +23,19 @@ const handleChange = (value) => {
 
 const MarketplaceFilter = () => {
 
-
     return (
-        <ConfigProvider
-            theme={{
-                components: {
-                    Radio: {
-                        colorText: '#ffffff',
-                        borderRadius: 0,
-                        fontSize: "16px",
-                        colorBgContainer: 'transparent',
-                        colorBorder: '#D01FDF',
-                        colorPrimary: '#D01FDF',
-                        radioSize: 10,
-                        dotSize: 0,
-                    },
-                    Select: {
-                        colorText: '#ffffff',
-                        fontSize: "20px",
-                        optionPadding: "5px 12px",
-                        selectorBg: 'transparent',
-                        colorBgElevated: "#000000",
-                        colorBorder: "#D01FDF",
-                        optionSelectedBg: '#202020',
-                        optionSelectedColor: '#ffffff',
-                        colorPrimary: "#202020",
-                        colorTextPlaceholder: '#8e8d8d',
-                        colorPrimaryHover: '#4a0d51',
-                    },
-                }
-            }}
-        >
+        <CompStyles>
             <motion.div
                 className="marketplace__filter-wrapper"
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={{once: true}}
             >
                 <div className="marketplace__filter-block">
                     <motion.div
                         className="marketplace__filter"
                         variants={marketplaceFilter}
-                        transition={{ duration: 0.7 }}
+                        transition={{duration: 0.7}}
                     >
                         <h1 className="filter__title">filter</h1>
                         <MarketplaceFilterList/>
@@ -92,7 +64,7 @@ const MarketplaceFilter = () => {
                     </motion.div>
                 </div>
             </motion.div>
-        </ConfigProvider>
+        </CompStyles>
     );
 };
 
