@@ -1,4 +1,4 @@
-export const leftElem = {
+export const leftElem = (isMobile) => ({
     hidden: {
         y: "50%",
         x: "50%",
@@ -8,12 +8,14 @@ export const leftElem = {
     visible: {
         y: "50%",
         x: "50%",
-        transform: "translate(-50%, -50%) translate(-235px, -40px)",
+        transform: isMobile
+            ? "translate(-50%, -50%) translate(-280px, -85px)"
+            : "translate(-50%, -50%) translate(-235px, -40px)",
         opacity: 1,
     },
-};
+});
 
-export const rightElem = {
+export const rightElem = (isMobile) => ({
     hidden: {
         y: "50%",
         x: "50%",
@@ -23,10 +25,12 @@ export const rightElem = {
     visible: {
         y: "50%",
         x: "50%",
-        transform: "translate(-50%, -50%) translate(340px, 35px)",
+        transform: isMobile
+        ? "translate(-50%, -50%) translate(260px, -40px)"
+        : "translate(-50%, -50%) translate(340px, 35px)",
         opacity: 1,
     },
-};
+});
 
 export const homeMainDesc = {
     hidden: {

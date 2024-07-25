@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Title from "../../ui/Title/Title";
 import "./HomePrompts.css";
 import "react-multi-carousel/lib/styles.css";

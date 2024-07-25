@@ -19,6 +19,10 @@ body {
 	overflow-x: hidden;
 }
 
+a {
+	color: #000000;
+}
+
 #root {
 	max-width: 1400px;
 	margin: auto;

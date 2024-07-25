@@ -56,3 +56,14 @@
 .home__category-items::-webkit-scrollbar, .home__categories::-webkit-scrollbar {
     display: none;
 }
+
+
+@media (max-width: 480px) {
+    .home__category {
+        margin-left: 20px;
+    }
+
+    .line {
+        width: 111px;
+    }
+}

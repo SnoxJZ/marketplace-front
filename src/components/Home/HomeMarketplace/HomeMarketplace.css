@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     border-radius: 10px;
-    /*opacity: 0.1;*/
     background: #000B0E;
     padding: 32px 0;
     margin-bottom: 32px;
@@ -31,4 +30,23 @@
     justify-content: center;
     align-items: center;
     gap: 42px;
+}
+
+
+@media (max-width: 480px) {
+    .home__marketplace {
+        padding: 0;
+    }
+
+    .home__marketplace-desc {
+        padding: 32px 42px 32px 42px;
+    }
+
+    .marketplace__desc-title {
+        font-size: 28px;
+    }
+
+    .marketplace__desc-text p {
+        font-size: 12px;
+    }
 }

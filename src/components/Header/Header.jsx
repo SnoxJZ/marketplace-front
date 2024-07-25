@@ -6,24 +6,9 @@ import light from "../../assets/Header/light.png"
 import Input from "../ui/Input/Input";
 import Button from "../ui/Button/Button";
 import {Link} from "react-router-dom";
+import HeaderBurger from "./HeaderBurger";
 
 const Header = () => {
-
-    const [isOpen, setIsOpen] = useState(false);
-    const [hideOrShow, setHideOrShow] = useState({});
-
-    const handleMenu = () => {
-        setIsOpen((prev) => !prev);
-        if(isOpen) {
-            setHideOrShow(() => {
-                return {}
-            })
-        } else {
-            setHideOrShow(() => {
-                return {display: "flex"}
-            })
-        }
-    }
     
     return (
         <div style={{margin: "24px 0 32px 0"}}>
@@ -45,7 +30,7 @@ const Header = () => {
                 <div className="header__logo">Logo</div>
                 <div className="header__tools">
                     <div className="search__box">
-                        <Input/>
+                        <Input id="search-input"/>
                         <button className="search__btn"><img src={searchIcon} className="search__ico" alt="search"/></button>
                     </div>
                     <Link to="/login">
@@ -54,6 +39,7 @@ const Header = () => {
                     <img src={dark} alt="dark-mode" className="color__mode"/>
                 </div>
             </header>
+            <HeaderBurger/>
         </div>
     );
 };

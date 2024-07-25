@@ -61,3 +61,32 @@
     width: 100%;
     align-items: center;
 }
+
+
+@media (max-width: 480px) {
+    .footer {
+        margin: 0 20px;
+    }
+
+    .footer_rect {
+        width: 335px;
+        height: 71px;
+    }
+
+    .footer__links {
+        flex-wrap: wrap;
+        gap: 32px;
+    }
+
+    .footer_item {
+        font-size: 16px;
+    }
+
+    .footer__info {
+        flex-direction: column;
+    }
+
+    .footer__img img {
+        height: 38px;
+    }
+}

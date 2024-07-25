@@ -10,6 +10,7 @@ import hornet from '../../../assets/Home/hornet.png';
 import Title from "../../ui/Title/Title";
 import Card from "../../Card/Card";
 import { leftElem, homeMainDesc, homeMainTitle, rightElem, homeMainProducts, homeMainRobot} from "../../../animation/AnimatedHome"
+import {useMediaQuery} from "rsuite";
 
 const HomeMain = () => {
     const [cards, setCards] = useState([
@@ -17,6 +18,8 @@ const HomeMain = () => {
         {id: 26, image: tree, title: "Tree", price: 2.45},
         {id: 3, image: hornet, title: "Samurai", price: 2.45}
     ])
+
+    const isMobile = useMediaQuery('(max-width: 480px)');
 
     return (
         <motion.div
@@ -29,9 +32,9 @@ const HomeMain = () => {
             <motion.div variants={homeMainTitle} transition={{ duration: 1 }} className="home__main-title">NAME</motion.div>
             <motion.img variants={homeMainRobot} transition={{ duration: 1 }} src={robotImg} alt="robot" className="home__main-robot"/>
             <span className="home__elipse purple"></span>
-            <motion.img variants={leftElem} transition={{ duration: 1 }} src={elemLeft} alt="" className="left-elem"/>
+            <motion.img variants={leftElem(isMobile)} transition={{ duration: 1 }} src={elemLeft} alt="" className="left-elem"/>
             <span className="home__elipse orange"></span>
-            <motion.img variants={rightElem} transition={{ duration: 1 }} src={elemRight} alt="" className="right-elem"/>
+            <motion.img variants={rightElem(isMobile)} transition={{ duration: 1 }} src={elemRight} alt="" className="right-elem"/>
             <span className="home__rectangle right-rect"></span>
             <span className="home__rectangle left-rect"></span>
             <motion.div variants={homeMainDesc} transition={{ duration: 1 }} className="home__main-desc">

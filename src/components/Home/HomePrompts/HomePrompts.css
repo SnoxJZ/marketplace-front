@@ -38,3 +38,10 @@
 .react-multi-carousel-list {
     width: 85%;
 }
+
+
+@media (max-width: 480px) {
+    .home__prompts {
+        margin: 0 20px;
+    }
+}

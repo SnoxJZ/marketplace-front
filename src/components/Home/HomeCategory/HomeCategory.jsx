@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import Title from "../../ui/Title/Title";
 import "./HomeCategory.css"
-import samuraiWide from "../../../assets/Home/samurai-wide.png"
 import CardWide from "../../Card/CardWide";
 import wideItems from "../../Card/WIdeItems";
 
