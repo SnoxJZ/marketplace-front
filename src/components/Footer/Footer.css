@@ -63,7 +63,7 @@
 }
 
 
-@media (max-width: 480px) {
+@media (max-width: 896px) {
     .footer {
         margin: 0 20px;
     }

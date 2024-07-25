@@ -40,8 +40,22 @@
 }
 
 
-@media (max-width: 480px) {
+@media (max-width: 585px) {
+    .prompts {
+        margin-bottom: 0;
+    }
+
     .home__prompts {
         margin: 0 20px;
+    }
+
+    .custom-arrow {
+        padding: 17px 14px;
+
+    }
+
+    .arrow__img {
+        height: 24px;
+        color: #FFFFFF;
     }
 }

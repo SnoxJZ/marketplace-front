@@ -75,3 +75,47 @@
     gap: 32px;
     margin-top: 35px;
 }
+
+.filter__handler {
+    display: none;
+}
+
+
+@media (max-width: 896px) {
+    .marketplace {
+        margin: 0 20px;
+        position: relative;
+        flex-direction: column;
+        padding-right: 0;
+    }
+
+    .marketplace__items {
+        justify-content: center;
+    }
+
+    .filter__handler {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 20px 0 8px 0;
+        border-bottom: solid 1px #FFFFFF;
+    }
+
+    .marketplace__filter-wrapper {
+        position: absolute;
+        z-index: 3;
+        top: 76px;
+        background: rgba(0, 0, 0, 0.74);
+        backdrop-filter: blur(8px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+
+    .marketplace__filter-wrapper.show {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}

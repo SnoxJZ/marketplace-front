@@ -32,14 +32,14 @@ export const rightElem = (isMobile) => ({
     },
 });
 
-export const homeMainDesc = {
-    hidden: {
-        x: -500,
-    },
-    visible: {
-        x: 0,
-    },
-};
+export const homeMainDesc = (isTablet) => ({
+    hidden: isTablet
+        ? {transform: "translate(-50%, -50%) translate(0, 425px)"}
+        : {x: -500},
+    visible: isTablet
+        ? {transform: "translate(-50%, -50%) translate(0, 260px)"}
+        : {x: 0},
+});
 
 export const homeMainTitle = {
     hidden: {
@@ -74,7 +74,6 @@ export const prompts = {
     },
     visible: custom => ({
         x: 0,
-
     }),
 };
 

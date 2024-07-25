@@ -111,9 +111,7 @@
     z-index: 4;
 }
 
-
-
-@media (max-width: 480px) {
+@media (max-width: 896px) {
     .home__main-title {
         font-size: 136px;
         /*position: absolute;*/
@@ -127,7 +125,9 @@
         justify-content: center;
         text-align: center;
         padding: 0 20px;
-        bottom: 20px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) translate(0, 260px);
     }
 
     .home__main-desc h1 {
@@ -146,13 +146,21 @@
         width: 46px;
         height: 46px;
     }
+}
 
+@media (max-width: 480px) {
     .left-rect {
         transform: translate(-50%, -50%) translate(-140px, -20px);
     }
 
     .right-rect {
         transform: translate(-50%, -50%) translate(140px, 140px);
+    }
+}
+
+@media (min-width: 897px) and (max-width: 1040px) {
+    .home__main-products {
+        max-width: 390px;
     }
 }
 

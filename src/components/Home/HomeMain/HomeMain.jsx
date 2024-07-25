@@ -19,7 +19,8 @@ const HomeMain = () => {
         {id: 3, image: hornet, title: "Samurai", price: 2.45}
     ])
 
-    const isMobile = useMediaQuery('(max-width: 480px)');
+    const [isMobile] = useMediaQuery('(max-width: 480px)');
+    const [isTablet] = useMediaQuery('(max-width: 896px)');
 
     return (
         <motion.div
@@ -37,7 +38,7 @@ const HomeMain = () => {
             <motion.img variants={rightElem(isMobile)} transition={{ duration: 1 }} src={elemRight} alt="" className="right-elem"/>
             <span className="home__rectangle right-rect"></span>
             <span className="home__rectangle left-rect"></span>
-            <motion.div variants={homeMainDesc} transition={{ duration: 1 }} className="home__main-desc">
+            <motion.div variants={homeMainDesc(isTablet)} transition={{ duration: 1 }} className="home__main-desc">
                 <Title>AI Prompt Marketplace</Title>
                 <p style={{margin: "26px 0"}}>Explore 130,000+ curated AI prompts made by expert AI creators</p>
                 <div className="home__main-more">

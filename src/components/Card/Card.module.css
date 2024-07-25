@@ -59,13 +59,6 @@
 
 
 
-@media (max-width: 1440px) {
-    .product__image {
-        /*min-width: 150px;*/
-        /*height: 205px;*/
-    }
-}
-
 @media (max-width: 480px) {
     .category__itemImage {
         width: 275px;
@@ -74,5 +67,19 @@
 
     .category__itemDesc {
         gap: 60px;
+    }
+}
+
+@media (max-width: 412px) {
+    .product__image {
+        min-width: 163px;
+        height: 222px;
+    }
+}
+
+@media (max-width: 389px) {
+    .product__image {
+        min-width: 148px;
+        height: 201px;
     }
 }
