@@ -12,5 +12,6 @@
 @media (max-width: 480px) {
     .btn {
         font-size: 18px;
+        padding: 10px 24px;
     }
 }

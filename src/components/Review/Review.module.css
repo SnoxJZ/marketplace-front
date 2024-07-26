@@ -48,3 +48,38 @@
     font-weight: 400;
     line-height: 150%; /* 24px */
 }
+
+
+@media (max-width: 896px) {
+    .review {
+        min-width: 265px;
+        gap: 24px;
+        padding: 20px;
+    }
+
+    .review__user {
+        padding: 4px 14px;
+    }
+    .review__user img{
+        width: 28px;
+        height: 28px;
+    }
+
+    .review__head {
+        margin-bottom: 0;
+    }
+    .review__head p {
+        font-size: 12px;
+    }
+
+    .review__rate {
+        margin-bottom: 0;
+    }
+    .review__rate h1 {
+        font-size: 16px;
+    }
+
+    .review__text {
+        font-size: 14px;
+    }
+}

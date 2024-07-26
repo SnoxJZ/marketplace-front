@@ -8,10 +8,12 @@ import PromptsList from "../Home/HomePrompts/PromptsList";
 import avatar from "../../assets/Reviews/avatar.png";
 import Review from "../Review/Review";
 import {Link} from "react-router-dom";
+import {useMediaQuery} from "rsuite";
 
 
 const ProfileComp = () => {
     const [userInf, setUserInf] = useState({avatar: profileAva, name: "Rona Fr"})
+    const [isTablet] = useMediaQuery('(max-width: 896px)');
 
     const [review, setReview] = useState([
         {id: 1, avatar: avatar, name: "Rona Fr", date: "26.05.2024", rate: "4.0", text: "Very good"},
@@ -26,7 +28,7 @@ const ProfileComp = () => {
             <div className="profile-container">
                 <div className="user-info">
                     <img src={userInf.avatar} alt="avatar"/>
-                    <Title fontSize="48px">{userInf.name}</Title>
+                    <Title fontSize={isTablet ? "24px" : "48px"}>{userInf.name}</Title>
                 </div>
                 <Link to="/settings">
                     <Button>Settings</Button>
@@ -34,17 +36,17 @@ const ProfileComp = () => {
             </div>
             <div className="prompts">
                 <div className="prompts__profile-head">
-                    <Title>Trending Prompts</Title>
+                    <Title>Ordered prompts</Title>
                     <span className="profile__line"></span>
                 </div>
                 <PromptsList prompts={promptItems}/>
             </div>
             <div className="prompt__reviews">
-                <div className="prompts__profile-head">
+                <div className="prompts__profile-head mob">
                     <Title>100 creator reviews</Title>
                     <span className="profile__line"></span>
                 </div>
-                <div className="reviews__list" style={{marginTop: 28}}>
+                <div className="reviews__list" style={{marginTop: isTablet ? 0 : 28}}>
                 {review.map(item =>
                         <Review review={item} key={item.id}/>
                     )}

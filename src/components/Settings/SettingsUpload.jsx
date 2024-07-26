@@ -91,7 +91,7 @@ const SettingsUpload = () => {
             <div className="picture__save">
                 <div className="picture__save-text">
                     <Title color='rgba(208, 31, 223, 1)'>Profile Picture</Title>
-                    <h1 className="settings__text">Upload a picture to display on your profile.</h1>
+                    <h1 className="settings__text mob">Upload a picture to display on your profile.</h1>
                 </div>
                 <Button>Import Image</Button>
             </div>

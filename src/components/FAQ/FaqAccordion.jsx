@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import Accordion from 'rsuite/Accordion';
 import 'rsuite/Accordion/styles/index.css';
 import "./Faq.css";
+import {useMediaQuery} from "rsuite";
 
 const FaqAccordion = () => {
     const [activeKey, setActiveKey] = useState(null);
+    const [isTablet] = useMediaQuery('(max-width: 896px)');
 
     const handleToggle = (key) => {
         setActiveKey(activeKey === key ? null : key);
@@ -16,6 +18,8 @@ const FaqAccordion = () => {
             style={{
                 transform: isActive ? 'rotate(180deg)' : 'rotate(0deg)',
                 transition: 'transform 0.3s ease',
+                width: isTablet ? '28px' : '47px',
+                height: isTablet ? '14px' : '25px',
             }}
         >
             <path d="M1 1L23.5 23.5L46 1" stroke="#ED43DC" strokeLinecap="round" />

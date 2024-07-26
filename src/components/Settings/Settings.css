@@ -91,3 +91,48 @@
     justify-content: space-between;
     align-items: center;
 }
+
+
+@media (max-width: 896px) {
+    .settings__header {
+        text-align: center;
+    }
+
+    .acc_settings {
+        margin: 0 20px;
+    }
+
+    .account__settings {
+        flex-direction: column-reverse;
+        gap: 25px;
+        margin-bottom: 18px;
+    }
+
+    .profile__picture {
+        gap: 32px;
+    }
+
+    .ant-upload-select {
+        width: 112px !important;
+        height: 112px !important;
+    }
+
+    .settings__text.mob {
+        font-size: 16px;
+    }
+
+    .picture__save {
+        gap: 16px;
+    }
+
+    .settings__input-group {
+        flex-direction: column;
+        gap: 18px;
+        margin-bottom: 18px;
+    }
+
+    .settings__btns {
+        flex-direction: column;
+        gap: 42px;
+    }
+}

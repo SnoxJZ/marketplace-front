@@ -3,6 +3,7 @@ import Title from "../ui/Title/Title";
 import {Rating} from "@mui/material";
 import avatar from "../../assets/Reviews/avatar.png";
 import Review from "../Review/Review";
+import {useMediaQuery} from "rsuite";
 
 const PromptReviews = () => {
     const [totalReviews, setTotalReviews] = useState({count: 100, rate: "4.0"});
@@ -19,7 +20,7 @@ const PromptReviews = () => {
         <div className="prompt__reviews">
             <div className="reviews__header">
                 <Title>{totalReviews.count} creator reviews</Title>
-                <div className="prompt__info-rate">
+                <div className="prompt__info-rate full">
                     <h1>{totalReviews.rate}</h1>
                     <Rating name="half-rating-read" defaultValue={rate} precision={0.1} readOnly
                             style={{color: 'rgb(237, 67, 220)', fontSize: 22}}/>

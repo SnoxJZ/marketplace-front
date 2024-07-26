@@ -53,3 +53,26 @@
     gap: 24px;
     position: relative;
 }
+
+
+@media (max-width: 896px) {
+    .about__us {
+        flex-direction: column;
+        margin: 0 20px 24px 20px;
+        height: 800px;
+    }
+
+    .about__text {
+        align-items: center;
+        margin-bottom: 24px;
+        max-width: 100%;
+    }
+    .about__text p {
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .about__img-wrapper {
+        justify-content: center;
+    }
+}

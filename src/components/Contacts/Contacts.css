@@ -20,3 +20,10 @@
     gap: 32px;
     margin-top: 43px;
 }
+
+
+@media (max-width: 896px) {
+    .contact__text h1{
+        text-align: center;
+    }
+}
