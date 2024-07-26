@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 import AppRouter from "./components/AppRouter";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Preloader from "./components/Preloader/Preloader";
+import {ThemeProviderMain} from "./providers/ThemeProviderMain";
 
 const theme = createTheme({
     components: {
@@ -13,7 +14,7 @@ const theme = createTheme({
             styleOverrides: {
                 root: {
                     '& .MuiRating-iconEmpty': {
-                        color: 'rgba(255, 255, 255, 1)',
+                        color: 'var(--main-text-color)',
                     },
                 },
             },
@@ -23,14 +24,16 @@ const theme = createTheme({
 
 function App() {
     return (
-        <ThemeProvider theme={theme}>
-            <BrowserRouter>
-                {/*<Preloader/>*/}
-                <Header/>
-                <AppRouter/>
-                <Footer/>
-            </BrowserRouter>
-        </ThemeProvider>
+        <ThemeProviderMain>
+            <ThemeProvider theme={theme}>
+                <BrowserRouter>
+                    <Preloader/>
+                    <Header/>
+                    <AppRouter/>
+                    <Footer/>
+                </BrowserRouter>
+            </ThemeProvider>
+        </ThemeProviderMain>
     );
 }
 

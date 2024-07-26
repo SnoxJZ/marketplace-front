@@ -39,12 +39,17 @@
 }
 
 .prompt__descr-text {
-    color: #FFF;
+    color: var(--main-text-color);
     font-family: K2D, sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 150%; /* 24px */
+}
+
+.heart__img {
+    fill: var(--main-text-color);
+    cursor: pointer;
 }
 
 

@@ -53,6 +53,7 @@
     z-index: -1;
     height: 90%;
     user-select: none;
+    filter: var(--home-img-filter);
 }
 
 .right-elem {
@@ -63,6 +64,7 @@
     z-index: -1;
     height: 60%;
     user-select: none;
+    filter: var(--home-img-filter);
 }
 
 .home__rectangle {
@@ -100,6 +102,10 @@
     display: flex;
     gap: 16px;
     align-items: center;
+}
+
+.home__main-arrow {
+    fill: var(--main-text-color);
 }
 
 .home__main-products {

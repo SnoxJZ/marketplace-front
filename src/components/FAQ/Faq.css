@@ -13,7 +13,7 @@
 }
 
 .rs-panel-title {
-    color: #FFFFFF;
+    color: var(--main-text-color);
     font-size: 36px;
 }
 
@@ -24,11 +24,12 @@
 }
 
 .rs-panel-btn:focus {
-    background-color: #191919;
+    background-color: var(--acordion-btn-hover);
 }
 
 .rs-panel-btn:hover {
-    background-color: #191919;
+    background-color: var(--acordion-btn-hover);
+    transition: ease-in-out 0.3s all;
 }
 
 .rs-panel-btn-icon {
@@ -44,7 +45,7 @@
 }
 
 .faq__text {
-    color: #918F8F;
+    color: var(--faq-paragraph-color);
     font-family: K2D, sans-serif;
     font-size: 16px;
     font-style: normal;

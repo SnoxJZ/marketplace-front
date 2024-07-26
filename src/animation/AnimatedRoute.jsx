@@ -5,7 +5,7 @@ import { useLocation, Route, Routes } from 'react-router-dom';
 const pageTransition = {
     initial: {
         opacity: 0,
-        position: 'absolute', // добавляем позиционирование для наложения элементов
+        position: 'absolute',
         width: '100%',
     },
     animate: {
@@ -15,7 +15,7 @@ const pageTransition = {
     },
     exit: {
         opacity: 0,
-        position: 'absolute', // добавляем позиционирование для наложения элементов
+        position: 'absolute',
         width: '100%',
     },
 };
@@ -35,7 +35,7 @@ const AnimatedRoute = ({ children }) => {
                             exit="exit"
                             variants={pageTransition}
                             transition={{ duration: 1 }}
-                            style={{ position: 'relative' }} // добавляем позиционирование для наложения элементов
+                            style={{ position: 'relative' }}
                         >
                             {children}
                         </motion.div>

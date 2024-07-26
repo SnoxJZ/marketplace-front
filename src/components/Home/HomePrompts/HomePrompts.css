@@ -21,6 +21,10 @@
     padding: 29px 25px;
 }
 
+.arrow__img {
+    stroke: var(--main-text-color);
+}
+
 .custom-left-arrow {
     position: absolute;
     left: 0;

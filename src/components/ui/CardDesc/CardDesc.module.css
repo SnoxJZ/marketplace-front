@@ -12,3 +12,7 @@
 .product__title {
     color: #ED43DC;
 }
+
+.product__price {
+    color: var(--text-color-default);
+}

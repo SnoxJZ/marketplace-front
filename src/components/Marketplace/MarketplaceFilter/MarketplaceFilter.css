@@ -48,7 +48,10 @@
     flex-direction: column;
     gap: 24px;
     margin-bottom: 32px;
+}
 
+.filters__list span {
+    color: var(--main-text-color);
 }
 
 .filter__type {
@@ -58,8 +61,7 @@
 }
 
 .ant-select-dropdown {
-    border: 1px solid #202020;
-    border-top: none;
+    border: 1px solid #FF8C06;
 }
 
 .ant-select-arrow {
@@ -99,14 +101,14 @@
         align-items: center;
         width: 100%;
         padding: 20px 0 8px 0;
-        border-bottom: solid 1px #FFFFFF;
+        border-bottom: solid 1px var(--main-text-color);
     }
 
     .marketplace__filter-wrapper {
         position: absolute;
         z-index: 3;
         top: 76px;
-        background: rgba(0, 0, 0, 0.74);
+        background: var(--main-menu-background);
         backdrop-filter: blur(8px);
         transition: opacity 0.3s ease, transform 0.3s ease;
         opacity: 0;

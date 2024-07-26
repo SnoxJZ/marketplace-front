@@ -11,7 +11,7 @@ const SettingsNotification = () => {
             theme={{
                 components: {
                     Checkbox: {
-                        colorText: '#ffffff',
+                        colorText: 'var(--main-text-color)',
                         colorBgContainer: 'transparent',
                         colorBorder: '#D01FDF',
                         colorPrimary: '#D01FDF',
@@ -22,7 +22,7 @@ const SettingsNotification = () => {
         >
             <div className="notification_setting">
                 <h1 className="settings__text">Notification</h1>
-                <Checkbox onChange={onChange} style={{color: '#ffffff', fontSize: 17}}>New Messages</Checkbox>
+                <Checkbox onChange={onChange} style={{color: 'var(--main-text-color)', fontSize: 17}}>New Messages</Checkbox>
             </div>
         </ConfigProvider>
     );

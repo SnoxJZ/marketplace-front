@@ -14,13 +14,9 @@ p {
 }
 
 body {
-	background: #000000;
-	color: #ffffff;
+	background: var(--main-background-color);
+	color: var(--main-text-color);
 	overflow-x: hidden;
-}
-
-a {
-	color: #000000;
 }
 
 #root {
@@ -39,7 +35,7 @@ a {
 
 a, a:link, a:visited  {
     text-decoration: none;
-	color: #FFFFFF;
+	color: var(--main-text-color);
 }
 
 a:hover  {
@@ -51,10 +47,12 @@ a:hover  {
 h1, h2, h3, h4, h5, h6, p {
     font-size: inherit;
 	font-weight: inherit;
+	color: var(--main-text-color);
 }
 
 ul, ul li {
 	list-style: none;
+	color: var(--main-text-color);
 }
 
 img {

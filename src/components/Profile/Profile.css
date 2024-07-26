@@ -20,7 +20,7 @@
 .profile__line {
     width: 100%;
     height: 1px;
-    background: #FFF;
+    background: var(--main-text-color);
 }
 
 .prompts__profile-head {

@@ -1,13 +1,32 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Title from "../ui/Title/Title";
 import facebook from "../../assets/Contacts/facebook.png"
 import twitter from "../../assets/Contacts/twitter.png"
 import instagram from "../../assets/Contacts/instagram.png"
+import instagramLight from "../../assets/Contacts/instagram-light.png"
+import facebookLight from "../../assets/Contacts/facebook-light.png"
+import twitterLight from "../../assets/Contacts/twitter-light.png"
 import "./Contacts.css"
 import {useMediaQuery} from "rsuite";
 
 const ContactsComp = () => {
     const [isTablet] = useMediaQuery('(max-width: 896px)');
+    const [instagramImg, setInstagramImg] = useState(instagram);
+    const [twitterImg, setTwitterImg] = useState(twitter);
+    const [facebookImg, setFacebookImg] = useState(facebook);
+
+    useEffect(() => {
+        const bodyClassList = document.body.classList;
+        if (bodyClassList.contains('light')) {
+            setInstagramImg(instagramLight);
+            setTwitterImg(twitterLight);
+            setFacebookImg(facebookLight);
+        } else {
+            setInstagramImg(instagram);
+            setTwitterImg(twitter);
+            setFacebookImg(facebook);
+        }
+    }, []);
 
     return (
         <div className="contact__page">
@@ -17,9 +36,9 @@ const ContactsComp = () => {
                 <h1 style={{color: "#D01FDF", fontSize: "24px"}}>name@gmail.com</h1>
             </div>
             <div className="contact__icons">
-                <img src={instagram} alt="instagram"/>
-                <img src={twitter} alt="twitter"/>
-                <img src={facebook} alt="facebook"/>
+                <img src={instagramImg} alt="instagram"/>
+                <img src={twitterImg} alt="twitter"/>
+                <img src={facebookImg} alt="facebook"/>
             </div>
         </div>
     );

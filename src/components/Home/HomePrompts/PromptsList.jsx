@@ -7,12 +7,12 @@ const CustomButtonGroup = ({ next, previous }) => {
         <div className="custom-button-group">
             <button onClick={previous} className="custom-arrow custom-left-arrow">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="41" viewBox="0 0 22 41" fill="none" className="arrow__img">
-                    <path d="M21 1L1 20.5L21 40" stroke="white" strokeLinecap="round"/>
+                    <path d="M21 1L1 20.5L21 40" strokeLinecap="round"/>
                 </svg>
             </button>
             <button onClick={next} className="custom-arrow custom-right-arrow">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="41" viewBox="0 0 22 41" fill="none" className="arrow__img">
-                    <path d="M1 1L20.5 20.5L1 40" stroke="white" strokeLinecap="round"/>
+                    <path d="M1 1L20.5 20.5L1 40" strokeLinecap="round"/>
                 </svg>
             </button>
         </div>
