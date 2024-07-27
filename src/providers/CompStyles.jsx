@@ -38,6 +38,9 @@ const CompStyles = ( {children} ) => {
                         controlInteractiveSize: 10,
                         borderRadiusSM: 0,
                     },
+                    Input: {
+                        colorTextPlaceholder: "var(--faq-paragraph-color)",
+                    }
                 }
             }}
         >

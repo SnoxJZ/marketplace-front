@@ -40,6 +40,7 @@
 
     .home__marketplace-desc {
         padding: 32px 42px 32px 42px;
+        max-width: 100%;
     }
 
     .marketplace__desc-title {

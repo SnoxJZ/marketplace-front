@@ -4,7 +4,7 @@ import {Select} from 'antd';
 import Button from "../../ui/Button/Button";
 import {motion} from 'framer-motion';
 import MarketplaceFilterList from "./MarketplaceFilterList";
-import CompStyles from "./CompStyles";
+import CompStyles from "../../../providers/CompStyles";
 import Title from "../../ui/Title/Title";
 import filter from "../../../assets/Marketplace/filter.png";
 

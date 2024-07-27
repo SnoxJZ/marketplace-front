@@ -11,20 +11,26 @@ body {
     --faq-paragraph-color: #918F8F;
     --acordion-btn-hover: #191919;
     --about-img-gradient: rgba(0, 0, 0, 0), rgba(0, 0, 0, 1);
+    --loading-text-color: #a0a0a0;
+    --textarea-background: #000000;
+    --textarea-shadow: rgba(203, 150, 229, 0.5);
 }
 
 body.light {
-    --main-background-color: #f9f8f4;
+    --main-background-color: #c9cacf;
     --main-text-color: #000000;
     --main-items-background: #e7e7e7;
     --home-img-filter: brightness(0.2);
     --category-item-background: #e7e7e7;
-    --card-hover-color: rgba(255, 255, 255, 0.15);
+    --card-hover-color: rgba(201, 202, 207, 0.2);
     --select-selected-background: #a6a6a6;
     --main-menu-background: rgba(255, 255, 255, 0.74);
     --faq-paragraph-color: #5f5f5f;
     --acordion-btn-hover: #bcbcbc;
-    --about-img-gradient: rgba(249, 248, 244, 0), rgba(249, 248, 244, 1);
+    --about-img-gradient: rgba(201, 202, 207, 0), rgba(201, 202, 207, 1);
+    --loading-text-color: #505050;
+    --textarea-background: #D9D9D9;
+    --textarea-shadow: rgba(0, 0, 0, 0.2);
 }
 
 .home__main-content {

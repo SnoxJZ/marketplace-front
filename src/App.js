@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./styles/App.css";
 import { BrowserRouter } from "react-router-dom";
 import Header from "./components/Header/Header";
@@ -6,7 +6,7 @@ import Footer from "./components/Footer/Footer";
 import AppRouter from "./components/AppRouter";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Preloader from "./components/Preloader/Preloader";
-import {ThemeProviderMain} from "./providers/ThemeProviderMain";
+import { ThemeProviderMain } from "./providers/ThemeProviderMain";
 
 const theme = createTheme({
     components: {
@@ -23,14 +23,35 @@ const theme = createTheme({
 });
 
 function App() {
+
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    useEffect(() => {
+        const handleLoad = () => {
+            setTimeout(() => {
+                setIsLoaded(true);
+            }, 2000);
+        };
+
+        window.addEventListener('load', handleLoad);
+
+        return () => {
+            window.removeEventListener('load', handleLoad);
+        };
+    }, []);
+
     return (
         <ThemeProviderMain>
             <ThemeProvider theme={theme}>
                 <BrowserRouter>
-                    <Preloader/>
-                    <Header/>
-                    <AppRouter/>
-                    <Footer/>
+                    {!isLoaded && <Preloader />}
+                    {isLoaded && (
+                        <>
+                            <Header />
+                            <AppRouter />
+                            <Footer />
+                        </>
+                    )}
                 </BrowserRouter>
             </ThemeProvider>
         </ThemeProviderMain>
