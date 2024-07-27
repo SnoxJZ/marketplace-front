@@ -14,6 +14,7 @@ body {
     --loading-text-color: #a0a0a0;
     --textarea-background: #000000;
     --textarea-shadow: rgba(203, 150, 229, 0.5);
+    --modal-background: #191919;
 }
 
 body.light {
@@ -31,6 +32,7 @@ body.light {
     --loading-text-color: #505050;
     --textarea-background: #D9D9D9;
     --textarea-shadow: rgba(0, 0, 0, 0.2);
+    --modal-background: #e7e7e7;
 }
 
 .home__main-content {

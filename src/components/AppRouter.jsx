@@ -12,6 +12,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import AboutUs from "../pages/AboutUs";
 import AnimatedRoute from "../animation/AnimatedRoute";
+import AdminPanel from "../pages/AdminPanel";
 
 const AppRouter = () => {
     return (
@@ -27,6 +28,7 @@ const AppRouter = () => {
                 <Route path="login" element={<Login />} />
                 <Route path="register" element={<Register />} />
                 <Route path="about" element={<AboutUs />} />
+                <Route path="adminpanel" element={<AdminPanel />} />
                 <Route path="*" element={<Error />} />
             </Routes>
         </AnimatedRoute>

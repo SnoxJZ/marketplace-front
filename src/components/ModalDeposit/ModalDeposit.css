@@ -1,0 +1,16 @@
+.modal__dep-group {
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#amount {
+    width: 50%;
+    font-size: 20px;
+}
+
+.exchange__rate {
+    font-size: 16px;
+    color: var(--faq-paragraph-color);
+    margin-top: 20px;
+}

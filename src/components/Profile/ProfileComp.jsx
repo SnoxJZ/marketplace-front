@@ -9,11 +9,13 @@ import avatar from "../../assets/Reviews/avatar.png";
 import Review from "../Review/Review";
 import {Link} from "react-router-dom";
 import {useMediaQuery} from "rsuite";
+import ModalDeposit from "../ModalDeposit/ModalDeposit";
 
 
 const ProfileComp = () => {
-    const [userInf, setUserInf] = useState({avatar: profileAva, name: "Rona Fr"})
+    const [userInf, setUserInf] = useState({avatar: profileAva, name: "Rona Fr", balance: 250})
     const [isTablet] = useMediaQuery('(max-width: 896px)');
+    const [modalActive, setModalActive] = useState(false);
 
     const [review, setReview] = useState([
         {id: 1, avatar: avatar, name: "Rona Fr", date: "26.05.2024", rate: "4.0", text: "Very good"},
@@ -30,9 +32,18 @@ const ProfileComp = () => {
                     <img src={userInf.avatar} alt="avatar"/>
                     <Title fontSize={isTablet ? "24px" : "48px"}>{userInf.name}</Title>
                 </div>
-                <Link to="/settings">
-                    <Button>Settings</Button>
-                </Link>
+                <div className="profile__btns">
+                    <Link to="/settings">
+                        <Button>Settings</Button>
+                    </Link>
+                    <Button id={'buy-btn'} borderColor={'#FF8C06'} onClick={() => setModalActive(true)}>Buy ART</Button>
+                </div>
+            </div>
+            <div className="user__balance-wrapper">
+                <div className="user__balance">
+                    <Title color={'#ED43DC'}>Balance:</Title>
+                    <h1 className="profile__balance">{userInf.balance} ART</h1>
+                </div>
             </div>
             <div className="prompts">
                 <div className="prompts__profile-head">
@@ -47,11 +58,12 @@ const ProfileComp = () => {
                     <span className="profile__line"></span>
                 </div>
                 <div className="reviews__list" style={{marginTop: isTablet ? 0 : 28}}>
-                {review.map(item =>
+                    {review.map(item =>
                         <Review review={item} key={item.id}/>
                     )}
                 </div>
             </div>
+            <ModalDeposit modalActive={modalActive} setModalActive={setModalActive}/>
         </div>
     );
 };

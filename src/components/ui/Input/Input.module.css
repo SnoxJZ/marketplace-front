@@ -5,3 +5,12 @@
     border: 1px solid #ED43DC;
     border-radius: 6px;
 }
+
+.inputField::-webkit-outer-spin-button,
+.inputField::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
