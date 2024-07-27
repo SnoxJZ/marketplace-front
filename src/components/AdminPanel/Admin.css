@@ -1,0 +1,33 @@
+.admin__panel .rs-panel-btn-icon, .rs-panel-title{
+    color: #ED43DC;
+}
+
+.admin__panel .rs-panel-body {
+    margin-left: 0;
+}
+
+.admin__panel .ant-input {
+    background: transparent;
+    border-color: transparent;
+    cursor: auto;
+    color: var(--main-text-color);
+    font-size: 16px;
+    width: 200px;
+}
+
+
+
+.info-panel, .header-panel {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.users__header-item {
+    display: flex;
+    justify-content: flex-start;
+    width: 200px;
+    color: #FF8C06;
+    margin-bottom: 20px;
+}

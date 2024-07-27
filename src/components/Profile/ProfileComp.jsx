@@ -13,7 +13,7 @@ import ModalDeposit from "../ModalDeposit/ModalDeposit";
 
 
 const ProfileComp = () => {
-    const [userInf, setUserInf] = useState({avatar: profileAva, name: "Rona Fr", balance: 250})
+    const [userInf, setUserInf] = useState({avatar: profileAva, name: "Rona Fr", balance: 250.1})
     const [isTablet] = useMediaQuery('(max-width: 896px)');
     const [modalActive, setModalActive] = useState(false);
 
