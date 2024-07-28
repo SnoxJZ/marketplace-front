@@ -40,9 +40,6 @@ const Header = () => {
                     <Link to="/contacts">
                         <li>Contacts</li>
                     </Link>
-                    <Link to="/adminpanel">
-                        <li>Admin</li>
-                    </Link>
                 </ul>
                 <div className="header__logo">Logo</div>
                 <div className="header__tools">
