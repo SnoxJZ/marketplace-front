@@ -53,7 +53,7 @@ const HeaderBurger = () => {
                 </div>
                 <ul className={`burger__items ${isOpen ? 'show' : ''}`}>
                     <div className="search__box">
-                        <Input id="search-input"/>
+                        <Input id="search-input-mob"/>
                         <button className="search__btn"><img src={searchIcon} className="search__ico" alt="search"/>
                         </button>
                     </div>

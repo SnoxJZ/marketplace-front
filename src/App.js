@@ -7,6 +7,7 @@ import AppRouter from "./components/AppRouter";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Preloader from "./components/Preloader/Preloader";
 import { ThemeProviderMain } from "./providers/ThemeProviderMain";
+import CompStyles from "./providers/CompStyles";
 
 const theme = createTheme({
     components: {
@@ -42,18 +43,20 @@ function App() {
 
     return (
         <ThemeProviderMain>
-            <ThemeProvider theme={theme}>
-                <BrowserRouter>
-                    {!isLoaded && <Preloader />}
-                    {isLoaded && (
-                        <>
-                            <Header />
-                            <AppRouter />
-                            <Footer />
-                        </>
-                    )}
-                </BrowserRouter>
-            </ThemeProvider>
+            <CompStyles>
+                <ThemeProvider theme={theme}>
+                    <BrowserRouter>
+                        {!isLoaded && <Preloader />}
+                        {isLoaded && (
+                            <>
+                                <Header />
+                                <AppRouter />
+                                <Footer />
+                            </>
+                        )}
+                    </BrowserRouter>
+                </ThemeProvider>
+            </CompStyles>
         </ThemeProviderMain>
     );
 }

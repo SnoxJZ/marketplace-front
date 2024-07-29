@@ -40,6 +40,9 @@ const CompStyles = ( {children} ) => {
                     },
                     Input: {
                         colorTextPlaceholder: "var(--faq-paragraph-color)",
+                    },
+                    Spin : {
+                        colorPrimary: '#D01FDF',
                     }
                 }
             }}

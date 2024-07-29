@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import profileAva from "../../assets/Profile/profile-avatar.png"
 import Title from "../ui/Title/Title";
 import Button from "../ui/Button/Button";
@@ -10,12 +10,25 @@ import Review from "../Review/Review";
 import {Link} from "react-router-dom";
 import {useMediaQuery} from "rsuite";
 import ModalDeposit from "../ModalDeposit/ModalDeposit";
+import {getProfile} from "../../API/useProfileService";
+import {useFetching} from "../../hooks/useFetching";
+import {useAuth} from "../../context/AuthContext";
+import {Spin} from "antd";
 
 
 const ProfileComp = () => {
-    const [userInf, setUserInf] = useState({avatar: profileAva, name: "Rona Fr", balance: 250.1})
+    const [profile, setProfile] = useState([]);
     const [isTablet] = useMediaQuery('(max-width: 896px)');
     const [modalActive, setModalActive] = useState(false);
+    const { token } = useAuth();
+
+    const [fetchProfile, isLoading, error] = useFetching(async () => {
+        const data = await getProfile(token);
+        setProfile(data);
+    });
+    useEffect(() => {
+        fetchProfile();
+    }, []);
 
     const [review, setReview] = useState([
         {id: 1, avatar: avatar, name: "Rona Fr", date: "26.05.2024", rate: "4.0", text: "Very good"},
@@ -28,10 +41,15 @@ const ProfileComp = () => {
     return (
         <div className="profile">
             <div className="profile-container">
-                <div className="user-info">
-                    <img src={userInf.avatar} alt="avatar"/>
-                    <Title fontSize={isTablet ? "24px" : "48px"}>{userInf.name}</Title>
-                </div>
+                {isLoading
+                    ? <Spin/>
+                    :
+                    <div className="user-info">
+                        <img src={`http://localhost:8000/${profile.avatar}`} alt="avatar"/>
+                        <Title fontSize={isTablet ? "24px" : "48px"}>{profile.nickname}</Title>
+                    </div>
+                }
+                {error && <p style={{marginTop: 20, color: "red"}}>{error}</p>}
                 <div className="profile__btns">
                     <Link to="/settings">
                         <Button>Settings</Button>
@@ -42,7 +60,10 @@ const ProfileComp = () => {
             <div className="user__balance-wrapper">
                 <div className="user__balance">
                     <Title color={'#ED43DC'}>Balance:</Title>
-                    <h1 className="profile__balance">{userInf.balance} ART</h1>
+                    {isLoading
+                        ? <Spin/>
+                        : <h1 className="profile__balance">{profile.balance} ART</h1>
+                    }
                 </div>
             </div>
             <div className="prompts">

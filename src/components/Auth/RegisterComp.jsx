@@ -5,23 +5,24 @@ import Input from "../ui/Input/Input";
 import {Link, useNavigate} from "react-router-dom";
 import Button from "../ui/Button/Button";
 import {useAuth} from "../../context/AuthContext";
+import {useFetching} from "../../hooks/useFetching";
+import {Spin} from "antd";
 
 const RegisterComp = () => {
     const [email, setEmail] = useState('');
     const [nickname, setNickname] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
     const { register } = useAuth();
     const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
+    const [fetchRegister, isLoading, error] = useFetching(async () => {
+        await register(email, nickname, password);
+        navigate('/login');
+    });
+
+    const handleSubmit = (e) => {
         e.preventDefault();
-        try {
-            await register(email, nickname, password);
-            navigate('/');
-        } catch (err) {
-            setError(err.message);
-        }
+        fetchRegister();
     };
 
     return (
@@ -41,7 +42,7 @@ const RegisterComp = () => {
                     <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                 </div>
                 <div className="auth__btns">
-                    <Button type="submit">Registration</Button>
+                    <Button disabled={isLoading}>{isLoading ? <Spin/> : "Registration"}</Button>
                     <Link to="/login">
                         <h1>I have account</h1>
                     </Link>

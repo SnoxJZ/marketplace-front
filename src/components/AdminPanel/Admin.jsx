@@ -16,7 +16,7 @@ const Admin = () => {
         {id: 5, nickname: "Experienced", date: "2024-08-38T12:56:32", amount: 345.95},
     ])
     const [transactions, setTransactions] = useState([
-        {id: 1, userId: 1, productId: 1, date: "2024-07-22T21:22:13", price: 3.45, status: "paid"},
+        {id: 1, userId: 1, productId: 1, date: "2024-07-22T21:22:13", price: 3.45, status: "completed"},
         {id: 2, userId: 5, productId: 10, date: "2024-07-23T14:22:31", price: 7.35, status: "pending"},
         {id: 3, userId: 5, productId: 26, date: "2024-07-23T14:36:22", price: 4.59, status: "canceled"},
     ])
