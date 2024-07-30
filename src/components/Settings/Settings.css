@@ -73,6 +73,13 @@
     gap: 8px;
 }
 
+.import__avatar {
+    border-radius: 50%;
+    z-index: -1;
+    object-fit: cover;
+    height: 100%;
+}
+
 
 .notification_setting {
     display: flex;

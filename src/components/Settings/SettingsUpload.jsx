@@ -4,6 +4,8 @@ import { Flex, message, Upload } from 'antd';
 import "./Settings.css"
 import Title from "../ui/Title/Title";
 import Button from "../ui/Button/Button";
+import {useAuth} from "../../context/AuthContext";
+import {uploadAvatar} from "../../API/useProfileService";
 
 const getBase64 = (img, callback) => {
     const reader = new FileReader();
@@ -26,6 +28,9 @@ const SettingsUpload = () => {
 
     const [loading, setLoading] = useState(false);
     const [imageUrl, setImageUrl] = useState();
+    const [file, setFile] = useState(null);
+    const { token } = useAuth();
+
     const handleChange = (info) => {
         if (info.file.status === 'uploading') {
             setLoading(true);
@@ -36,9 +41,24 @@ const SettingsUpload = () => {
             getBase64(info.file.originFileObj, (url) => {
                 setLoading(false);
                 setImageUrl(url);
+                setFile(info.file.originFileObj);
             });
         }
     };
+
+    const handleUpload = async () => {
+        if (!file) {
+            message.error('Please select an image first.');
+            return;
+        }
+        try {
+            await uploadAvatar(file, token); // Загрузка файла на сервер
+            message.success('Avatar uploaded successfully!');
+        } catch (error) {
+            message.error('Failed to upload avatar.');
+        }
+    };
+
     const uploadButton = (
         <button
             style={{
@@ -65,17 +85,21 @@ const SettingsUpload = () => {
             <div className="picture__upload">
                 <Flex gap="middle" wrap>
                     <Upload
-                        name="avatar"
+                        name="file"
                         listType="picture-circle"
                         className="avatar-uploader"
                         showUploadList={false}
-                        action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
+                        action="/profile/me/avatar"
+                        headers={{
+                            Authorization: `Bearer ${token}`  // передаем токен авторизации
+                        }}
                         beforeUpload={beforeUpload}
                         onChange={handleChange}
 
                     >
                         {imageUrl ? (
                             <img
+                                className="import__avatar"
                                 src={imageUrl}
                                 alt="avatar"
                                 style={{
@@ -93,7 +117,7 @@ const SettingsUpload = () => {
                     <Title color='rgba(208, 31, 223, 1)'>Profile Picture</Title>
                     <h1 className="settings__text mob">Upload a picture to display on your profile.</h1>
                 </div>
-                <Button>Import Image</Button>
+                <Button onClick={handleUpload}>Import Image</Button>
             </div>
         </div>
     );

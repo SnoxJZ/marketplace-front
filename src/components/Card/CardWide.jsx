@@ -8,7 +8,7 @@ const CardWide = ({item}) => {
 
     return (
         <div className={classes.product} onClick={() => router(`/marketplace/item/${item.id}`)}>
-            <img src={item.image} alt="img" className={classes.category__itemImage}/>
+            <img src={item.image_url} alt="img" className={classes.category__itemImage}/>
             <div className={classes.category__itemDesc}>
                 <CardDesc
                     title={item.title}

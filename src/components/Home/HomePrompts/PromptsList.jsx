@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from "../../Card/Card";
 import Carousel from "react-multi-carousel";
+import PlaceholderCard from "../../Card/PlaceholderCard";
 
 const CustomButtonGroup = ({ next, previous }) => {
     return (
@@ -19,7 +20,7 @@ const CustomButtonGroup = ({ next, previous }) => {
     );
 };
 
-const PromptsList = ({prompts}) => {
+const PromptsList = ({prompts, isLoading}) => {
     const responsive = {
         superLargeDesktop: {
             breakpoint: { max: 4000, min: 1534 },
@@ -55,9 +56,22 @@ const PromptsList = ({prompts}) => {
                 customButtonGroup={<CustomButtonGroup/>}
                 renderButtonGroupOutside={true}
             >
-                {prompts.map(prompt =>
-                    <Card card={prompt} key={prompt.id}/>
-                )}
+                {isLoading
+                    ?
+                    <div>
+                        <PlaceholderCard/>
+                        <PlaceholderCard/>
+                        <PlaceholderCard/>
+                        <PlaceholderCard/>
+                        <PlaceholderCard/>
+                        <PlaceholderCard/>
+                        <PlaceholderCard/>
+                    </div>
+                    :
+                    prompts.map(prompt =>
+                        <Card card={prompt} key={prompt.id}/>
+                    )
+                }
             </Carousel>
         </div>
     );

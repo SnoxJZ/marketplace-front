@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Checkbox, Radio } from "antd";
-import { Group, Text, Collapse, Box } from '@mantine/core';
+import { Group, Collapse, Box } from '@mantine/core';
 import Input from "../../ui/Input/Input";
 
 const product = ['Prompts', 'Bundles', 'Apps'];
 const type = ['All', 'Image', 'Text'];
-const Model = ['All', 'Midjourney', 'DALL·E', 'GPT', 'Leonardo Ai', 'Llama', 'Stable Diffusion'];
+const Model = ['All', '⛵ Midjourney', '🎨 DALL·E', '🤖 GPT', '🧙‍♂️ Leonardo Ai', '🌌 Stable Diff.'];
 
 const MarketplaceFilterList = () => {
     const [value1, setValue1] = useState('Prompts');

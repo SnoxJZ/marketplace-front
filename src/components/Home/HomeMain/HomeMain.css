@@ -108,7 +108,7 @@
     fill: var(--main-text-color);
 }
 
-.home__main-products {
+.home__main-products, .placeholder__card-group {
     display: flex;
     position: absolute;
     gap: 24px;
@@ -116,6 +116,7 @@
     right: 0;
     z-index: 4;
 }
+
 
 @media (max-width: 896px) {
     .home__main-title {

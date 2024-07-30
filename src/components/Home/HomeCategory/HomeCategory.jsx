@@ -1,20 +1,44 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import Title from "../../ui/Title/Title";
-import "./HomeCategory.css"
+import "./HomeCategory.css";
 import CardWide from "../../Card/CardWide";
-import wideItems from "../../Card/WIdeItems";
+import axios from 'axios';
+import { useFetching } from '../../../hooks/useFetching';
+import PlaceholderCardWide from "../../Card/PlaceholderCardWide";
+
+const categories = [
+    { id: 1, title: "3D", api: "/products_3D/" },
+    { id: 2, title: "Anime", api: "/products_anime/" },
+    { id: 3, title: "Cartoon", api: "/products_cartoon/" },
+    { id: 4, title: "Art", api: "/products_art/" },
+    { id: 5, title: "Logo", api: "/products_logo/" },
+    { id: 6, title: "Mockup", api: "/products_Mockup/" },
+    { id: 7, title: "Nature", api: "/products_Nature/" },
+    { id: 8, title: "People", api: "/products_People/" },
+];
 
 const HomeCategory = () => {
-    const [category, setCategory] = useState([
-        {id: 1, title: "3D"},
-        {id: 2, title: "Anime"},
-        {id: 3, title: "Cartoon"},
-        {id: 4, title: "Art"},
-        {id: 5, title: "Logo"},
-        {id: 6, title: "Mockup"},
-        {id: 7, title: "Nature"},
-        {id: 8, title: "People"},
-    ])
+    const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+    const [items, setItems] = useState([]);
+
+    const fetchItems = async () => {
+        if (selectedCategory) {
+            const response = await axios.get(selectedCategory.api, { params: { limit: 10 } });
+            setItems(response.data);
+        }
+    };
+
+    const [fetchData, isLoading, error] = useFetching(fetchItems);
+
+    useEffect(() => {
+        if (selectedCategory) {
+            fetchData();
+        }
+    }, [selectedCategory]);
+
+    const handleCategoryClick = (category) => {
+        setSelectedCategory(category);
+    };
 
     return (
         <div className="home__category">
@@ -23,16 +47,29 @@ const HomeCategory = () => {
                 <span className="line"></span>
             </div>
             <div className="home__categories">
-                {category.map(category =>
-                    <div className="category__item" key={category.id}>
+                {categories.map(category =>
+                    <div
+                        className={`category__item ${selectedCategory?.id === category.id ? 'active' : ''}`}
+                        key={category.id}
+                        onClick={() => handleCategoryClick(category)}
+                    >
                         <h1 className="category__title">{category.title}</h1>
                     </div>
                 )}
             </div>
             <div className="home__category-items">
-                {wideItems.map(item =>
-                    <CardWide item={item} key={item.id}/>
+                {isLoading ?
+                    <div className="placeholder__card-group-wide">
+                        <PlaceholderCardWide/>
+                        <PlaceholderCardWide/>
+                        <PlaceholderCardWide/>
+                    </div>
+                    : (
+                    items.map(item =>
+                        <CardWide item={item} key={item.id} />
+                    )
                 )}
+                {error && <p style={{marginBottom: 20, color: "red"}}>{error}</p>}
             </div>
         </div>
     );

@@ -10,7 +10,6 @@ export const getProfile = async (token) => {
         });
         return response.data;
     } catch (error) {
-        console.error("Error fetching profile", error);
         throw error;
     }
 };
@@ -41,6 +40,33 @@ export const changePassword = async (token, passwordData) => {
         return response.data;
     } catch (error) {
         console.error("Error changing password", error);
+        throw error;
+    }
+};
+
+// Загрузка изображения
+export const uploadAvatar = async (file, token) => {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    return axios.post('/profile/me/avatar', formData, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'multipart/form-data',
+        },
+    });
+};
+
+// Удаление аккаунта
+export const deleteAccount = async (token) => {
+    try {
+        const response = await axios.delete(`/profile/me`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+        return response;
+    } catch (error) {
         throw error;
     }
 };

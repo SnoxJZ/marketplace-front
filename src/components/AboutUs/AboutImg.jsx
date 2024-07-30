@@ -1,20 +1,21 @@
-import React, {useState} from 'react';
+import React from 'react';
 import samurai from "../../assets/Home/samurai.png";
 import tree from "../../assets/Home/tree.png";
 import hornet from "../../assets/Home/hornet.png";
 import Card from "../Card/Card";
+import "./AboutUs.css"
 
 const AboutImg = () => {
-    const [group1, setGroup1] = useState([
-        {id: 1, image: samurai, title: "Samurai", price: 2.45},
-        {id: 26, image: tree, title: "Tree", price: 2.45},
-    ])
+    const group1 = [
+        {id: 1, image_url: samurai, title: "Samurai", price: 2.45},
+        {id: 26, image_url: tree, title: "Tree", price: 3.1},
+    ]
 
-    const [group2, setGroup2] = useState([
-        {id: 26, image: tree, title: "Tree", price: 2.45},
-        {id: 3, image: hornet, title: "Samurai", price: 2.45},
-        {id: 1, image: samurai, title: "Samurai", price: 2.45},
-    ])
+    const group2 = [
+        {id: 26, image_url: tree, title: "Tree", price: 2.45},
+        {id: 3, image_url: hornet, title: "Bee", price: 2.2},
+        {id: 1, image_url: samurai, title: "Samurai", price: 2.45},
+    ]
 
     return (
         <div className="about__img-wrapper">

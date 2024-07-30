@@ -6,7 +6,7 @@ const CardDesc = ({title, price}) => {
     return (
         <div className={classes.product__details}>
             <h1 className={classes.product__title}>{title}</h1>
-            <h1 className={classes.product__price}>${price}</h1>
+            <h1 className={classes.product__price}>ART {price}</h1>
         </div>
     );
 };

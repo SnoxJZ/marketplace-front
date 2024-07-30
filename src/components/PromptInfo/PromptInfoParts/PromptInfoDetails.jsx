@@ -4,16 +4,14 @@ import {Rating} from "@mui/material";
 
 const PromptInfoDetails = ({product}) => {
 
-    const rate = parseInt(product.details.rate, 10);
-
     return (
         <div className="prompt__info-descr">
             <div className="prompt__info-head">
-                <Title fontSize="48px">{product.title}</Title>
+                <Title fontSize="48px" id={'prompt__info-title'}>{product.title}</Title>
                 <div className="prompt__head-tools">
                     <div className="prompt__info-rate full">
-                        <h1>{product.details.rate}</h1>
-                        <Rating name="half-rating-read" defaultValue={rate} precision={0.1} readOnly
+                        <h1>{product.stars}</h1>
+                        <Rating name="half-rating-read" defaultValue={product.stars} precision={0.1} readOnly
                                 style={{color: 'rgb(237, 67, 220)', fontSize: 22}}/>
                     </div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -25,11 +23,7 @@ const PromptInfoDetails = ({product}) => {
                 </div>
             </div>
             <p className="prompt__descr-text">
-                Dive into a world of vibrant, imaginative art collages featuring diverse characters and enchanting
-                backgrounds. Each piece blends vintage and modern elements to create a unique, whimsical aesthetic.
-                Perfect for creative projects, art collections, and adding a touch of whimsy to personal or professional
-                spaces. Unlock All Prompts and Enjoy 20 FREE Bonus Prompts! EXTRA BONUS - An Additional Free Prompt
-                Included!
+                {product.description}
             </p>
         </div>
     );

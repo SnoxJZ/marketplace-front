@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import profileAva from "../../assets/Profile/profile-avatar.png"
+import defaultAva from "../../assets/Profile/avatar-default.png"
 import Title from "../ui/Title/Title";
 import Button from "../ui/Button/Button";
 import "./Profile.css"
@@ -45,7 +45,7 @@ const ProfileComp = () => {
                     ? <Spin/>
                     :
                     <div className="user-info">
-                        <img src={`http://localhost:8000/${profile.avatar}`} alt="avatar"/>
+                        <img src={profile.avatar ? `http://127.0.0.1:8000/${profile.avatar}` : defaultAva} alt="avatar"/>
                         <Title fontSize={isTablet ? "24px" : "48px"}>{profile.nickname}</Title>
                     </div>
                 }

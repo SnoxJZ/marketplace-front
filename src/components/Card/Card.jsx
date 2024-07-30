@@ -1,14 +1,14 @@
-import React from 'react';
-import classes from './Card.module.css'
+import React, { forwardRef } from 'react';
+import classes from './Card.module.css';
 import CardDesc from "../ui/CardDesc/CardDesc";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const Card = ({card}) => {
+const Card = forwardRef(({ card }, ref) => {
     const router = useNavigate();
 
     return (
-        <div className={classes.product} onClick={() => router(`/marketplace/item/${card.id}`)}>
-            <img src={card.image} alt="" className={classes.product__image}/>
+        <div ref={ref} className={classes.product} onClick={() => router(`/marketplace/item/${card.id}`)}>
+            <img src={card.image_url} alt="" className={classes.product__image} />
             <div className={classes.product__desc}>
                 <CardDesc
                     title={card.title}
@@ -17,6 +17,6 @@ const Card = ({card}) => {
             </div>
         </div>
     );
-};
+});
 
 export default Card;

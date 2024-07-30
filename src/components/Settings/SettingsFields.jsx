@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import "./Settings.css";
 import Input from "../ui/Input/Input";
 import Button from "../ui/Button/Button";
-import {updateProfile, changePassword} from '../../API/useProfileService';
+import {updateProfile, changePassword, getProfile} from '../../API/useProfileService';
 import { useAuth } from "../../context/AuthContext"
 
 const SettingsFields = () => {
@@ -10,16 +10,31 @@ const SettingsFields = () => {
     const [nickname, setNickname] = useState('');
     const [old_password, setOldPassword] = useState('');
     const [new_password, setNewPassword] = useState('');
+    const [message, setMessage] = useState('');
+    const [errMessage, setErrMessage] = useState('');
     const { token } = useAuth();
+
+    useEffect(() => {
+        const fetchProfile = async () => {
+            try {
+                const profileData = await getProfile(token);
+                setEmail(profileData.email);
+                setNickname(profileData.nickname);
+            } catch (error) {
+                console.error("Failed to load profile data", error);
+            }
+        };
+        fetchProfile();
+    }, [token]);
 
     const handleProfileUpdate = async (e) => {
         e.preventDefault();
         try {
             const profileData = { email, nickname };
             await updateProfile(token, profileData);
-            alert('Profile updated successfully!');
+            setMessage('Profile updated successfully!');
         } catch (error) {
-            alert('Failed to update profile.');
+            setErrMessage('Failed to update profile.');
         }
     };
 
@@ -27,10 +42,16 @@ const SettingsFields = () => {
         e.preventDefault();
         try {
             const passwordData = { old_password, new_password }
-            await changePassword(token, passwordData);
-            alert('Password changed successfully!');
+            const response = await changePassword(token, passwordData);
+            setMessage(response.message);
+            setErrMessage('');
         } catch (error) {
-            alert('Failed to change password.');
+            setMessage('');
+            if (error.response && error.response.data && error.response.data.detail) {
+                setErrMessage(error.response.data.detail);
+            } else {
+                setErrMessage('Failed to change password.');
+            }
         }
     };
 
@@ -62,6 +83,8 @@ const SettingsFields = () => {
                 </div>
                 <Button type="submit">Save Password</Button>
             </form>
+            {message && <p style={{color: "green"}}>{message}</p>}
+            {errMessage && <p style={{color: "red"}}>{errMessage}</p>}
         </div>
     );
 };

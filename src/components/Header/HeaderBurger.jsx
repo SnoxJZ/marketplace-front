@@ -7,8 +7,9 @@ import { Link } from "react-router-dom";
 import Button from "../ui/Button/Button";
 import {ThemeContext} from "../../providers/ThemeProviderMain";
 import light from "../../assets/Header/light.png";
+import defaultAva from "../../assets/Header/avatar-default.png";
 
-const HeaderBurger = () => {
+const HeaderBurger = ({token, profile}) => {
     const [isOpen, setIsOpen] = useState(false);
     const [themeImg, setThemeImg] = useState(dark)
     const [fadeClass, setFadeClass] = useState('');
@@ -69,9 +70,19 @@ const HeaderBurger = () => {
                     <Link to="/contacts">
                         <li>Contacts</li>
                     </Link>
-                    <Link to="/login">
-                        <Button id="login-btn">Log in</Button>
-                    </Link>
+                    {token
+                        ?
+                        <Link to="/profile">
+                            <div className="auth__profile">
+                                <h1 className="auth__profile-name">{profile.nickname}</h1>
+                                <img src={profile.avatar ? `http://127.0.0.1:8000/${profile.avatar}` : defaultAva} alt="" className="auth__profile-avatar"/>
+                            </div>
+                        </Link>
+                        :
+                        <Link to="/login">
+                            <Button>Log in</Button>
+                        </Link>
+                    }
                 </ul>
             </div>
             <div className="header__logo">Logo</div>

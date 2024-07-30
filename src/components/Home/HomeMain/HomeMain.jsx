@@ -1,26 +1,36 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {motion} from 'framer-motion';
 import './HomeMain.css'
 import robotImg from '../../../assets/Home/robot.png';
 import elemLeft from '../../../assets/Home/elem-left.png';
 import elemRight from '../../../assets/Home/elem-right.png';
-import samurai from '../../../assets/Home/samurai.png';
-import tree from '../../../assets/Home/tree.png';
-import hornet from '../../../assets/Home/hornet.png';
 import Title from "../../ui/Title/Title";
 import Card from "../../Card/Card";
 import { leftElem, homeMainDesc, homeMainTitle, rightElem, homeMainProducts, homeMainRobot} from "../../../animation/AnimatedHome"
 import {useMediaQuery} from "rsuite";
+import {useAuth} from "../../../context/AuthContext";
+import {useFetching} from "../../../hooks/useFetching";
+import {getRandomProducts} from "../../../API/usePromptsService";
+import PlaceholderCard from "../../Card/PlaceholderCard";
 
 const HomeMain = () => {
-    const [cards, setCards] = useState([
-        {id: 1, image: samurai, title: "Samurai", price: 2.45},
-        {id: 26, image: tree, title: "Tree", price: 2.45},
-        {id: 3, image: hornet, title: "Samurai", price: 2.45}
-    ])
-
+    const [cards, setCards] = useState([])
     const [isMobile] = useMediaQuery('(max-width: 480px)');
     const [isTablet] = useMediaQuery('(max-width: 896px)');
+    const { token } = useAuth();
+
+    const [fetchProducts, isLoading, error] = useFetching(async () => {
+        const data = await getRandomProducts(token);
+        setCards(data.map(product => ({
+            id: product._id,
+            image_url: product.image_url,
+            title: product.title,
+            price: product.price,
+        })));
+    });
+    useEffect(() => {
+        fetchProducts();
+    }, []);
 
     return (
         <motion.div
@@ -51,9 +61,19 @@ const HomeMain = () => {
                 </div>
             </motion.div>
             <motion.div variants={homeMainProducts} transition={{ duration: 1 }} className="home__main-products">
-                {cards.map(card =>
-                    <Card card={card} key={card.id}/>
-                )}
+                {isLoading
+                ?
+                    <div className="placeholder__card-group">
+                        <PlaceholderCard/>
+                        <PlaceholderCard/>
+                        <PlaceholderCard/>
+                    </div>
+                    :
+                    cards.map(card =>
+                        <Card card={card} key={card.id}/>
+                    )
+                }
+                {error && <p style={{marginBottom: 20, color: "red"}}>{error}</p>}
             </motion.div>
         </motion.div>
     );

@@ -44,7 +44,7 @@
     line-height: normal;
 }
 
-.home__category-items {
+.home__category-items, .placeholder__card-group-wide {
     padding: 32px 0;
     display: flex;
     gap: 24px;
@@ -55,6 +55,10 @@
 
 .home__category-items::-webkit-scrollbar, .home__categories::-webkit-scrollbar {
     display: none;
+}
+
+.placeholder__card-group {
+
 }
 
 

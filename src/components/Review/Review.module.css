@@ -30,6 +30,7 @@
     height: 37px;
     border-radius: 50%;
     left: -18px;
+    background: var(--main-background-color);
 }
 
 .review__rate {

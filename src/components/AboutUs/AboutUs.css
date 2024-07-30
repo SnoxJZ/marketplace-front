@@ -52,6 +52,7 @@
     flex-direction: column;
     gap: 24px;
     position: relative;
+    pointer-events: none;
 }
 
 
