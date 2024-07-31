@@ -1,54 +1,77 @@
-import React, {useEffect, useState} from 'react';
-import defaultAva from "../../assets/Profile/avatar-default.png"
+import React, { useEffect, useState } from 'react';
+import defaultAva from "../../assets/Profile/avatar-default.png";
 import Title from "../ui/Title/Title";
 import Button from "../ui/Button/Button";
-import "./Profile.css"
-import promptItems from "../Home/HomePrompts/PromptItems";
+import "./Profile.css";
 import PromptsList from "../Home/HomePrompts/PromptsList";
-import avatar from "../../assets/Reviews/avatar.png";
 import Review from "../Review/Review";
-import {Link} from "react-router-dom";
-import {useMediaQuery} from "rsuite";
+import { Link } from "react-router-dom";
+import { useMediaQuery } from "rsuite";
 import ModalDeposit from "../ModalDeposit/ModalDeposit";
-import {getProfile} from "../../API/useProfileService";
-import {useFetching} from "../../hooks/useFetching";
-import {useAuth} from "../../context/AuthContext";
-import {Spin} from "antd";
-
+import { getProfile } from "../../API/useProfileService";
+import { useFetching } from "../../hooks/useFetching";
+import { useAuth } from "../../context/AuthContext";
+import { Spin } from "antd";
+import { getProductDetails } from "../../API/useParserService";
+import {getBalance} from "../../API/usePaymentsService";
 
 const ProfileComp = () => {
-    const [profile, setProfile] = useState([]);
+    const [profile, setProfile] = useState({});
+    const [reviews, setReviews] = useState([]);
+    const [transactions, setTransactions] = useState([]);
+    const [products, setProducts] = useState([]);
+    const [balance, setBalance] = useState('')
     const [isTablet] = useMediaQuery('(max-width: 896px)');
     const [modalActive, setModalActive] = useState(false);
     const { token } = useAuth();
 
     const [fetchProfile, isLoading, error] = useFetching(async () => {
         const data = await getProfile(token);
-        setProfile(data);
+        setProfile(data.profile);
+        setReviews(data.reviews);
+        setTransactions(data.transactions);
     });
+
+    const [fetchBalance, isLoadingBal, errorBal] = useFetching(async () => {
+        if (profile) {
+            const data = await getBalance(profile._id, token);
+            setBalance(data.balance)
+        }
+    });
+
+    const [fetchProducts, isLoadingProd, errorProd] = useFetching(async () => {
+        if (transactions && transactions.length > 0) {
+            const productDetails = await Promise.all(transactions.map(trx => getProductDetails(trx.product_id)));
+            setProducts(productDetails);
+        }
+    });
+
     useEffect(() => {
         fetchProfile();
     }, []);
 
-    const [review, setReview] = useState([
-        {id: 1, avatar: avatar, name: "Rona Fr", date: "26.05.2024", rate: "4.0", text: "Very good"},
-        {id: 2, avatar: avatar, name: "Rona Fr", date: "26.05.2024", rate: "4.0", text: "Very good"},
-        {id: 3, avatar: avatar, name: "Rona Fr", date: "26.05.2024", rate: "4.0", text: "Very good"},
-        {id: 4, avatar: avatar, name: "Rona Fr", date: "26.05.2024", rate: "4.0", text: "Very good"},
-        {id: 5, avatar: avatar, name: "Rona Fr", date: "26.05.2024", rate: "4.0", text: "Very good"},
-    ])
+    useEffect(() => {
+        if (profile) {
+            fetchBalance();
+        }
+    }, [profile]);
+
+    useEffect(() => {
+        if (transactions && transactions.length > 0) {
+            fetchProducts();
+        }
+    }, [transactions]);
 
     return (
-        <div className="profile">
+        isLoading
+        ? <div className={'spin__group'}><Spin size={"large"}/></div>
+            :
+        (<div className="profile">
             <div className="profile-container">
-                {isLoading
-                    ? <Spin/>
-                    :
-                    <div className="user-info">
-                        <img src={profile.avatar ? `http://127.0.0.1:8000/${profile.avatar}` : defaultAva} alt="avatar"/>
-                        <Title fontSize={isTablet ? "24px" : "48px"}>{profile.nickname}</Title>
-                    </div>
-                }
+                <div className="user-info">
+                    <img src={profile.avatar ? `http://127.0.0.1:8000/${profile.avatar}` : defaultAva} alt="avatar"/>
+                    <Title fontSize={isTablet ? "24px" : "48px"}>{profile.nickname}</Title>
+                </div>
                 {error && <p style={{marginTop: 20, color: "red"}}>{error}</p>}
                 <div className="profile__btns">
                     <Link to="/settings">
@@ -60,32 +83,44 @@ const ProfileComp = () => {
             <div className="user__balance-wrapper">
                 <div className="user__balance">
                     <Title color={'#ED43DC'}>Balance:</Title>
-                    {isLoading
-                        ? <Spin/>
-                        : <h1 className="profile__balance">{profile.balance} ART</h1>
-                    }
+                    <h1 className="profile__balance">{isLoadingBal ? <Spin/> : `${balance ? balance.toFixed(1) : 0} ART`}</h1>
                 </div>
+                {errorBal && <p style={{marginTop: 20, color: "red"}}>{error}</p>}
             </div>
             <div className="prompts">
                 <div className="prompts__profile-head">
                     <Title>Ordered prompts</Title>
                     <span className="profile__line"></span>
                 </div>
-                <PromptsList prompts={promptItems}/>
+                {isLoadingProd ? (
+                    <Spin/>
+                ) : (
+                    products.length > 0 ? (
+                        <PromptsList prompts={products}/>
+                    ) : (
+                        <p style={{textAlign: "center", fontSize: "24px"}}>No purchased products found.</p>
+                    )
+                )}
+                {errorProd && <p style={{ marginTop: 20, color: "red" }}>{errorProd}</p>}
             </div>
             <div className="prompt__reviews">
                 <div className="prompts__profile-head mob">
-                    <Title>100 creator reviews</Title>
+                    <Title>{profile.reviews ? profile.reviews.length : 0} creator reviews</Title>
                     <span className="profile__line"></span>
                 </div>
-                <div className="reviews__list" style={{marginTop: isTablet ? 0 : 28}}>
-                    {review.map(item =>
-                        <Review review={item} key={item.id}/>
-                    )}
-                </div>
+                {reviews.length > 0 ? (
+                    <div className="reviews__list" style={{marginTop: isTablet ? 0 : 28}}>
+                        {reviews.map(item =>
+                            <Review review={item} key={item.product_id}/>
+                        )}
+                    </div>
+                ) : (
+                    <p style={{textAlign: "center", fontSize: "24px"}}>No reviews available.</p>
+                )}
+
             </div>
-            <ModalDeposit modalActive={modalActive} setModalActive={setModalActive}/>
-        </div>
+            <ModalDeposit modalActive={modalActive} setModalActive={setModalActive} profileId={profile._id}/>
+        </div>)
     );
 };
 

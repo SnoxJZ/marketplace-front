@@ -109,14 +109,14 @@
 }
 
 @media (max-width: 412px) {
-    .product__image {
+    .product__image, .placeholder__card {
         max-width: 163px;
         height: 222px;
     }
 }
 
 @media (max-width: 389px) {
-    .product__image {
+    .product__image, .placeholder__card {
         max-width: 148px;
         height: 201px;
     }

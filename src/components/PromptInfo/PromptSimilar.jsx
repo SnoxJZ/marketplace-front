@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Title from "../ui/Title/Title";
 import CardWide from "../Card/CardWide";
-import wideItems from "../Card/WIdeItems";
 import axios from "axios";
 import {useFetching} from "../../hooks/useFetching";
 import PlaceholderCardWide from "../Card/PlaceholderCardWide";

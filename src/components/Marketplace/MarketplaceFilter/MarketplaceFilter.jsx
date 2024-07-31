@@ -1,26 +1,26 @@
-import React, {useEffect, useRef, useState} from 'react';
-import "./MarketplaceFilter.css"
-import {Select} from 'antd';
+import React, { useEffect, useRef, useState, useContext } from 'react';
+import "./MarketplaceFilter.css";
+import { Select } from 'antd';
 import Button from "../../ui/Button/Button";
-import {motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 import MarketplaceFilterList from "./MarketplaceFilterList";
 import Title from "../../ui/Title/Title";
 import filter from "../../../assets/Marketplace/filter.png";
+import { FilterContext } from "../../../context/FilterContext";
 
 const marketplaceFilter = {
-    hidden: {x: -350},
-    visible: {x: 0},
+    hidden: { x: -350 },
+    visible: { x: 0 },
 };
-
-const handleChange = (value) => {
-    console.log(`selected ${value}`);
-};
-
 
 const MarketplaceFilter = () => {
-
+    const { setFilterType, setShouldFilter, clearFilters } = useContext(FilterContext);
     const [isOpen, setIsOpen] = useState(false);
     const filterRef = useRef(null);
+
+    const handleChange = (value) => {
+        setFilterType(value);
+    };
 
     const handleFilter = () => {
         setIsOpen((prev) => !prev);
@@ -30,6 +30,10 @@ const MarketplaceFilter = () => {
         if (filterRef.current && !filterRef.current.contains(event.target)) {
             setIsOpen(false);
         }
+    };
+
+    const handleSave = () => {
+        setShouldFilter(true);
     };
 
     useEffect(() => {
@@ -43,43 +47,43 @@ const MarketplaceFilter = () => {
         <div ref={filterRef}>
             <div className="filter__handler">
                 <Title color="rgba(208, 31, 223, 1)">Filter</Title>
-                <img src={filter} alt="filter btn" onClick={handleFilter}/>
+                <img src={filter} alt="filter btn" onClick={handleFilter} />
             </div>
             <motion.div
                 className={`marketplace__filter-wrapper ${isOpen ? 'show' : ''}`}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{once: true}}
+                viewport={{ once: true }}
             >
                 <div className="marketplace__filter-block">
                     <motion.div
                         className="marketplace__filter"
                         variants={marketplaceFilter}
-                        transition={{duration: 0.7}}
+                        transition={{ duration: 0.7 }}
                     >
                         <h1 className="filter__title">filter</h1>
-                        <MarketplaceFilterList/>
+                        <MarketplaceFilterList />
                         <div className="category__filter">
                             <Select
                                 defaultValue="all"
-                                style={{width: 165,}}
+                                style={{ width: 165 }}
                                 onChange={handleChange}
                                 options={[
-                                    {value: 'all', label: 'All'},
-                                    {value: '3d', label: '3D'},
-                                    {value: 'anime', label: 'Anime'},
-                                    {value: 'cartoon', label: 'Cartoon'},
-                                    {value: 'art', label: 'Art'},
-                                    {value: 'logo', label: 'Logo'},
-                                    {value: 'mockup', label: 'Mockup'},
-                                    {value: 'nature', label: 'Nature'},
-                                    {value: 'people', label: 'People'},
+                                    { value: 'All', label: 'All' },
+                                    { value: '3D', label: '3D' },
+                                    { value: 'Anime', label: 'Anime' },
+                                    { value: 'Cartoon', label: 'Cartoon' },
+                                    { value: 'Art', label: 'Art' },
+                                    { value: 'Logo', label: 'Logo' },
+                                    { value: 'Mockup', label: 'Mockup' },
+                                    { value: 'Nature', label: 'Nature' },
+                                    { value: 'People', label: 'People' },
                                 ]}
                             />
                         </div>
                         <div className="filter__btns">
-                            <Button>Save</Button>
-                            <Button borderColor={'rgb(255, 150, 6)'}>Clear</Button>
+                            <Button onClick={handleSave}>Save</Button>
+                            <Button borderColor={'rgb(255, 150, 6)'} onClick={clearFilters}>Clear</Button>
                         </div>
                     </motion.div>
                 </div>

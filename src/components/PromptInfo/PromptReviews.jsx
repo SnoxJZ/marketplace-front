@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Title from "../ui/Title/Title";
 import Rating from '@mui/material/Rating';
 import Review from "../Review/Review";
 import CompStyles from "../../providers/CompStyles";
 import PromptAddReview from "./PromptAddReview";
 
-const PromptReviews = ({product}) => {
+const PromptReviews = ({product, profile, productId}) => {
     const calculateReviewsStats = (reviews) => {
         const reviewsCount = reviews.length;
         const averageRating = reviews.reduce((sum, review) => sum + review.rating, 0) / reviewsCount;
@@ -35,7 +35,7 @@ const PromptReviews = ({product}) => {
                     )}
                 </div>
             </div>
-            <PromptAddReview/>
+            <PromptAddReview profileId={profile._id} profileNickname={profile.nickname} productId={productId}/>
         </div>
         </CompStyles>
     );

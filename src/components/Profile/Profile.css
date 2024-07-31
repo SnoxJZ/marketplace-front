@@ -50,6 +50,15 @@
     display: flex;
     gap: 24px;
     align-items: center;
+    margin-bottom: 32px;
+}
+
+.spin__group {
+    height: calc(100vh - 136px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (max-width: 896px) {

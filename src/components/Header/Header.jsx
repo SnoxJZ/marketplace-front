@@ -5,9 +5,10 @@ import searchIcon from '../../assets/Header/search.png';
 import dark from "../../assets/Header/dark.png";
 import light from "../../assets/Header/light.png";
 import defaultAva from "../../assets/Header/avatar-default.png";
+import logo from "../../assets/Header/logo.png";
 import Input from "../ui/Input/Input";
 import Button from "../ui/Button/Button";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import HeaderBurger from "./HeaderBurger";
 import {useFetching} from "../../hooks/useFetching";
 import {getProfile} from "../../API/useProfileService";
@@ -20,10 +21,12 @@ const Header = () => {
     const [themeImg, setThemeImg] = useState(dark);
     const [fadeClass, setFadeClass] = useState('');
     const { token } = useAuth();
+    const router = useNavigate()
+    const [searchQuery, setSearchQuery] = useState('');
 
     const [fetchProfile, isLoading, error] = useFetching(async () => {
         const data = await getProfile(token);
-        setProfile(data);
+        setProfile(data.profile);
     });
     useEffect(() => {
         if (token) {
@@ -41,7 +44,13 @@ const Header = () => {
         }, 400);
     };
 
-    console.log(error)
+    const handleSearchChange = (e) => {
+        setSearchQuery(e.target.value);
+    };
+
+    const handleSearch = () => {
+        router(`/marketplace?search=${searchQuery}`);
+    };
 
     return (
         <div style={{margin: "24px 0 32px 0"}}>
@@ -60,11 +69,11 @@ const Header = () => {
                         <li>Contacts</li>
                     </Link>
                 </ul>
-                <div className="header__logo">Logo</div>
+                <div className="header__logo"><img src={logo} alt="logo" className="header__logo-img"/></div>
                 <div className="header__tools">
                     <div className="search__box">
-                        <Input id="search-input"/>
-                        <button className="search__btn"><img src={searchIcon} className="search__ico" alt="search"/></button>
+                        <Input id="search-input" value={searchQuery} onChange={handleSearchChange}/>
+                        <button className="search__btn" onClick={handleSearch}><img src={searchIcon} className="search__ico" alt="search"/></button>
                     </div>
 
                     {token
@@ -87,7 +96,14 @@ const Header = () => {
                     <img src={themeImg} alt="dark-mode" className={`color__mode ${fadeClass}`} onClick={changeTheme}/>
                 </div>
             </header>
-            <HeaderBurger profile={profile} token={token}/>
+            <HeaderBurger
+                profile={profile}
+                token={token}
+                searchQuery={searchQuery}
+                handleSearchChange={handleSearchChange}
+                handleSearch={handleSearch}
+            />
+            <div className="err-title" style={{display: "none"}}>{error}</div>
         </div>
     );
 };

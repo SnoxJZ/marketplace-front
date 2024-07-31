@@ -4,10 +4,10 @@ import {Input} from "antd";
 const UserInfo = ({item, edit}) => {
     return (
         <div className="info-panel">
-            <Input disabled={!edit} defaultValue={item.id}/>
+            <Input disabled defaultValue={item.id}/>
             <Input disabled={!edit} defaultValue={item.nickname}/>
-            <Input disabled={!edit} defaultValue={item.date}/>
-            <Input disabled={!edit} defaultValue={item.amount}/>
+            <Input disabled={!edit} defaultValue={item.registration_date}/>
+            <Input disabled defaultValue={item.balance}/>
         </div>
     );
 };

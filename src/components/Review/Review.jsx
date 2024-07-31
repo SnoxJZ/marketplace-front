@@ -4,14 +4,17 @@ import classes from "./Review.module.css"
 import {Rating} from "@mui/material";
 import {useMediaQuery} from "rsuite";
 import defaultAva from "../../assets/Header/avatar-default.png"
+import {useNavigate} from "react-router-dom";
 
 const Review = ({review}) => {
     const [isTablet] = useMediaQuery('(max-width: 896px)');
+    const router = useNavigate();
+
 
     return (
         <div className={classes.review}>
             <div className={classes.review__head}>
-                <div className={classes.review__user}>
+                <div className={classes.review__user} onClick={() => router(`/profile/${review.nickname}`)}>
                     <img src={defaultAva} alt="avatar"/>
                     <p>{review.nickname}</p>
                 </div>

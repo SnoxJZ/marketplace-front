@@ -13,6 +13,8 @@
     color: var(--main-text-color);
     font-size: 16px;
     width: 200px;
+    padding: 0;
+    text-align: left;
 }
 
 
@@ -22,6 +24,7 @@
     width: 100%;
     justify-content: space-between;
     margin-bottom: 8px;
+    gap: 24px;
 }
 
 .users__header-item {
@@ -30,4 +33,11 @@
     width: 200px;
     color: #FF8C06;
     margin-bottom: 20px;
+}
+
+
+.add__item-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
 }

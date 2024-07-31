@@ -6,6 +6,7 @@ import FooterContacts from "./FooterContacts";
 import FooterFollow from "./FooterFollow";
 import FooterInfo from "./FooterInfo";
 import {motion} from 'framer-motion';
+import logo from "../../assets/Header/logo.png";
 
 const footer = {
     hidden: {
@@ -27,7 +28,7 @@ const Footer = () => {
             transition={{ duration: 0.7 }}
             style={{overflow: "hidden"}}
         >
-            <span className="footer_rect"></span>
+            <div className="footer__logo"><img src={logo} alt="logo" className="footer__logo-img"/></div>
             <div className="footer__links">
                 <FooterMain/>
                 <FooterCategories/>

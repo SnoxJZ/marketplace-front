@@ -9,6 +9,7 @@ header {
     width: 100%;
     z-index: 4;
     position: relative;
+    height: 80px;
 }
 
 .header__burger-container {
@@ -28,6 +29,11 @@ header {
 .header__logo {
     font-size: 64px;
     text-align: center;
+}
+
+.header__logo-img {
+    object-fit: cover;
+    height: 77px;
 }
 
 .header__tools {

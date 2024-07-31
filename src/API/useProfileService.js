@@ -14,6 +14,16 @@ export const getProfile = async (token) => {
     }
 };
 
+// Получение профиля по имени
+export const getProfileByNickname = async (nickname, token) => {
+    const response = await axios.get(`/users/${nickname}`, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+    return response.data;
+};
+
 // Обновление профиля
 export const updateProfile = async (token, profileData) => {
     try {

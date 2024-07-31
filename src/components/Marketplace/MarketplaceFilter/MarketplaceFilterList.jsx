@@ -1,37 +1,48 @@
-import React, { useState } from 'react';
+import React, {useContext, useState} from 'react';
 import { Checkbox, Radio } from "antd";
 import { Group, Collapse, Box } from '@mantine/core';
 import Input from "../../ui/Input/Input";
+import {FilterContext} from "../../../context/FilterContext";
 
 const product = ['Prompts', 'Bundles', 'Apps'];
 const type = ['All', 'Image', 'Text'];
 const Model = ['All', '⛵ Midjourney', '🎨 DALL·E', '🤖 GPT', '🧙‍♂️ Leonardo Ai', '🌌 Stable Diff.'];
 
 const MarketplaceFilterList = () => {
+    const { setFilterType, priceRange, setPriceRange, ratingRange, setRatingRange, setCategory } = useContext(FilterContext);
     const [value1, setValue1] = useState('Prompts');
     const [value2, setValue2] = useState('All');
     const [value3, setValue3] = useState('All');
-
-    const onChange1 = ({ target: { value } }) => {
-        console.log('radio1 checked', value);
-        setValue1(value);
-    };
-
-    const onChange2 = ({ target: { value } }) => {
-        console.log('radio2 checked', value);
-        setValue2(value);
-    };
-
-    const onChange3 = ({ target: { value } }) => {
-        console.log('radio3 checked', value);
-        setValue3(value);
-    };
-
     const [priceOpened, setPriceOpened] = useState(false);
     const [ratingOpened, setRatingOpened] = useState(false);
 
+    const onChange1 = ({ target: { value } }) => {
+        setValue1(value);
+        setFilterType(value);
+    };
+
+    const onChange2 = ({ target: { value } }) => {
+        setValue2(value);
+        setFilterType(value);
+    };
+
+    const onChange3 = ({ target: { value } }) => {
+        setValue3(value);
+        setCategory(value);
+    };
+
     const togglePrice = () => setPriceOpened((prev) => !prev);
     const toggleRating = () => setRatingOpened((prev) => !prev);
+
+    const handlePriceChange = (e, type) => {
+        const { value } = e.target;
+        setPriceRange(prev => ({ ...prev, [type]: value }));
+    };
+
+    const handleRatingChange = (e, type) => {
+        const { value } = e.target;
+        setRatingRange(prev => ({ ...prev, [type]: value }));
+    };
 
     return (
         <div className="filters__list">
@@ -52,8 +63,8 @@ const MarketplaceFilterList = () => {
                         </Group>
                         <Collapse in={priceOpened} mb={5}>
                             <div className="filter__sortby-input">
-                                <Input placeholder={'from'}/>
-                                <Input placeholder={'to'}/>
+                                <Input placeholder={'from'} value={priceRange.min} onChange={(e) => handlePriceChange(e, 'min')} />
+                                <Input placeholder={'to'} value={priceRange.max} onChange={(e) => handlePriceChange(e, 'max')} />
                             </div>
                         </Collapse>
                     </Box>
@@ -63,8 +74,8 @@ const MarketplaceFilterList = () => {
                         </Group>
                         <Collapse in={ratingOpened}>
                             <div className="filter__sortby-input">
-                                <Input placeholder={'from 0'}/>
-                                <Input placeholder={'to 5'}/>
+                                <Input placeholder={'from 0'} value={ratingRange.min} onChange={(e) => handleRatingChange(e, 'min')} />
+                                <Input placeholder={'to 5'} value={ratingRange.max} onChange={(e) => handleRatingChange(e, 'max')} />
                             </div>
                         </Collapse>
                     </Box>

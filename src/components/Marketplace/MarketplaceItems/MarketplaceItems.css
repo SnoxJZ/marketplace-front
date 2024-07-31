@@ -1,4 +1,4 @@
-.marketplace__items {
+.marketplace__items, .infinite-scroll-component {
     display: flex;
     flex-wrap: wrap;
     gap: 24px;

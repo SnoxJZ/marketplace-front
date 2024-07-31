@@ -2,10 +2,10 @@ import React from 'react';
 import Title from "../../ui/Title/Title";
 import saves from "../../../assets/PromptInfo/heart-light.png";
 import views from "../../../assets/PromptInfo/eye-line.png";
-import {useMediaQuery} from "rsuite";
-import {Rating} from "@mui/material";
+import { useMediaQuery } from "rsuite";
+import { Rating } from "@mui/material";
 
-const PromptInfoStat = ({product}) => {
+const PromptInfoStat = ({ product, rating }) => {
     const [isTablet] = useMediaQuery('(max-width: 896px)');
 
     return (
@@ -20,12 +20,12 @@ const PromptInfoStat = ({product}) => {
             </div>
             <div className="prompt__info-stat">
                 <Title fontSize={isTablet ? "20px" : "24px"} color='rgb(237, 67, 220)'>{product.quality}</Title>
-                <p>Midjourney</p>
+                <p>{product.category}</p>
                 <div className="prompt__stat">
                     <Title fontSize="24px" id="product__count">{product.examples}</Title>
                     <div className="prompt__stat-elem">
                         <Title color='rgb(237, 67, 220)'
-                               fontSize={isTablet ? "32px" : "36px"}>{product.rating}</Title>
+                               fontSize={isTablet ? "32px" : "36px"}>{rating}</Title>
                         <img src={saves} alt="heart"/>
                     </div>
                     <div className="prompt__stat-elem">

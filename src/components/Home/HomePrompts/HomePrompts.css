@@ -1,6 +1,8 @@
 .prompts {
     padding: 42px 0;
     margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
 }
 
 .prompts__list {

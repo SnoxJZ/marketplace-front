@@ -8,8 +8,9 @@ import Button from "../ui/Button/Button";
 import {ThemeContext} from "../../providers/ThemeProviderMain";
 import light from "../../assets/Header/light.png";
 import defaultAva from "../../assets/Header/avatar-default.png";
+import logo from "../../assets/Header/logo.png";
 
-const HeaderBurger = ({token, profile}) => {
+const HeaderBurger = ({token, profile, searchQuery, handleSearch, handleSearchChange}) => {
     const [isOpen, setIsOpen] = useState(false);
     const [themeImg, setThemeImg] = useState(dark)
     const [fadeClass, setFadeClass] = useState('');
@@ -54,8 +55,8 @@ const HeaderBurger = ({token, profile}) => {
                 </div>
                 <ul className={`burger__items ${isOpen ? 'show' : ''}`}>
                     <div className="search__box">
-                        <Input id="search-input-mob"/>
-                        <button className="search__btn"><img src={searchIcon} className="search__ico" alt="search"/>
+                        <Input id="search-input-mob" value={searchQuery} onChange={handleSearchChange}/>
+                        <button className="search__btn" onClick={handleSearch}><img src={searchIcon} className="search__ico" alt="search"/>
                         </button>
                     </div>
                     <Link to="/">
@@ -85,7 +86,7 @@ const HeaderBurger = ({token, profile}) => {
                     }
                 </ul>
             </div>
-            <div className="header__logo">Logo</div>
+            <div className="header__logo"><img src={logo} alt="logo" className="header__logo-img"/></div>
             <img src={themeImg} alt="dark-mode" className={`color__mode ${fadeClass}`} onClick={changeTheme}/>
         </div>
     );

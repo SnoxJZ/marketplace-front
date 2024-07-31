@@ -5,23 +5,40 @@ import PromptSimilar from "../components/PromptInfo/PromptSimilar";
 import {useParams} from "react-router-dom";
 import {useFetching} from "../hooks/useFetching";
 import {getProductDetails} from "../API/useParserService";
+import {Spin} from "antd";
+import {useAuth} from "../context/AuthContext";
+import {getProfile} from "../API/useProfileService";
 
 const PromptDetails = () => {
     const { id: productId } = useParams();
+    const [profile, setProfile] = useState([]);
     const [product, setProduct] = useState(null);
+    const { token } = useAuth();
+
     const [fetchProduct, isLoading, error] = useFetching(async () => {
         const data = await getProductDetails(productId);
         setProduct(data);
+    });
+
+    const [fetchProfile, isLoadingProf, errorProf] = useFetching(async () => {
+        const data = await getProfile(token);
+        setProfile(data.profile);
     });
 
     useEffect(() => {
         fetchProduct();
     }, [productId]);
 
-    if (isLoading) {
-        return <h1 style={{ fontSize: "42px" }}>Loading...</h1>;
+    useEffect(() => {
+        if (token) {
+            fetchProfile();
+        }
+    }, [token]);
+
+    if (isLoading || isLoadingProf) {
+        return <div className={'spin__group'}><Spin size={'large'}/></div>;
     }
-    if (error) {
+    if (error || errorProf) {
         return <h1 style={{ fontSize: "42px" }}>{error}</h1>;
     }
     if (!product) {
@@ -30,8 +47,8 @@ const PromptDetails = () => {
 
     return (
         <div className="prompt__info-wrapper">
-            <PromptInfo product={product}/>
-            <PromptReviews product={product}/>
+            <PromptInfo product={product} productId={productId} profile={profile}/>
+            <PromptReviews product={product} profile={profile} productId={productId}/>
             <PromptSimilar/>
         </div>
     );
