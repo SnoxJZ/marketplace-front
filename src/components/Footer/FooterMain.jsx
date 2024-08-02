@@ -10,8 +10,8 @@ const FooterMain = () => {
                 <Link to="/about">
                     <li className="footer_item">About us</li>
                 </Link>
-                <Link to="marketplace">
-                    <li className="footer_item">Marketplace</li>
+                <Link to="/tandcs">
+                    <li className="footer_item">Terms of service</li>
                 </Link>
                 <Link to="/contacts">
                     <li className="footer_item">Contacts</li>

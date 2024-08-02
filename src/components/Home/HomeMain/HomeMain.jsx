@@ -49,7 +49,7 @@ const HomeMain = () => {
             <span className="home__rectangle right-rect"></span>
             <span className="home__rectangle left-rect"></span>
             <motion.div variants={homeMainDesc(isTablet)} transition={{ duration: 1 }} className="home__main-desc">
-                <Title>AI Prompt Marketplace</Title>
+                <Title>AI Prompt Products</Title>
                 <p style={{margin: "26px 0"}}>Explore 130,000+ curated AI prompts made by expert AI creators</p>
                 <div className="home__main-more">
                     <p>More</p>

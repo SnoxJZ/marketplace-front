@@ -37,7 +37,6 @@ const SettingsUpload = () => {
             return;
         }
         if (info.file.status === 'done') {
-            // Get this url from response in real world.
             getBase64(info.file.originFileObj, (url) => {
                 setLoading(false);
                 setImageUrl(url);
@@ -52,7 +51,7 @@ const SettingsUpload = () => {
             return;
         }
         try {
-            await uploadAvatar(file, token); // Загрузка файла на сервер
+            await uploadAvatar(file, token);
             message.success('Avatar uploaded successfully!');
         } catch (error) {
             message.error('Failed to upload avatar.');
@@ -75,7 +74,6 @@ const SettingsUpload = () => {
                     marginTop: 0,
                 }}
             >
-
             </div>
         </button>
     );
@@ -89,9 +87,9 @@ const SettingsUpload = () => {
                         listType="picture-circle"
                         className="avatar-uploader"
                         showUploadList={false}
-                        action="/profile/me/avatar"
+                        action="/api/profile/me/avatar"
                         headers={{
-                            Authorization: `Bearer ${token}`  // передаем токен авторизации
+                            Authorization: `Bearer ${token}`
                         }}
                         beforeUpload={beforeUpload}
                         onChange={handleChange}

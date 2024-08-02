@@ -7,7 +7,7 @@ const CardWide = ({item}) => {
     const router = useNavigate();
 
     return (
-        <div className={classes.product} onClick={() => router(`/marketplace/item/${item.id}`)}>
+        <div className={classes.product} onClick={() => router(`/products/item/${item.id}`)}>
             <img src={item.image_url} alt="img" className={classes.category__itemImage}/>
             <div className={classes.category__itemDesc}>
                 <CardDesc

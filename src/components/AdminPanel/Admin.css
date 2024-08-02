@@ -41,3 +41,9 @@
     flex-wrap: wrap;
     gap: 24px;
 }
+
+.delete__btn-adm {
+    display: flex;
+    justify-content: flex-start;
+    width: 200px;
+}

@@ -7,14 +7,14 @@ import { useFetching } from '../../../hooks/useFetching';
 import PlaceholderCardWide from "../../Card/PlaceholderCardWide";
 
 const categories = [
-    { id: 1, title: "3D", api: "/products_3D/" },
-    { id: 2, title: "Anime", api: "/products_anime/" },
-    { id: 3, title: "Cartoon", api: "/products_cartoon/" },
-    { id: 4, title: "Art", api: "/products_art/" },
-    { id: 5, title: "Logo", api: "/products_logo/" },
-    { id: 6, title: "Mockup", api: "/products_Mockup/" },
-    { id: 7, title: "Nature", api: "/products_Nature/" },
-    { id: 8, title: "People", api: "/products_People/" },
+    { id: 1, title: "3D", api: "/api/products_3D/" },
+    { id: 2, title: "Anime", api: "/api/products_anime/" },
+    { id: 3, title: "Cartoon", api: "/api/products_cartoon/" },
+    { id: 4, title: "Art", api: "/api/products_art/" },
+    { id: 5, title: "Logo", api: "/api/products_logo/" },
+    { id: 6, title: "Mockup", api: "/api/products_Mockup/" },
+    { id: 7, title: "Nature", api: "/api/products_Nature/" },
+    { id: 8, title: "People", api: "/api/products_People/" },
 ];
 
 const HomeCategory = () => {

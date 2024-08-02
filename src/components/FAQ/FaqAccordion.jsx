@@ -28,24 +28,24 @@ const FaqAccordion = () => {
 
     const faqs = [
         {
-            value: "What is NameBase?",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            value: "What is Artallai?",
+            description: "Artallai is a marketplace for buying and selling prompts for DALL·E, GPT, Stable Diffusion + Midjourney. Prompts are sentences of text that are fed into complex AI models to get a desired output, for example and image of a certain object in a certain style."
         },
         {
             value: "What is a Prompt Engineer?",
-            description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. "
+            description: "A Prompt Engineer is a new kind of technician, skilled at crafting the text prompts required for an AI model to produce consistent outputs (e.g. images, text or code)."
         },
         {
             value: "What is the revenue split?",
-            description: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+            description: "Prompt sellers keep 80% of every sale of their prompt, and on custom prompt jobs. PromptBase takes a 20% fee which helps run our platform and offer services like support."
         },
         {
             value: "How do I get paid?",
-            description: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+            description: "PromptBase uses FYST to send out payments to you."
         },
         {
-            value: "How will I know how many sales I've made?",
-            description: "Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae."
+            value: "How are most popular prompts determined?",
+            description: "Most popular prompts are determined purely on their sales and views."
         }
     ];
 

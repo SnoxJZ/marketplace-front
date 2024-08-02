@@ -11,7 +11,7 @@ const PromptInfo = ({product, productId, profile}) => {
 
     const fetchProductRating = async () => {
         try {
-            const response = await axios.get(`/product/${productId}/rating`);
+            const response = await axios.get(`/api/product/${productId}/rating`);
             setRating(response.data.rating);
         } catch (error) {
             console.error(error);

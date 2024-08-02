@@ -15,11 +15,11 @@ const HomeMarketplace = () => {
         >
             <motion.div variants={homeMarketplace} transition={{ duration: 2 }} className="home__marketplace-desc">
                 <div className="marketplace__desc-text">
-                    <h1 className="marketplace__desc-title">AI Prompt Marketplace</h1>
+                    <h1 className="marketplace__desc-title">AI Prompt Products</h1>
                     <p>Explore 130,000+ curated AI prompts made by expert AI creators Midjourney, ChatGPT, DALL·E, Stable Diffusion & more</p>
                 </div>
                 <div className="marketplace__desc-btns">
-                    <Link to="/marketplace">
+                    <Link to="/products">
                         <Button>Catalog</Button>
                     </Link>
                     <Link to="/contacts">

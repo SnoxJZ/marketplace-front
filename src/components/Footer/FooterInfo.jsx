@@ -16,7 +16,7 @@ const FooterInfo = () => {
             </div>
             <div className="footer__inf">
                 <p className="footer_item" style={{marginTop: 24}}>
-                    © NameBase 2024
+                    © Arallai 2024
                 </p>
             </div>
         </div>

@@ -8,16 +8,16 @@ const FooterCategories = () => {
             <Title>Popular categories</Title>
             <div className="footer__categories-wrapper">
                 <ul className="footer__items">
-                    <Link to="/marketplace"><li className="footer_item">3d</li></Link>
-                    <Link to="/marketplace"><li className="footer_item">Anime</li></Link>
-                    <Link to="/marketplace"><li className="footer_item">Cartoon</li></Link>
-                    <Link to="/marketplace"><li className="footer_item">Art</li></Link>
+                    <Link to="/products"><li className="footer_item">3d</li></Link>
+                    <Link to="/products"><li className="footer_item">Anime</li></Link>
+                    <Link to="/products"><li className="footer_item">Cartoon</li></Link>
+                    <Link to="/products"><li className="footer_item">Art</li></Link>
                 </ul>
                 <ul className="footer__items">
-                    <Link to="/marketplace"><li className="footer_item">Logo</li></Link>
-                    <Link to="/marketplace"><li className="footer_item">Mockup</li></Link>
-                    <Link to="/marketplace"><li className="footer_item">Nature</li></Link>
-                    <Link to="/marketplace"><li className="footer_item">People</li></Link>
+                    <Link to="/products"><li className="footer_item">Logo</li></Link>
+                    <Link to="/products"><li className="footer_item">Mockup</li></Link>
+                    <Link to="/products"><li className="footer_item">Nature</li></Link>
+                    <Link to="/products"><li className="footer_item">People</li></Link>
                 </ul>
             </div>
         </div>

@@ -49,7 +49,7 @@ const Header = () => {
     };
 
     const handleSearch = () => {
-        router(`/marketplace?search=${searchQuery}`);
+        router(`/products?search=${searchQuery}`);
     };
 
     return (
@@ -59,8 +59,8 @@ const Header = () => {
                     <Link to="/">
                         <li>Home</li>
                     </Link>
-                    <Link to="/marketplace">
-                        <li>Marketplace</li>
+                    <Link to="/products">
+                        <li>Products</li>
                     </Link>
                     <Link to="/faq">
                         <li>FAQ</li>
@@ -83,7 +83,7 @@ const Header = () => {
                                 ? <Spin/>
                                 : <div className="auth__profile">
                                     <h1 className="auth__profile-name">{profile.nickname}</h1>
-                                    <img src={profile.avatar ? `http://127.0.0.1:8000/${profile.avatar}` : defaultAva} alt=""
+                                    <img src={profile.avatar ? `http://127.0.0.1:8001/${profile.avatar}?t=${new Date().getTime()}` : defaultAva} alt=""
                                          className="auth__profile-avatar"/>
                                 </div>
                             }

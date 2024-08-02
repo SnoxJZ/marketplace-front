@@ -82,6 +82,10 @@
     align-items: center;
 }
 
+.payment__message {
+    color: green;
+}
+
 .prompt__info-img {
     max-width: 678px;
     max-height: 552px;

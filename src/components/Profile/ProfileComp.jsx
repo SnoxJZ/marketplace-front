@@ -69,7 +69,7 @@ const ProfileComp = () => {
         (<div className="profile">
             <div className="profile-container">
                 <div className="user-info">
-                    <img src={profile.avatar ? `http://127.0.0.1:8000/${profile.avatar}` : defaultAva} alt="avatar"/>
+                    <img src={profile.avatar ? `http://127.0.0.1:8001/${profile.avatar}?t=${new Date().getTime()}` : defaultAva} alt="avatar"/>
                     <Title fontSize={isTablet ? "24px" : "48px"}>{profile.nickname}</Title>
                 </div>
                 {error && <p style={{marginTop: 20, color: "red"}}>{error}</p>}
@@ -110,8 +110,8 @@ const ProfileComp = () => {
                 </div>
                 {reviews.length > 0 ? (
                     <div className="reviews__list" style={{marginTop: isTablet ? 0 : 28}}>
-                        {reviews.map(item =>
-                            <Review review={item} key={item.product_id}/>
+                        {reviews.map((item, index) =>
+                            <Review review={item} key={index}/>
                         )}
                     </div>
                 ) : (

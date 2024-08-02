@@ -1,14 +1,16 @@
 import React, {useEffect, useState} from 'react';
+import "./Admin.css"
 import {message, Spin} from "antd";
 import UserInfo from "./Lists/UserInfo";
 import {Accordion} from "rsuite";
 import {useFetching} from "../../hooks/useFetching";
-import {editUser, getUsers} from "../../API/useAdminService";
+import {deleteUser, editUser, getUsers} from "../../API/useAdminService";
 import EditUsersModal from "./Modals/EditUsersModal";
 
 const Users = ({token}) => {
     const [userInfo, setUserInfo] = useState([]);
     const [isModalUser, setIsModalUser] = useState(false);
+    const [isDeleteMode, setIsDeleteMode] = useState(false);
 
     const [userData, setUserData] = useState({
         nickname: '',
@@ -43,20 +45,34 @@ const Users = ({token}) => {
         }
     };
 
+    const handleDeleteUser = async (user_id) => {
+        try {
+            await deleteUser(user_id, token);
+            message.success('User deleted successfully');
+            fetchUsers();
+        } catch (error) {
+            console.error('Failed to delete user:', error);
+            message.error('Failed to delete user');
+        }
+    };
+
     return (
         <Accordion.Panel header="Users">
             <div className="header-panel">
-                <h1 className="users__header-item">User ID</h1>
+                <h1 className="users__header-item" onClick={() => setIsDeleteMode(!isDeleteMode)}>User ID</h1>
                 <h1 className="users__header-item">Username</h1>
                 <h1 className="users__header-item">Registration date</h1>
                 <h1 className="users__header-item" onClick={() => setIsModalUser(true)}>Balance</h1>
+                {isDeleteMode && (
+                    <h1 className="users__header-item">Delete</h1>
+                )}
             </div>
             {isLoading
                 ?
                 <Spin/>
                 :
                 userInfo.map((item) => (
-                    <UserInfo item={item} key={item.id}/>
+                    <UserInfo item={item} key={item.id} isDeleteMode={isDeleteMode} handleDeleteUser={handleDeleteUser}/>
                 ))
             }
             {error && <p style={{marginTop: 20, color: "red"}}>{error}</p>}

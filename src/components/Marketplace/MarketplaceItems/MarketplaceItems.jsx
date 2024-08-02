@@ -5,24 +5,24 @@ import Card from "../../Card/Card";
 import PlaceholderCard from "../../Card/PlaceholderCard";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { FilterContext } from '../../../context/FilterContext';
-import {fetchProductsByCategory, fetchProductsByPrice, fetchProductsByRating, fetchProductsByTitle} from "../../../API/useParserService";
-import {useLocation} from "react-router-dom";
+import { fetchProductsByCategory, fetchProductsByPrice, fetchProductsByRating, fetchProductsByTitle } from "../../../API/useParserService";
+import { useLocation } from "react-router-dom";
 
 const categories = [
-    { id: 1, title: "3D", api: "/products_3D/" },
-    { id: 2, title: "Anime", api: "/products_anime/" },
-    { id: 3, title: "Cartoon", api: "/products_cartoon/" },
-    { id: 4, title: "Art", api: "/products_art/" },
-    { id: 5, title: "Logo", api: "/products_logo/" },
-    { id: 6, title: "Mockup", api: "/products_Mockup/" },
-    { id: 7, title: "Nature", api: "/products_Nature/" },
-    { id: 8, title: "People", api: "/products_People/" },
-    { id: 9, title: "Bundles", api: "/products_bundles/" },
-    { id: 10, title: "Apps", api: "/products_apps/" },
-    { id: 11, title: "Prompts", api: "/products/" },
-    { id: 12, title: "Image", api: "/products_text/" },
-    { id: 13, title: "Text", api: "/products_text/" },
-    { id: 14, title: "All", api: "/products/" },
+    { id: 1, title: "3D", api: "/api/products_3D/" },
+    { id: 2, title: "Anime", api: "/api/products_anime/" },
+    { id: 3, title: "Cartoon", api: "/api/products_cartoon/" },
+    { id: 4, title: "Art", api: "/api/products_art/" },
+    { id: 5, title: "Logo", api: "/api/products_logo/" },
+    { id: 6, title: "Mockup", api: "/api/products_Mockup/" },
+    { id: 7, title: "Nature", api: "/api/products_Nature/" },
+    { id: 8, title: "People", api: "/api/products_People/" },
+    { id: 9, title: "Bundles", api: "/api/products_bundles/" },
+    { id: 10, title: "Apps", api: "/api/products_apps/" },
+    { id: 11, title: "Prompts", api: "/api/products/" },
+    { id: 12, title: "Image", api: "/api/products_text/" },
+    { id: 13, title: "Text", api: "/api/products_text/" },
+    { id: 14, title: "All", api: "/api/products/" },
 ];
 
 const MarketplaceItems = () => {
@@ -30,6 +30,7 @@ const MarketplaceItems = () => {
     const [items, setItems] = useState([]);
     const [page, setPage] = useState(1);
     const [hasMore, setHasMore] = useState(true);
+    const [error, setError] = useState(null);
     const location = useLocation();
 
     useEffect(() => {
@@ -37,15 +38,15 @@ const MarketplaceItems = () => {
         const searchQuery = searchParams.get('search');
 
         const fetchItems = async () => {
-            if (searchQuery) {
-                const data = await fetchProductsByTitle(page, searchQuery);
-                setItems(prevItems => [...prevItems, ...data]);
-                setHasMore(data.length > 0);
-            } else {
-                const selectedCategory = categories.find(category => category.title === filterType);
+            try {
+                if (searchQuery) {
+                    const data = await fetchProductsByTitle(page, searchQuery);
+                    setItems(prevItems => [...prevItems, ...data]);
+                    setHasMore(data.length > 0);
+                } else {
+                    const selectedCategory = categories.find(category => category.title === filterType);
 
-                if (selectedCategory) {
-                    try {
+                    if (selectedCategory) {
                         const response = await axios.get(selectedCategory.api, {
                             params: { limit: 30, page },
                         });
@@ -59,10 +60,11 @@ const MarketplaceItems = () => {
                             ]);
                         }
                         setHasMore(data.length > 0);
-                    } catch (error) {
-                        console.error("Error fetching items:", error);
                     }
                 }
+                setError(null);
+            } catch (error) {
+                setError("No more items found");
             }
         };
 
@@ -82,8 +84,9 @@ const MarketplaceItems = () => {
                     ]);
                 }
                 setHasMore(data.length > 0);
+                setError(null);
             } catch (error) {
-                console.error("Error fetching items:", error);
+                setError("Failed to load items, please try again later.");
             }
         };
 
@@ -99,8 +102,9 @@ const MarketplaceItems = () => {
                     ]);
                 }
                 setHasMore(data.length > 0);
+                setError(null);
             } catch (error) {
-                console.error("Error fetching items:", error);
+                setError("Failed to load items, please try again later.");
             }
         };
 
@@ -116,8 +120,9 @@ const MarketplaceItems = () => {
                     ]);
                 }
                 setHasMore(data.length > 0);
+                setError(null);
             } catch (error) {
-                console.error("Error fetching items:", error);
+                setError("Failed to load items, please try again later.");
             }
         };
 
@@ -146,11 +151,12 @@ const MarketplaceItems = () => {
 
     return (
         <div className="marketplace__items">
+
             <InfiniteScroll
                 dataLength={items.length}
                 next={fetchMoreData}
                 hasMore={hasMore}
-                loader={Array.from({ length: 20 }).map((_, index) => (
+                loader={error ? <p style={{ textAlign: 'center', color: 'red', fontSize: '24px'}}>{error}</p> : Array.from({ length: 20 }).map((_, index) => (
                     <PlaceholderCard key={index} />
                 ))}
                 endMessage={<p style={{ textAlign: 'center' }}>No more items to load</p>}
@@ -159,6 +165,7 @@ const MarketplaceItems = () => {
                     <Card key={item.id} card={item} />
                 ))}
             </InfiniteScroll>
+
         </div>
     );
 };

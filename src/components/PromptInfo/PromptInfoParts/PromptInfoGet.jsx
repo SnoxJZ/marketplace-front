@@ -33,7 +33,6 @@ const PromptInfoGet = ({product, profileId, productId}) => {
                     setMessage(data.message);
                 }
                 setIsLoading(false)
-                console.log(data);
             } catch (error) {
                 setIsLoading(false)
                 console.error("Error topping up balance:", error);
@@ -70,8 +69,8 @@ const PromptInfoGet = ({product, profileId, productId}) => {
             </div>
             {message && (<h1 className={'payment__message'}>{message}</h1>)}
 
-            <p className="prompt__descr-text" style={{color: 'rgba(145, 143, 143, 1)'}}>After purchasing, you will gain access to the prompt file which you can use with Midjourney. You'll
-                receive 20 free generation credits with this purchase. By purchasing this prompt, you agree to our terms
+            <p className="prompt__descr-text" style={{color: 'rgba(145, 143, 143, 1)'}}>After purchasing, you will gain
+                access to the photo file. By purchasing this prompt, you agree to our terms
                 of service.</p>
         </div>
     );

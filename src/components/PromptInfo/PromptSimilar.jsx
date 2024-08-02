@@ -9,7 +9,7 @@ const PromptSimilar = () => {
     const [items, setItems] = useState([]);
 
     const fetchItems = async () => {
-        const response = await axios.get('/products_Mockup/', { params: { limit: 10 } });
+        const response = await axios.get('/api/products_Mockup/', { params: { limit: 10 } });
         setItems(response.data);
     };
 

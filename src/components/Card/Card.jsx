@@ -7,7 +7,7 @@ const Card = forwardRef(({ card }, ref) => {
     const router = useNavigate();
 
     return (
-        <div ref={ref} className={classes.product} onClick={() => router(`/marketplace/item/${card.id}`)}>
+        <div ref={ref} className={classes.product} onClick={() => router(`/products/item/${card.id}`)}>
             <img src={card.image_url} alt="" className={classes.product__image} />
             <div className={classes.product__desc}>
                 <CardDesc

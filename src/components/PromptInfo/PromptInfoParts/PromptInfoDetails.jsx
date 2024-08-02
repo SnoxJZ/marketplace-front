@@ -9,10 +9,10 @@ const PromptInfoDetails = ({ product, onFavoriteChange, productId, profileId }) 
     const handleFavoriteClick = async () => {
         try {
             if (isFavorite) {
-                await axios.delete('/favorites/', { params: { user_id: profileId, product_id: productId } });
+                await axios.delete('/api/favorites/', { params: { user_id: profileId, product_id: productId } });
                 setIsFavorite(false);
             } else {
-                await axios.post('/favorites/', null, { params: { user_id: profileId, product_id: productId } });
+                await axios.post('/api/favorites/', null, { params: { user_id: profileId, product_id: productId } });
                 setIsFavorite(true);
             }
             onFavoriteChange();

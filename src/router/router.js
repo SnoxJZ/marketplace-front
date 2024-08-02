@@ -12,6 +12,7 @@ import AboutUs from "../pages/AboutUs";
 import AdminPanel from "../pages/AdminPanel";
 import Error from "../components/Error/Error";
 import ProfileUsers from "../components/Profile/ProfileUsers";
+import Terms from "../components/Terms/Terms";
 
 export const authRoutes = [
     { path: "login", element: <Login />, exact: true },
@@ -26,11 +27,12 @@ export const privateRoutes = [
 
 export const publicRoutes = [
     { path: "/", element: <Home />, exact: true },
-    { path: "marketplace", element: <Marketplace />, exact: true },
-    { path: "marketplace/item/:id", element: <PromptDetails />, exact: true },
+    { path: "products", element: <Marketplace />, exact: true },
+    { path: "products/item/:id", element: <PromptDetails />, exact: true },
     { path: "profile/:nickname", element: <ProfileUsers/>, exact: true },
     { path: "contacts", element: <Contacts />, exact: true },
     { path: "faq", element: <Faq />, exact: true },
     { path: "about", element: <AboutUs />, exact: true },
+    { path: "tandcs", element: <Terms />, exact: true },
     { path: "*", element: <Error />, exact: true },
 ]
