@@ -4,6 +4,7 @@ import App from './App';
 import './styles/reset.css'
 import { createTheme, MantineProvider } from '@mantine/core';
 import {AuthProvider} from "./context/AuthContext";
+import "@babel/polyfill";
 
 const theme = createTheme({
     /** Put your mantine theme override here */

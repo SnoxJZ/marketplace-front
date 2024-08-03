@@ -69,7 +69,11 @@ const ProfileComp = () => {
         (<div className="profile">
             <div className="profile-container">
                 <div className="user-info">
-                    <img src={profile.avatar ? `http://127.0.0.1:8001/${profile.avatar}?t=${new Date().getTime()}` : defaultAva} alt="avatar"/>
+                <img 
+                    src={profile.avatar ? `http://127.0.0.1:8001/api/${profile.avatar.replace('app/', '')}?t=${new Date().getTime()}` : defaultAva} 
+                    alt="" 
+                    className="auth__profile-avatar"
+                />
                     <Title fontSize={isTablet ? "24px" : "48px"}>{profile.nickname}</Title>
                 </div>
                 {error && <p style={{marginTop: 20, color: "red"}}>{error}</p>}
