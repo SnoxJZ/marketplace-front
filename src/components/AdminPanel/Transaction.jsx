@@ -4,7 +4,7 @@ import {message, Spin} from "antd";
 import TransactionsInfo from "./Lists/TransactionsInfo";
 import {Accordion} from "rsuite";
 import {useFetching} from "../../hooks/useFetching";
-import {addTransaction, deleteTransaction, deleteUser, getTransactions} from "../../API/useAdminService";
+import {addTransaction, deleteTransaction, getTransactions} from "../../API/useAdminService";
 import AddTransactionModal from "./Modals/AddTransactionModal";
 
 const Transaction = ({token}) => {

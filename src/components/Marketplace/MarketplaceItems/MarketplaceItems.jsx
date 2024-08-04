@@ -6,7 +6,7 @@ import PlaceholderCard from "../../Card/PlaceholderCard";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { FilterContext } from '../../../context/FilterContext';
 import { fetchProductsByCategory, fetchProductsByPrice, fetchProductsByRating, fetchProductsByTitle } from "../../../API/useParserService";
-import { useLocation } from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 
 const categories = [
     { id: 1, title: "3D", api: "/api/products_3D/" },
@@ -26,12 +26,18 @@ const categories = [
 ];
 
 const MarketplaceItems = () => {
-    const { filterType, priceRange, ratingRange, category, shouldFilter, setShouldFilter } = useContext(FilterContext);
+    const { filterType, priceRange, ratingRange, category, shouldFilter, setShouldFilter, page, setPage } = useContext(FilterContext);
     const [items, setItems] = useState([]);
-    const [page, setPage] = useState(1);
     const [hasMore, setHasMore] = useState(true);
     const [error, setError] = useState(null);
     const location = useLocation();
+    const navigate = useNavigate();
+
+    const resetSearchParams = () => {
+        const searchParams = new URLSearchParams(location.search);
+        searchParams.delete('search');
+        navigate({ search: searchParams.toString() });
+    };
 
     useEffect(() => {
         const searchParams = new URLSearchParams(location.search);
@@ -41,7 +47,11 @@ const MarketplaceItems = () => {
             try {
                 if (searchQuery) {
                     const data = await fetchProductsByTitle(page, searchQuery);
-                    setItems(prevItems => [...prevItems, ...data]);
+                    if (page === 1) {
+                        setItems(data);
+                    } else {
+                        setItems(prevItems => [...prevItems, ...data]);
+                    }
                     setHasMore(data.length > 0);
                 } else {
                     const selectedCategory = categories.find(category => category.title === filterType);
@@ -65,6 +75,7 @@ const MarketplaceItems = () => {
                 setError(null);
             } catch (error) {
                 setError("No more items found");
+
             }
         };
 
@@ -129,6 +140,8 @@ const MarketplaceItems = () => {
         if (shouldFilter) {
             setItems([]);
             setPage(1);
+            resetSearchParams();
+
             if (priceRange.min !== '' && priceRange.max !== '') {
                 fetchItemsByPrice();
             } else if (ratingRange.min !== '' && ratingRange.max !== '') {
@@ -143,6 +156,7 @@ const MarketplaceItems = () => {
     useEffect(() => {
         setItems([]);
         setPage(1);
+        resetSearchParams();
     }, [filterType]);
 
     const fetchMoreData = () => {

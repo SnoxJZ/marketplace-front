@@ -1,7 +1,6 @@
 import React from 'react';
 import Title from "../ui/Title/Title";
 import "./Terms.css"
-import {Space} from "antd";
 
 const Terms = () => {
     return (

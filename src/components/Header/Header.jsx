@@ -14,8 +14,10 @@ import {useFetching} from "../../hooks/useFetching";
 import {getProfile} from "../../API/useProfileService";
 import {useAuth} from "../../context/AuthContext";
 import {Spin} from "antd";
+import {FilterContext} from "../../context/FilterContext";
 
 const Header = () => {
+    const { setPage } = useContext(FilterContext);
     const [profile, setProfile] = useState([]);
     const [theme, setTheme] = useContext(ThemeContext);
     const [themeImg, setThemeImg] = useState(dark);
@@ -50,6 +52,7 @@ const Header = () => {
 
     const handleSearch = () => {
         router(`/products?search=${searchQuery}`);
+        setPage(1);
     };
 
     return (

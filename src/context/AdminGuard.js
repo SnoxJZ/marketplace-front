@@ -8,7 +8,6 @@ const AdminGuard = ({ children }) => {
     const { token } = useAuth();
     const [isLoading, setIsLoading] = useState(true);
     const [isAdmin, setIsAdmin] = useState(false);
-    const [userId, setUserId] = useState()
 
     useEffect(() => {
         const fetchProfile = async () => {
@@ -17,7 +16,6 @@ const AdminGuard = ({ children }) => {
                 if (profile.profile.role === 'admin') {
                     setIsAdmin(true);
                 }
-                setUserId(profile.profile._id);
                 setIsLoading(false);
             } catch (error) {
                 console.error('Error fetching profile:', error);

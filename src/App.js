@@ -8,6 +8,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Preloader from "./components/Preloader/Preloader";
 import { ThemeProviderMain } from "./providers/ThemeProviderMain";
 import CompStyles from "./providers/CompStyles";
+import {FilterProvider} from "./context/FilterContext";
 
 const theme = createTheme({
     components: {
@@ -45,16 +46,18 @@ function App() {
         <ThemeProviderMain>
             <CompStyles>
                 <ThemeProvider theme={theme}>
-                    <BrowserRouter>
-                        {!isLoaded && <Preloader />}
-                        {isLoaded && (
-                            <>
-                                <Header />
-                                <AppRouter />
-                                <Footer />
-                            </>
-                        )}
-                    </BrowserRouter>
+                    <FilterProvider>
+                        <BrowserRouter>
+                            {!isLoaded && <Preloader />}
+                            {isLoaded && (
+                                <>
+                                    <Header />
+                                    <AppRouter />
+                                    <Footer />
+                                </>
+                            )}
+                        </BrowserRouter>
+                    </FilterProvider>
                 </ThemeProvider>
             </CompStyles>
         </ThemeProviderMain>

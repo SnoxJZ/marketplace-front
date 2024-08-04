@@ -4,7 +4,7 @@ import {message, Spin} from "antd";
 import DepositInfo from "./Lists/DepositInfo";
 import {Accordion} from "rsuite";
 import {useFetching} from "../../hooks/useFetching";
-import {addDeposit, deleteDeposit, deleteUser, getDeposits} from "../../API/useAdminService";
+import {addDeposit, deleteDeposit, getDeposits} from "../../API/useAdminService";
 import AddDepositModal from "./Modals/AddDepositModal";
 
 const Deposits = ({token}) => {

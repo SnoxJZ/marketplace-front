@@ -8,6 +8,7 @@ export const FilterProvider = ({ children }) => {
     const [ratingRange, setRatingRange] = useState({ min: '', max: '' });
     const [category, setCategory] = useState('All');
     const [shouldFilter, setShouldFilter] = useState(false);
+    const [page, setPage] = useState(1);
 
     const clearFilters = () => {
         setFilterType('Prompts');
@@ -29,6 +30,8 @@ export const FilterProvider = ({ children }) => {
             setCategory,
             shouldFilter,
             setShouldFilter,
+            page,
+            setPage,
             clearFilters
         }}>
             {children}

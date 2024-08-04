@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Title from "../components/ui/Title/Title";
 import "../components/Settings/Settings.css";
 import SettingsFields from "../components/Settings/SettingsFields";
