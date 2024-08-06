@@ -43,10 +43,18 @@
     display: flex;
     gap: 32px;
     margin-top: 24px;
+    align-items: center;
+}
+
+.card__logo {
+    height: 100%;
+    width: 80px;
 }
 
 .social__icon {
     cursor: pointer;
+    width: 42px;
+    height: 42px;
 }
 
 .footer__line {
@@ -61,6 +69,23 @@
     justify-content: space-between;
     width: 100%;
     align-items: center;
+}
+
+.footer__inf-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.footer_item.info {
+    cursor: auto;
+}
+
+.footer_item.info.details {
+    font-size: 14px;
+    text-align: center;
+    font-family: K2D, sans-serif;
 }
 
 
@@ -89,6 +114,14 @@
 
     .footer__img img {
         height: 36px;
+    }
+
+    .social__icon {
+        width: 36px;
+    }
+
+    .card__logo {
+        height: 100% !important;
     }
 
 }

@@ -41,7 +41,7 @@ const FaqAccordion = () => {
         },
         {
             value: "How do I get paid?",
-            description: "PromptBase uses FYST to send out payments to you."
+            description: "Artallai uses card/bank transfer to send out payments to you."
         },
         {
             value: "How are most popular prompts determined?",

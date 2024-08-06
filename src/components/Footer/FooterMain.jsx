@@ -13,11 +13,11 @@ const FooterMain = () => {
                 <Link to="/tandcs">
                     <li className="footer_item">Terms of service</li>
                 </Link>
-                <Link to="/contacts">
-                    <li className="footer_item">Contacts</li>
+                <Link to="/privacy">
+                    <li className="footer_item">Privacy Policy</li>
                 </Link>
-                <Link to="/faq">
-                    <li className="footer_item">FAQ</li>
+                <Link to="/cookie">
+                    <li className="footer_item">Cookie Notice</li>
                 </Link>
             </ul>
         </div>

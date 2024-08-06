@@ -1,0 +1,56 @@
+.terms__group {
+    margin: 32px 0 16px 0;
+}
+
+.terms__group p {
+    font-size: 15px;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+.terms__group h1 {
+    font-size: 24px;
+}
+
+.terms__group span {
+    font-size: 15px;
+    font-family: K2D, sans-serif;
+}
+
+#disclaimers {
+    white-space: wrap;
+}
+
+.tandcs {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.terms__contacts {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.terms__list {
+    margin-bottom: 16px;
+}
+
+.terms__list li{
+    list-style: disc;
+    margin-left: 32px;
+    font-family: K2D, sans-serif;
+    font-size: 15px;
+}
+
+strong {
+    font-family: K2D, sans-serif;
+    font-size: 16px;
+}
+
+
+@media (max-width: 896px) {
+    .tandcs {
+        margin: 0 20px;
+    }
+}

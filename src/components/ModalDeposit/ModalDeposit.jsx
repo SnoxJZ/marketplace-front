@@ -11,13 +11,20 @@ import {Spin} from "antd";
 const ModalDeposit = ({ modalActive, setModalActive, profileId }) => {
     const [amount, setAmount] = useState("");
     const [redirectUrl, setRedirectUrl] = useState("");
-    const [message, setMessage] = useState("")
+    const [message, setMessage] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
     const [isLoading, setIsLoading] = useState(false)
     const { token } = useAuth();
 
     const handleTopUp = async () => {
+        if (parseFloat(amount) < 5) {
+            setErrorMessage("Minimum replenishment amount 5 euros.");
+            return;
+        }
+
         try {
             setIsLoading(true)
+            setErrorMessage("")
             const data = await topUpBalance(token, profileId, amount);
             if (data.redirect_url) {
                 setRedirectUrl(data.redirect_url);
@@ -26,10 +33,9 @@ const ModalDeposit = ({ modalActive, setModalActive, profileId }) => {
                 setMessage(data.message);
             }
             setIsLoading(false)
-            console.log(data);
         } catch (error) {
             setIsLoading(false)
-            console.error("Error topping up balance:", error);
+            setErrorMessage(error);
         }
     };
 
@@ -48,6 +54,7 @@ const ModalDeposit = ({ modalActive, setModalActive, profileId }) => {
             </div>
             <p className='exchange__rate'>1 Euro = 1 ART</p>
             {message && (<h1 className={'payment__message'}>{message}</h1>)}
+            {errorMessage && (<h1 className={'payment__message error'}>{errorMessage}</h1>)}
             {redirectUrl && (
                 <div className="redirect-button">
                     <Button onClick={() => window.location.href = redirectUrl}>Proceed to Payment</Button>

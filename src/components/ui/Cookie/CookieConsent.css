@@ -1,0 +1,11 @@
+.react-cookienotice-root {
+    z-index: 999;
+}
+
+.react-cookienotice-title span {
+    font-size: 20px;
+}
+
+.react-cookienotice-description span {
+    font-size: 16px;
+}

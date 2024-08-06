@@ -87,7 +87,7 @@ const Header = () => {
                                 : <div className="auth__profile">
                                     <h1 className="auth__profile-name">{profile.nickname}</h1>
                                     <img 
-                                        src={profile.avatar ? `http://127.0.0.1:8001/api/${profile.avatar.replace('app/', '')}?t=${new Date().getTime()}` : defaultAva} 
+                                        src={profile.avatar ? `https://artallai.com/api/${profile.avatar.replace('app/', '')}?t=${new Date().getTime()}` : defaultAva}
                                         alt="" 
                                         className="auth__profile-avatar"
                                     />

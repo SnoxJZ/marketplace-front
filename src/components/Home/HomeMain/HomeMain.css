@@ -7,7 +7,7 @@
 
 .home__main-title {
     text-align: center;
-    font-size: 420px;
+    font-size: 320px;
     line-height: 0.6;
     opacity: 0.7;
     user-select: none;
@@ -120,7 +120,7 @@
 
 @media (max-width: 896px) {
     .home__main-title {
-        font-size: 136px;
+        font-size: 95px;
         /*position: absolute;*/
         /*top: 10%;*/
     }
@@ -184,5 +184,11 @@
         left: 50%;
         transform: translate(-50%, -50%) translate(-165px, -140px);
         clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%, 0% 50%);
+    }
+}
+
+@media (min-width: 896px) and (max-width: 1240px) {
+    .home__main-title {
+        font-size: 235px;
     }
 }

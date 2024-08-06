@@ -40,7 +40,7 @@ const HomeMain = () => {
             viewport={{ once: true }}
             style={{overflow: 'hidden'}}
         >
-            <motion.div variants={homeMainTitle} transition={{ duration: 1 }} className="home__main-title">NAME</motion.div>
+            <motion.div variants={homeMainTitle} transition={{ duration: 1 }} className="home__main-title">ARTALLAI</motion.div>
             <motion.img variants={homeMainRobot} transition={{ duration: 1 }} src={robotImg} alt="robot" className="home__main-robot"/>
             <span className="home__elipse purple"></span>
             <motion.img variants={leftElem(isMobile)} transition={{ duration: 1 }} src={elemLeft} alt="" className="left-elem"/>

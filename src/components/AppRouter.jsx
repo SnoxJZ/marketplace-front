@@ -4,6 +4,7 @@ import { authRoutes, privateRoutes, publicRoutes } from '../router/router';
 import AnimatedRoute from '../animation/AnimatedRoute';
 import { useAuth } from '../context/AuthContext';
 import AdminGuard from '../context/AdminGuard'
+import ScrollToTop from "../context/ScrollToTop";
 
 const AppRouter = () => {
     const { token } = useAuth();
@@ -11,6 +12,7 @@ const AppRouter = () => {
     return (
         token ? (
             <AnimatedRoute>
+                <ScrollToTop/>
                 <Routes>
                     {publicRoutes.map(route =>
                         <Route

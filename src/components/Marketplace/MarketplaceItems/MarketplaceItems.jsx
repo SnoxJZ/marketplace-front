@@ -30,6 +30,7 @@ const MarketplaceItems = () => {
     const [items, setItems] = useState([]);
     const [hasMore, setHasMore] = useState(true);
     const [error, setError] = useState(null);
+    const [isFirstRender, setIsFirstRender] = useState(true);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -154,9 +155,13 @@ const MarketplaceItems = () => {
     }, [shouldFilter, priceRange, ratingRange, category, page, setShouldFilter]);
 
     useEffect(() => {
-        setItems([]);
-        setPage(1);
-        resetSearchParams();
+        if (!isFirstRender) {
+            setItems([]);
+            setPage(1);
+            resetSearchParams();
+        } else {
+            setIsFirstRender(false);
+        }
     }, [filterType]);
 
     const fetchMoreData = () => {

@@ -9,6 +9,7 @@ import Preloader from "./components/Preloader/Preloader";
 import { ThemeProviderMain } from "./providers/ThemeProviderMain";
 import CompStyles from "./providers/CompStyles";
 import {FilterProvider} from "./context/FilterContext";
+import CookieConsent from "./components/ui/Cookie/CookieConsent";
 
 const theme = createTheme({
     components: {
@@ -54,6 +55,7 @@ function App() {
                                     <Header />
                                     <AppRouter />
                                     <Footer />
+                                    <CookieConsent />
                                 </>
                             )}
                         </BrowserRouter>

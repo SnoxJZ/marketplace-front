@@ -65,7 +65,7 @@ const PromptInfoGet = ({product, profileId, productId}) => {
                     :
                         (<Button onClick={purchaseProduct}>{isLoading ? <Spin/> : 'Get prompt'}</Button>)
                 }
-                <ModalDeposit modalActive={modalActive} setModalActive={setModalActive}/>
+                <ModalDeposit modalActive={modalActive} setModalActive={setModalActive} profileId={profileId}/>
             </div>
             {message && (<h1 className={'payment__message'}>{message}</h1>)}
 

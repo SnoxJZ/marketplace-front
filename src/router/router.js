@@ -12,7 +12,9 @@ import AboutUs from "../pages/AboutUs";
 import AdminPanel from "../pages/AdminPanel";
 import Error from "../components/Error/Error";
 import ProfileUsers from "../components/Profile/ProfileUsers";
-import Terms from "../components/Terms/Terms";
+import Terms from "../pages/Terms";
+import Privacy from "../pages/Privacy";
+import Cookie from "../pages/Cookie";
 
 export const authRoutes = [
     { path: "login", element: <Login />, exact: true },
@@ -34,5 +36,7 @@ export const publicRoutes = [
     { path: "faq", element: <Faq />, exact: true },
     { path: "about", element: <AboutUs />, exact: true },
     { path: "tandcs", element: <Terms />, exact: true },
+    { path: "privacy", element: <Privacy />, exact: true },
+    { path: "cookie", element: <Cookie />, exact: true },
     { path: "*", element: <Error />, exact: true },
 ]

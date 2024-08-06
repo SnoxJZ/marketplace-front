@@ -21,6 +21,11 @@
     margin-top: 43px;
 }
 
+.contact__icons img {
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+}
 
 @media (max-width: 896px) {
     .contact__text h1{

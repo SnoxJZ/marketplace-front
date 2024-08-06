@@ -23,7 +23,7 @@ const Footer = () => {
             className="footer"
             initial="hidden"
             whileInView="visible"
-            // viewport={{ once: true }}
+            viewport={{ once: true }}
             variants={footer}
             transition={{ duration: 0.7 }}
             style={{overflow: "hidden"}}
