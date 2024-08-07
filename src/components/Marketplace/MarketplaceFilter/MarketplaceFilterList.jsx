@@ -4,13 +4,13 @@ import { Group, Collapse, Box } from '@mantine/core';
 import Input from "../../ui/Input/Input";
 import {FilterContext} from "../../../context/FilterContext";
 
-const product = ['Prompts', 'Bundles', 'Apps'];
+const product = ['Images', 'Bundles', 'Apps'];
 const type = ['All', 'Image', 'Text'];
 const Model = ['All', '⛵ Midjourney', '🎨 DALL·E', '🤖 GPT', '🧙‍♂️ Leonardo Ai', '🌌 Stable Diff.'];
 
 const MarketplaceFilterList = () => {
     const { setFilterType, priceRange, setPriceRange, ratingRange, setRatingRange, setCategory } = useContext(FilterContext);
-    const [value1, setValue1] = useState('Prompts');
+    const [value1, setValue1] = useState('Images');
     const [value2, setValue2] = useState('All');
     const [value3, setValue3] = useState('All');
     const [priceOpened, setPriceOpened] = useState(false);

@@ -3,7 +3,7 @@ import React, { createContext, useState } from 'react';
 export const FilterContext = createContext();
 
 export const FilterProvider = ({ children }) => {
-    const [filterType, setFilterType] = useState('Prompts');
+    const [filterType, setFilterType] = useState('Images');
     const [priceRange, setPriceRange] = useState({ min: '', max: '' });
     const [ratingRange, setRatingRange] = useState({ min: '', max: '' });
     const [category, setCategory] = useState('All');
@@ -11,7 +11,7 @@ export const FilterProvider = ({ children }) => {
     const [page, setPage] = useState(1);
 
     const clearFilters = () => {
-        setFilterType('Prompts');
+        setFilterType('Images');
         setPriceRange({ min: '', max: '' });
         setRatingRange({ min: '', max: '' });
         setCategory('All');

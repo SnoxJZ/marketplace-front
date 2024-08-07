@@ -29,23 +29,19 @@ const FaqAccordion = () => {
     const faqs = [
         {
             value: "What is Artallai?",
-            description: "Artallai is a marketplace for buying and selling prompts for DALL·E, GPT, Stable Diffusion + Midjourney. Prompts are sentences of text that are fed into complex AI models to get a desired output, for example and image of a certain object in a certain style."
+            description: "Artallai is a website for buying and selling images of DALL·E, GPT, Stable Diffusion + Midjourney. Images are generated text that are fed into complex AI models to get a desired output, for example an image of a certain object in a certain style."
         },
         {
             value: "What is a Prompt Engineer?",
             description: "A Prompt Engineer is a new kind of technician, skilled at crafting the text prompts required for an AI model to produce consistent outputs (e.g. images, text or code)."
         },
         {
-            value: "What is the revenue split?",
-            description: "Prompt sellers keep 80% of every sale of their prompt, and on custom prompt jobs. PromptBase takes a 20% fee which helps run our platform and offer services like support."
+            value: "How do I pay for images on Artallai?",
+            description: "Artallai offers card/bank transfer and APM’s to receive payments from you."
         },
         {
-            value: "How do I get paid?",
-            description: "Artallai uses card/bank transfer to send out payments to you."
-        },
-        {
-            value: "How are most popular prompts determined?",
-            description: "Most popular prompts are determined purely on their sales and views."
+            value: "How are most popular images determined?",
+            description: "Most popular images are determined purely on their sales and views."
         }
     ];
 

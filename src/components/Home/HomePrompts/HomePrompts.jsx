@@ -63,17 +63,17 @@ const HomePrompts = () => {
             style={{overflow: 'hidden'}}
         >
             <motion.div custom={1} variants={prompts} transition={{ duration: 1, delay: 0.2 }} className="prompts">
-                <Title>Trending Prompts</Title>
+                <Title>Trending Images</Title>
                 <PromptsList prompts={featured} isLoading={isLoadingFeatured}/>
                 {errorFeatured && <p style={{marginBottom: 20, color: "red"}}>{errorFeatured}</p>}
             </motion.div>
             <motion.div custom={2} variants={prompts} transition={{ duration: 1, delay: 0.7 }} className="prompts">
-                <Title>Most Popular Prompts This Month</Title>
+                <Title>Most Popular Images This Month</Title>
                 <PromptsList prompts={popular} isLoading={isLoadingPopular}/>
                 {errorPopular && <p style={{marginBottom: 20, color: "red"}}>{errorPopular}</p>}
             </motion.div>
             <motion.div custom={3} variants={prompts} transition={{ duration: 1, delay: 1.2 }} className="prompts">
-                <Title>Newest Prompts</Title>
+                <Title>Newest Images</Title>
                 <PromptsList prompts={newest} isLoading={isLoadingNewest}/>
                 {errorNewest && <p style={{marginBottom: 20, color: "red"}}>{errorNewest}</p>}
             </motion.div>

@@ -74,6 +74,10 @@
     scrollbar-width: none;
 }
 
+.deposits__list::-webkit-scrollbar {
+    display: none;
+}
+
 .deposit__info {
     display: flex;
     gap: 8px;

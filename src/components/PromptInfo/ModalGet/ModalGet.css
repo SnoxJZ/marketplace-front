@@ -18,9 +18,18 @@
 
 
 
-@media (max-width: 896px) {
+@media (max-width: 1220px) {
     .modal__get-header {
         flex-direction: column;
         gap: 16px;
+    }
+
+    .modal__get-main {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    #download__btn {
+        width: 50%;
     }
 }

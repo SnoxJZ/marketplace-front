@@ -19,7 +19,7 @@ const categories = [
     { id: 8, title: "People", api: "/api/products_People/" },
     { id: 9, title: "Bundles", api: "/api/products_bundles/" },
     { id: 10, title: "Apps", api: "/api/products_apps/" },
-    { id: 11, title: "Prompts", api: "/api/products/" },
+    { id: 11, title: "Images", api: "/api/products/" },
     { id: 12, title: "Image", api: "/api/products_text/" },
     { id: 13, title: "Text", api: "/api/products_text/" },
     { id: 14, title: "All", api: "/api/products/" },

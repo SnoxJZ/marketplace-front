@@ -49,8 +49,8 @@ const HomeMain = () => {
             <span className="home__rectangle right-rect"></span>
             <span className="home__rectangle left-rect"></span>
             <motion.div variants={homeMainDesc(isTablet)} transition={{ duration: 1 }} className="home__main-desc">
-                <Title>AI Prompt Products</Title>
-                <p style={{margin: "26px 0"}}>Explore 130,000+ curated AI prompts made by expert AI creators</p>
+                <Title>AI Image Products</Title>
+                <p style={{margin: "26px 0"}}>Explore 130,000+ curated AI images made by expert AI creators</p>
                 <div className="home__main-more">
                     <p>More</p>
                     <svg xmlns="http://www.w3.org/2000/svg" width="46" height="8" viewBox="0 0 46 8" fill="none" className="home__main-arrow">

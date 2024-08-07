@@ -59,19 +59,17 @@ const PromptInfoGet = ({product, profileId, productId, transactions}) => {
                 {isPurchased
                     ?
                         (<div className="redirect-button" style={{marginTop: 0}}>
-                            <Button onClick={() => setModalGet(true)}>Download prompt</Button>
+                            <Button onClick={() => setModalGet(true)}>Download image</Button>
                         </div>)
                     :
-                        (<Button onClick={purchaseProduct}>{isLoading ? <Spin/> : 'Get prompt'}</Button>)
+                        (<Button onClick={purchaseProduct}>{isLoading ? <Spin/> : 'Get image'}</Button>)
                 }
                 <ModalDeposit modalActive={modalActive} setModalActive={setModalActive} profileId={profileId}/>
                 <ModalGet modalActive={modalGet} setModalActive={setModalGet} product={product}/>
             </div>
             {message && (<h1 className={'payment__message'}>{message}</h1>)}
 
-            <p className="prompt__descr-text" style={{color: 'rgba(145, 143, 143, 1)'}}>After purchasing, you will gain
-                access to the photo file. By purchasing this prompt, you agree to our terms
-                of service.</p>
+            <p className="prompt__descr-text" style={{color: 'rgba(145, 143, 143, 1)'}}>After purchasing, you will gain access to the photo file. By purchasing this image, you agree to our terms of service.</p>
         </div>
     );
 };

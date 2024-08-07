@@ -96,7 +96,7 @@ const ProfileComp = () => {
 
             <div className="prompts">
                 <div className="prompts__profile-head">
-                    <Title>Ordered prompts</Title>
+                    <Title>Ordered images</Title>
                     <span className="profile__line"></span>
                 </div>
                 {isLoadingProd ? (

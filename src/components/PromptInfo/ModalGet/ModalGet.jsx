@@ -81,7 +81,7 @@ const ModalGet = ({ modalActive, setModalActive, product }) => {
                         ]}
                     />
                 </div>
-                <Button onClick={handleDownload}>{isLoading ? <Spin/> : 'Generate'}</Button>
+                <Button id='download__btn' onClick={handleDownload}>{isLoading ? <Spin/> : 'Generate'}</Button>
             </div>
         </Modal>
     );

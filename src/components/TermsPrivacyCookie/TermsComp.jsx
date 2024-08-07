@@ -119,15 +119,15 @@ const TermsComp = () => {
 
             <section className="terms__group">
                 <Title fontSize="24px" color={'#ED43DC'}>Usage Policy</Title>
-                <p>When you purchase a prompt from our marketplace, you are granted a non-exclusive, worldwide, and
-                    perpetual license to use the prompt for any purpose, with the following exceptions:</p>
+                <p>When you purchase an image from our marketplace, you are granted a non-exclusive, worldwide, and
+                    perpetual license to use the image for any purpose, with the following exceptions:</p>
                 <ul className='terms__list'>
-                    <li>You may not use the prompt for any harmful, illegal, or malicious activities.</li>
-                    <li>You may not directly resell, redistribute, or transfer the prompt without the written consent of
-                        the prompt's creator.
+                    <li>You may not use the image for any harmful, illegal, or malicious activities.</li>
+                    <li>You may not directly resell, redistribute, or transfer the image without the written consent of
+                        the image's creator.
                     </li>
                 </ul>
-                <p>We reserve the right to terminate your license to use a prompt if you violate these usage
+                <p>We reserve the right to terminate your license to use an image if you violate these usage
                     restrictions.</p>
             </section>
 

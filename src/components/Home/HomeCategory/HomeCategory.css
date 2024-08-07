@@ -53,7 +53,7 @@
     scrollbar-width: none;
 }
 
-.home__category-items::-webkit-scrollbar, .home__categories::-webkit-scrollbar {
+.home__category-items::-webkit-scrollbar, .home__categories::-webkit-scrollbar, .placeholder__card-group-wide::-webkit-scrollbar {
     display: none;
 }
 

@@ -22,7 +22,7 @@ const PromptSimilar = () => {
     return (
         <div className="prompt__similar">
             <div className="similar__header">
-                <Title>Similar Prompts</Title>
+                <Title>Similar Images</Title>
             </div>
             {isLoading ?
                 <div className="similar__items">

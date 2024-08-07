@@ -8,7 +8,6 @@ const FooterContacts = () => {
             <Title>Contacts</Title>
             <ul className="footer__items">
                 <li className="footer_item info">info@artallai.com</li>
-                <li className="footer_item info">feedback@artallai.com</li>
                 <li className="footer_item info">+480673585644</li>
                 <Link to="/contacts">
                     <li className="footer_item">Contacts</li>
