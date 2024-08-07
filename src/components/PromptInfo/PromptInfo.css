@@ -225,7 +225,7 @@
 
     .prompt__reviews {
         margin-left: 20px;
-        padding-bottom: 0;
+        padding-bottom: 0 !important;
     }
 
     .reviews__header {

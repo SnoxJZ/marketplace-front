@@ -6,7 +6,7 @@ import PromptInfoGet from "./PromptInfoParts/PromptInfoGet";
 import axios from "axios";
 
 
-const PromptInfo = ({product, productId, profile}) => {
+const PromptInfo = ({product, productId, profile, transactions}) => {
     const [rating, setRating] = useState(product.rating);
 
     const fetchProductRating = async () => {
@@ -31,7 +31,7 @@ const PromptInfo = ({product, productId, profile}) => {
             <div className="prompt__info-details">
                 <PromptInfoDetails product={product} productId={productId} onFavoriteChange={handleFavoriteChange} profileId={profile._id}/>
                 <PromptInfoStat product={product} rating={rating}/>
-                <PromptInfoGet product={product} profileId={profile._id} productId={productId}/>
+                <PromptInfoGet product={product} profileId={profile._id} productId={productId} transactions={transactions}/>
             </div>
             <div className="prompt__info-img">
                 <img src={product.image_url} alt="groupImg"/>

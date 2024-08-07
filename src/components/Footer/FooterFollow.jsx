@@ -13,10 +13,10 @@ const FooterFollow = () => {
                     <img src={instagram} alt="instagram" className="social__icon"/>
                 </a>
                 <a href="https://x.com/artallai/ ">
-                    <img src={telegram} alt="telegram" className="social__icon"/>
+                    <img src={twitter} alt="facebook" className="social__icon"/>
                 </a>
                 <a href="https://t.me/artallai">
-                    <img src={twitter} alt="facebook" className="social__icon"/>
+                    <img src={telegram} alt="telegram" className="social__icon"/>
                 </a>
             </div>
         </div>

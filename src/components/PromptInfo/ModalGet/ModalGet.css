@@ -1,0 +1,26 @@
+.modal__get-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 48px;
+}
+
+.modal__get-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal__select-group {
+    display: flex;
+    gap: 24px;
+}
+
+
+
+@media (max-width: 896px) {
+    .modal__get-header {
+        flex-direction: column;
+        gap: 16px;
+    }
+}

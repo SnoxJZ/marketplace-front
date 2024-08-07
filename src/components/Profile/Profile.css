@@ -61,6 +61,43 @@
     justify-content: center;
 }
 
+.prompt__reviews, .deposits {
+    padding: 42px 0;
+    margin-bottom: 32px;
+}
+
+.deposits__list {
+    display: flex;
+    gap: 24px;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.deposit__info {
+    display: flex;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.deposit__info-title {
+    font-size: 24px;
+    color: rgb(237, 67, 220);
+}
+
+.deposit__info-det {
+    font-size: 24px;
+}
+
+.deposit__item {
+    background: var(--category-item-background);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 12px;
+}
+
 @media (max-width: 896px) {
     .profile-container, .prompts {
         margin: 0 20px;
@@ -97,4 +134,14 @@
     .profile__balance {
         font-size: 24px;
     }
+
+    .deposits {
+        margin-left: 20px;
+        padding-bottom: 0 !important;
+    }
+
+    .deposit__info-title, .deposit__info-det {
+        font-size: 18px;
+    }
+
 }

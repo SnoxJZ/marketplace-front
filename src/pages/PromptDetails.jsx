@@ -12,6 +12,7 @@ import {getProfile} from "../API/useProfileService";
 const PromptDetails = () => {
     const { id: productId } = useParams();
     const [profile, setProfile] = useState([]);
+    const [transactions, setTransactions] = useState([])
     const [product, setProduct] = useState(null);
     const { token } = useAuth();
 
@@ -23,6 +24,7 @@ const PromptDetails = () => {
     const [fetchProfile, isLoadingProf, errorProf] = useFetching(async () => {
         const data = await getProfile(token);
         setProfile(data.profile);
+        setTransactions(data.transactions);
     });
 
     useEffect(() => {
@@ -47,7 +49,7 @@ const PromptDetails = () => {
 
     return (
         <div className="prompt__info-wrapper">
-            <PromptInfo product={product} productId={productId} profile={profile}/>
+            <PromptInfo product={product} productId={productId} profile={profile} transactions={transactions}/>
             <PromptReviews product={product} profile={profile} productId={productId}/>
             <PromptSimilar/>
         </div>

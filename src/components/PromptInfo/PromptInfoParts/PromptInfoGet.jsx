@@ -5,13 +5,15 @@ import ModalDeposit from "../../ModalDeposit/ModalDeposit";
 import {getBalance, purchase} from "../../../API/usePaymentsService";
 import {useAuth} from "../../../context/AuthContext";
 import {Spin} from "antd";
+import ModalGet from "../ModalGet/ModalGet";
 
-const PromptInfoGet = ({product, profileId, productId}) => {
+const PromptInfoGet = ({product, profileId, productId, transactions}) => {
     const [modalActive, setModalActive] = useState(false);
+    const [modalGet, setModalGet] = useState(false);
     const [balance, setBalance] = useState('')
     const [isLoading, setIsLoading] = useState(false)
-    const [redirectUrl, setRedirectUrl] = useState('')
     const [message, setMessage] = useState('')
+    const [isPurchased, setIsPurchased] = useState(false)
     const { token } = useAuth();
 
     const fetchBalance = async () => {
@@ -27,10 +29,8 @@ const PromptInfoGet = ({product, profileId, productId}) => {
                 setIsLoading(true)
                 const data = await purchase(token, profileId, productId);
                 if (data.image_url && data.message) {
-                    localStorage.setItem(`redirectUrl_${productId}`, data.image_url);
-                    localStorage.setItem(`message_${productId}`, data.message);
-                    setRedirectUrl(data.image_url);
                     setMessage(data.message);
+                    setIsPurchased(true);
                 }
                 setIsLoading(false)
             } catch (error) {
@@ -45,27 +45,27 @@ const PromptInfoGet = ({product, profileId, productId}) => {
             fetchBalance();
         }
 
-        const savedRedirectUrl = localStorage.getItem(`redirectUrl_${productId}`);
-        const savedMessage = localStorage.getItem(`message_${productId}`);
-        if (savedRedirectUrl && savedMessage) {
-            setRedirectUrl(savedRedirectUrl);
-            setMessage(savedMessage);
+        const transaction = transactions.find(transaction => transaction.product_id === productId);
+        if (transaction) {
+            setIsPurchased(true);
+            setMessage(`Product purchase successful`);
         }
-    }, [productId]);
+    }, [productId, transactions, token]);
 
     return (
         <div className="prompt__info-get">
             <div className="get__prompt">
                 <Title color="var(--main-text-color)" fontSize="48px">{product.price} ART</Title>
-                {redirectUrl
+                {isPurchased
                     ?
                         (<div className="redirect-button" style={{marginTop: 0}}>
-                            <Button onClick={() => window.location.href = redirectUrl}>Get Image</Button>
+                            <Button onClick={() => setModalGet(true)}>Download prompt</Button>
                         </div>)
                     :
                         (<Button onClick={purchaseProduct}>{isLoading ? <Spin/> : 'Get prompt'}</Button>)
                 }
                 <ModalDeposit modalActive={modalActive} setModalActive={setModalActive} profileId={profileId}/>
+                <ModalGet modalActive={modalGet} setModalActive={setModalGet} product={product}/>
             </div>
             {message && (<h1 className={'payment__message'}>{message}</h1>)}
 

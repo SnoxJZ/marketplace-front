@@ -20,6 +20,7 @@ const ProfileComp = () => {
     const [reviews, setReviews] = useState([]);
     const [transactions, setTransactions] = useState([]);
     const [products, setProducts] = useState([]);
+    const [deposits, setDeposits] = useState([])
     const [balance, setBalance] = useState('')
     const [isTablet] = useMediaQuery('(max-width: 896px)');
     const [modalActive, setModalActive] = useState(false);
@@ -30,6 +31,7 @@ const ProfileComp = () => {
         setProfile(data.profile);
         setReviews(data.reviews);
         setTransactions(data.transactions);
+        setDeposits(data.deposits);
     });
 
     const [fetchBalance, isLoadingBal, errorBal] = useFetching(async () => {
@@ -91,6 +93,7 @@ const ProfileComp = () => {
                 </div>
                 {errorBal && <p style={{marginTop: 20, color: "red"}}>{error}</p>}
             </div>
+
             <div className="prompts">
                 <div className="prompts__profile-head">
                     <Title>Ordered prompts</Title>
@@ -107,9 +110,10 @@ const ProfileComp = () => {
                 )}
                 {errorProd && <p style={{ marginTop: 20, color: "red" }}>{errorProd}</p>}
             </div>
+
             <div className="prompt__reviews">
                 <div className="prompts__profile-head mob">
-                    <Title>{profile.reviews ? profile.reviews.length : 0} creator reviews</Title>
+                    <Title>Creator reviews</Title>
                     <span className="profile__line"></span>
                 </div>
                 {reviews.length > 0 ? (
@@ -121,7 +125,31 @@ const ProfileComp = () => {
                 ) : (
                     <p style={{textAlign: "center", fontSize: "24px"}}>No reviews available.</p>
                 )}
+            </div>
 
+            <div className="deposits">
+                <div className="prompts__profile-head mob">
+                    <Title>User deposits</Title>
+                    <span className="profile__line"></span>
+                </div>
+                {deposits.length > 0 ? (
+                    <div className="deposits__list" style={{marginTop: isTablet ? 0 : 28}}>
+                        {deposits.map((item, index) =>
+                            <div className="deposit__item" key={index}>
+                                <div className="deposit__info">
+                                    <h1 className="deposit__info-title">Replenishment amount: </h1>
+                                    <h1 className="deposit__info-det">{item.amount} ART</h1>
+                                </div>
+                                <div className="deposit__info">
+                                    <h1 className="deposit__info-title">Date: </h1>
+                                    <h1 className="deposit__info-det">{item.created_at}</h1>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                ) : (
+                    <p style={{textAlign: "center", fontSize: "24px"}}>Deposits not found.</p>
+                )}
             </div>
             <ModalDeposit modalActive={modalActive} setModalActive={setModalActive} profileId={profile._id}/>
         </div>)
