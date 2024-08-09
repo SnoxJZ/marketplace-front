@@ -60,7 +60,7 @@ const TermsComp = () => {
                 <p>If you have any questions about these Terms, please contact us at:</p>
                 <div className="terms__contacts">
                     <span>Artallai s.r.o.</span>
-                    <span>U Křížku 2235, Rakovník 269 01,Czech Republic.</span>
+                    <span>Rybná 716/24, Staré Město, 110 00 Praha 1, Czech Republic.</span>
                     <span>Email: info@artallai.com</span>
                 </div>
             </section>

@@ -68,21 +68,21 @@ const ProfileComp = () => {
                 )}
                 {errorProd && <p style={{ marginTop: 20, color: "red" }}>{errorProd}</p>}
             </div>
-            <div className="prompt__reviews">
-                <div className="prompts__profile-head mob">
-                    <Title>{profile.reviews ? profile.reviews.length : 0} creator reviews</Title>
-                    <span className="profile__line"></span>
-                </div>
-                <div className="reviews__list" style={{ marginTop: isTablet ? 0 : 28 }}>
-                    {profile.reviews && profile.reviews.length > 0 ? (
-                        profile.reviews.map((item, index) =>
-                            <Review review={item} key={index} />
-                        )
-                    ) : (
-                        <p style={{textAlign: "center", fontSize: "24px"}}>No reviews available.</p>
-                    )}
-                </div>
-            </div>
+            {/*<div className="prompt__reviews">*/}
+            {/*    <div className="prompts__profile-head mob">*/}
+            {/*        <Title>{profile.reviews ? profile.reviews.length : 0} creator reviews</Title>*/}
+            {/*        <span className="profile__line"></span>*/}
+            {/*    </div>*/}
+            {/*    <div className="reviews__list" style={{ marginTop: isTablet ? 0 : 28 }}>*/}
+            {/*        {profile.reviews && profile.reviews.length > 0 ? (*/}
+            {/*            profile.reviews.map((item, index) =>*/}
+            {/*                <Review review={item} key={index} />*/}
+            {/*            )*/}
+            {/*        ) : (*/}
+            {/*            <p style={{textAlign: "center", fontSize: "24px"}}>No reviews available.</p>*/}
+            {/*        )}*/}
+            {/*    </div>*/}
+            {/*</div>*/}
         </div>
     );
 };

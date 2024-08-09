@@ -1,10 +1,7 @@
 import axios from "axios";
 
-export const topUpBalance = async (token, userId, amount) => {
-    const response = await axios.post('/api/payments/top-up-balance/', {
-        user_id: userId,
-        amount: parseFloat(amount),
-    }, {
+export const topUpBalance = async (token, payload) => {
+    const response = await axios.post('/api/payments/top-up-balance/', payload, {
         headers: {
             Authorization: `Bearer ${token}`,
         }

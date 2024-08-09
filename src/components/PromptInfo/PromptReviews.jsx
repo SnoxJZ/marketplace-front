@@ -19,24 +19,24 @@ const PromptReviews = ({product, profile, productId}) => {
 
     return (
         <CompStyles>
-        <div className="prompt__reviews-wrapper">
-            <div className="prompt__reviews">
-                <div className="reviews__header">
-                    <Title>{reviewsCount} creator reviews</Title>
-                    <div className="prompt__info-rate full">
-                        <h1>{averageRating}</h1>
-                        <Rating name="half-rating-read" defaultValue={averageRating} precision={0.1} readOnly
-                                style={{color: 'rgb(237, 67, 220)', fontSize: 22}}/>
-                    </div>
-                </div>
-                <div className="reviews__list">
-                    {product.reviews.map(item =>
-                        <Review review={item} key={item.nickname}/>
-                    )}
-                </div>
-            </div>
-            <PromptAddReview profileId={profile._id} profileNickname={profile.nickname} productId={productId}/>
-        </div>
+        {/*<div className="prompt__reviews-wrapper">*/}
+        {/*    <div className="prompt__reviews">*/}
+        {/*        <div className="reviews__header">*/}
+        {/*            <Title>{reviewsCount} creator reviews</Title>*/}
+        {/*            <div className="prompt__info-rate full">*/}
+        {/*                <h1>{averageRating}</h1>*/}
+        {/*                <Rating name="half-rating-read" defaultValue={averageRating} precision={0.1} readOnly*/}
+        {/*                        style={{color: 'rgb(237, 67, 220)', fontSize: 22}}/>*/}
+        {/*            </div>*/}
+        {/*        </div>*/}
+        {/*        <div className="reviews__list">*/}
+        {/*            {product.reviews.map(item =>*/}
+        {/*                <Review review={item} key={item.nickname}/>*/}
+        {/*            )}*/}
+        {/*        </div>*/}
+        {/*    </div>*/}
+        {/*    <PromptAddReview profileId={profile._id} profileNickname={profile.nickname} productId={productId}/>*/}
+        {/*</div>*/}
         </CompStyles>
     );
 };

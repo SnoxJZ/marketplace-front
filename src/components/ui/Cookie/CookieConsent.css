@@ -9,3 +9,13 @@
 .react-cookienotice-description span {
     font-size: 16px;
 }
+
+.react-cookienotice-service-info-content-description {
+    color: #000000 !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    .react-cookienotice-service-info-content-description {
+        color: #fff !important;
+    }
+}
